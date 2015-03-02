@@ -1,7 +1,7 @@
 $(document).ready(function(){
     //$("#search-term-svg").val("water");
     $("#search-term-svg").keyup(function(e){
-        console.log('SVG chart ....');
+        console.log('Running search and building a chart!');
         if (e.keyCode == 13) {
             update($("#search-term-svg").val());
         }
@@ -33,7 +33,7 @@ function update(keyword){
                 var val = stats[key];
                 myStats.push(val);
             }
-            console.log(stats);
+
             displayChart(myStats);
         }
     });
@@ -42,8 +42,6 @@ function update(keyword){
 
 function displayChart(myData){
     var data = myData;
-
-    console.log(data);
 
     var width = 210,
         barHeight = 20;
