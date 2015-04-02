@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    //$("#search-term-svg").val("water");
+    $("#search-term-svg").val("water");
     $("#search-term-svg").keyup(function(e){
         console.log('Running search and building a chart!');
         if (e.keyCode == 13) {
@@ -43,10 +43,13 @@ function update(keyword){
 function displayChart(myData){
     var data = myData;
 
+    console.log(data)
+
     var width = 210,
         barHeight = 20;
 
     var x = d3.scale.linear()
+        .domain([0, d3.max(data)])
         .range([0, width]);
 
     var chart = d3.select(".chart-svg")
