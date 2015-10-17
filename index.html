@@ -75,17 +75,20 @@
 
             <div class="row">
                 <div class="col-xs-8 codeDescription">
-                    <button type="button" class="btn btn-default btn-xs" ng-click="isCollapsed = !isCollapsed">
-                        <span style="font-weight:bold;">ngContacts</span>
-                        <span ng-class="{'glyphicon glyphicon-plus' : !isCollapsed, 'glyphicon glyphicon-minus' : isCollapsed}" aria-hidden="true" style="font-family: arial; font-weight: bold;"></span>
+                    <button type="button" class="btn btn-default btn-xs" ng-click="isNgTabsCollapsed = !isNgTabsCollapsed">
+                        <span style="font-weight:bold;">Tabs Directive</span>
+                        <span ng-class="{'glyphicon glyphicon-plus' : !isNgTabsCollapsed, 'glyphicon glyphicon-minus' : isNgTabsCollapsed}" aria-hidden="true" style="font-family: arial; font-weight: bold;"></span>
                     </button>
-                    <div uib-collapse="isCollapsed" class="codeDisplay">
-                        <p>Contact manager built using AngularJS Contacts are originally pulled from a webservice via jquery using $.getJSON</p>
+                    <div uib-collapse="isNgTabsCollapsed" class="codeDisplay">
+                        <p>Angular directive providing tabs vertically, pulling content from templates</p>
                     </div>
-                    <div uib-collapse="!isCollapsed">
+                    <div uib-collapse="!isNgTabsCollapsed">
                         <div class="well well-lg">
-                            <p>Contact manager built using AngularJS Contacts are originally pulled from a webservice via jquery using $.getJSON</p>
-                            <p><a class="btn btn-default" target="_blank" href="https://github.com/amusto/ngContactManager" role="button">Code and Demo</a></p>
+                            <p>Angular directive providing tabs vertically, pulling content from templates</p>
+                            <div>
+                                <a class="btn btn-default" target="_blank" href="https://github.com/amusto/ngVerticalTabs" role="button">Code</a>
+                                <a class="btn btn-default" target="_blank" href="http://plnkr.co/edit/vPdszEEHFUIXdfZZ2dyQ?p=preview" role="button">Plunker</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -107,6 +110,24 @@
                                 <a class="btn btn-default" target="_blank" href="https://github.com/amusto/ngJavascriptDatePicker" role="button">Code</a>
                                 <a class="btn btn-default" target="_blank" href="http://plnkr.co/edit/LC1TvmK8xKXczujjJLza?p=preview" role="button">Plunker</a>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-8 codeDescription">
+                    <button type="button" class="btn btn-default btn-xs" ng-click="isCollapsed = !isCollapsed">
+                        <span style="font-weight:bold;">ngContacts</span>
+                        <span ng-class="{'glyphicon glyphicon-plus' : !isCollapsed, 'glyphicon glyphicon-minus' : isCollapsed}" aria-hidden="true" style="font-family: arial; font-weight: bold;"></span>
+                    </button>
+                    <div uib-collapse="isCollapsed" class="codeDisplay">
+                        <p>Contact manager built using AngularJS Contacts are originally pulled from a webservice via jquery using $.getJSON</p>
+                    </div>
+                    <div uib-collapse="!isCollapsed">
+                        <div class="well well-lg">
+                            <p>Contact manager built using AngularJS Contacts are originally pulled from a webservice via jquery using $.getJSON</p>
+                            <p><a class="btn btn-default" target="_blank" href="https://github.com/amusto/ngContactManager" role="button">Code and Demo</a></p>
                         </div>
                     </div>
                 </div>
