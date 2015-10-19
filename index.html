@@ -14,14 +14,17 @@
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
         <!-- Custom styles for this template -->
-        <link href="/assets/offcanvas.css" rel="stylesheet">
+        <link href="assets/offcanvas.css" rel="stylesheet">
         <link href="assets/custom.css" rel="stylesheet">
-
 
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
+        <link href="animations.css" rel="stylesheet" type="text/css">
+
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+        <script src="https://code.angularjs.org/1.4.7/angular-animate.min.js"></script>
+
         <script src="scripts/app.js"></script>
 
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.2/ui-bootstrap-tpls.js"></script>
@@ -62,112 +65,100 @@
         }
     </style>
 
-
     <div class="container">
 
       <div class="row row-offcanvas row-offcanvas-right">
 
         <div class="col-xs-12">
 
-            <!-- todo: replace rows with a directive -->
-
+            <div>Filter projects: Angular <input type="checkbox" ng-model="programmingLanguages.angular" name="angular" value="angular"> Coldfusion <input type="checkbox" ng-model="programmingLanguages.coldfusion" name="coldfusion" value="coldfusion"> </div>
             <div style="margin:5px;">(Click title to review)</div>
 
-            <div class="row">
+            <div class="row check-element sample-show-hide" ng-show="programmingLanguages.angular">
                 <div class="col-xs-8 codeDescription">
                     <button type="button" class="btn btn-default btn-xs" ng-click="isNgTabsCollapsed = !isNgTabsCollapsed">
                         <span style="font-weight:bold;">Tabs Directive</span>
                         <span ng-class="{'glyphicon glyphicon-plus' : !isNgTabsCollapsed, 'glyphicon glyphicon-minus' : isNgTabsCollapsed}" aria-hidden="true" style="font-family: arial; font-weight: bold;"></span>
-                    </button>
-                    <div uib-collapse="isNgTabsCollapsed" class="codeDisplay">
-                        <p>Angular directive providing tabs vertically, pulling content from templates</p>
-                    </div>
-                    <div uib-collapse="!isNgTabsCollapsed">
-                        <div class="well well-lg">
+                    </button> (angularjs)
+                    <div style="margin-top: 5px;">
+                        <div uib-collapse="isNgTabsCollapsed" class="codeDisplay">
                             <p>Angular directive providing tabs vertically, pulling content from templates</p>
-                            <div>
-                                <a class="btn btn-default" target="_blank" href="https://github.com/amusto/ngVerticalTabs" role="button">Code</a>
-                                <a class="btn btn-default" target="_blank" href="http://plnkr.co/edit/vPdszEEHFUIXdfZZ2dyQ?p=preview" role="button">Plunker</a>
+                        </div>
+                        <div uib-collapse="!isNgTabsCollapsed">
+                            <div class="well well-lg">
+                                <p>Angular directive providing tabs vertically, pulling content from templates</p>
+                                <div>
+                                    <a class="btn btn-default" target="_blank" href="https://github.com/amusto/ngVerticalTabs" role="button">Code</a>
+                                    <a class="btn btn-default" target="_blank" href="http://plnkr.co/edit/vPdszEEHFUIXdfZZ2dyQ?p=preview" role="button">Plunker</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row check-element sample-show-hide" ng-show="programmingLanguages.angular">
                 <div class="col-xs-8 codeDescription">
                     <button type="button" class="btn btn-default btn-xs" ng-click="isNgDatePickerCollapsed = !isNgDatePickerCollapsed">
                         <span style="font-weight:bold;">ngDatePicker</span>
                         <span ng-class="{'glyphicon glyphicon-plus' : !isNgDatePickerCollapsed, 'glyphicon glyphicon-minus' : isNgDatePickerCollapsed}" aria-hidden="true" style="font-family: arial; font-weight: bold;"></span>
-                    </button>
-                    <div uib-collapse="isNgDatePickerCollapsed" class="codeDisplay">
-                        <p>Angular directive using a Javascript datepicker</p>
-                    </div>
-                    <div uib-collapse="!isNgDatePickerCollapsed">
-                        <div class="well well-lg">
-                            <p>Angular directive created to wrap a Javascript datepicker</p>
-                            <div>
-                                <a class="btn btn-default" target="_blank" href="https://github.com/amusto/ngJavascriptDatePicker" role="button">Code</a>
-                                <a class="btn btn-default" target="_blank" href="http://plnkr.co/edit/LC1TvmK8xKXczujjJLza?p=preview" role="button">Plunker</a>
+                    </button> (angularjs)
+                    <div style="margin-top: 5px;">
+                        <div uib-collapse="isNgDatePickerCollapsed" class="codeDisplay">
+                            <p>Angular directive using a Javascript datepicker</p>
+                        </div>
+                        <div uib-collapse="!isNgDatePickerCollapsed">
+                            <div class="well well-lg">
+                                <p>Angular directive created to wrap a Javascript datepicker</p>
+                                <div>
+                                    <a class="btn btn-default" target="_blank" href="https://github.com/amusto/ngJavascriptDatePicker" role="button">Code</a>
+                                    <a class="btn btn-default" target="_blank" href="http://plnkr.co/edit/LC1TvmK8xKXczujjJLza?p=preview" role="button">Plunker</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row check-element sample-show-hide" ng-show="programmingLanguages.angular && programmingLanguages.coldfusion || programmingLanguages.coldfusion">
                 <div class="col-xs-8 codeDescription">
                     <button type="button" class="btn btn-default btn-xs" ng-click="isCollapsed = !isCollapsed">
                         <span style="font-weight:bold;">ngContacts</span>
                         <span ng-class="{'glyphicon glyphicon-plus' : !isCollapsed, 'glyphicon glyphicon-minus' : isCollapsed}" aria-hidden="true" style="font-family: arial; font-weight: bold;"></span>
-                    </button>
-                    <div uib-collapse="isCollapsed" class="codeDisplay">
-                        <p>Contact manager built using AngularJS Contacts are originally pulled from a webservice via jquery using $.getJSON</p>
-                    </div>
-                    <div uib-collapse="!isCollapsed">
-                        <div class="well well-lg">
+                    </button> (angularjs, coldfusion)
+                    <div style="margin-top: 5px;">
+                        <div uib-collapse="isCollapsed" class="codeDisplay">
                             <p>Contact manager built using AngularJS Contacts are originally pulled from a webservice via jquery using $.getJSON</p>
-                            <p><a class="btn btn-default" target="_blank" href="https://github.com/amusto/ngContactManager" role="button">Code and Demo</a></p>
+                        </div>
+                        <div uib-collapse="!isCollapsed">
+                            <div class="well well-lg">
+                                <p>Contact manager built using AngularJS Contacts are originally pulled from a webservice via jquery using $.getJSON</p>
+                                <p><a class="btn btn-default" target="_blank" href="https://github.com/amusto/ngContactManager" role="button">Code and Demo</a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row check-element sample-show-hide" ng-show="programmingLanguages.angular">
                 <div class="col-xs-8 codeDescription">
                     <button type="button" class="btn btn-default btn-xs" ng-click="isNgAircraftCollapsed = !isNgAircraftCollapsed">
                         <span style="font-weight:bold;">Aircraft Control System</span>
                         <span ng-class="{'glyphicon glyphicon-plus' : !isNgAircraftCollapsed, 'glyphicon glyphicon-minus' : isNgAircraftCollapsed}" aria-hidden="true" style="font-family: arial; font-weight: bold;"></span>
-                    </button>
-                    <div uib-collapse="isNgAircraftCollapsed" class="codeDisplay">
-                        <p>Simple exercise demonstrating programming concepts<br> Used Angular and Node as the stack.</p>
-                    </div>
-                    <div uib-collapse="!isNgAircraftCollapsed">
-                        <div class="well well-lg">
+                    </button> (angularjs)
+                    <div style="margin-top: 5px;">
+                        <div uib-collapse="isNgAircraftCollapsed" class="codeDisplay">
                             <p>Simple exercise demonstrating programming concepts<br> Used Angular and Node as the stack.</p>
-                            <p><a class="btn btn-default" target="_blank" href="https://github.com/amusto/ngAirTrafficControlSystem" role="button">Code and Demo</a></p>
+                        </div>
+                        <div uib-collapse="!isNgAircraftCollapsed">
+                            <div class="well well-lg">
+                                <p>Simple exercise demonstrating programming concepts<br> Used Angular and Node as the stack.</p>
+                                <p><a class="btn btn-default" target="_blank" href="https://github.com/amusto/ngAirTrafficControlSystem" role="button">Code and Demo</a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!--div class="row">
-                <div class="col-xs-8 codeDescription">
-                    <button type="button" class="btn btn-default btn-xs" ng-click="isTabsDirectiveCollapsed = !isTabsDirectiveCollapsed">
-                        <span style="font-weight:bold;">ngTabs Directive</span>
-                        <span ng-class="{'glyphicon glyphicon-plus' : !isTabsDirectiveCollapsed, 'glyphicon glyphicon-minus' : isTabsDirectiveCollapsed}" aria-hidden="true" style="font-family: arial; font-weight: bold;"></span>
-                    </button>
-                    <div uib-collapse="isTabsDirectiveCollapsed" class="codeDisplay">
-                        <p>I needed a way to display tabs dynamically on my project, this directive is a reusable component that I can use throughout the application.</p>
-                    </div>
-                    <div uib-collapse="!isTabsDirectiveCollapsed">
-                        <div class="well well-lg">
-                            <p>I needed a way to display tabs dynamically on my project, this directive is a reusable component that I can use throughout the application.</p>
-                            <p><a class="btn btn-default" target="_blank" href="https://github.com/amusto/ngVerticalTabs" role="button">Code and Demo</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div-->
 
         </div>
 
@@ -175,14 +166,9 @@
 
     </div>
 
-
-
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/assets/ie10-viewport-bug-workaround.js"></script>
     <script src="/assets/offcanvas.js"></script>
 
-
-
-
-</body>
+    </body>
 </html>
