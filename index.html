@@ -63,16 +63,63 @@
         .codeDisplay {
             margin-top: 10px;
         }
+        .showBorder {
+            border-style: dotted;
+        }
+        .main-container {
+            width:100%!important;
+        }
+        .work-history {
+
+        }
+
+        .work-history .history-date {
+            text-align:right;
+        }
+
     </style>
 
-    <div class="container">
+    <div class="container main-container">
 
-      <div class="row row-offcanvas row-offcanvas-right">
+      <div class="row row-offcanvas row-off canvas-right">
 
-        <div class="col-xs-12">
+        <div class="col-xs-9">
+            <div class="well">
 
-            <div>Filter projects: Angular <input type="checkbox" ng-model="programmingLanguages.angular" name="angular" value="angular"> Coldfusion <input type="checkbox" ng-model="programmingLanguages.coldfusion" name="coldfusion" value="coldfusion"> </div>
-            <div style="margin:5px;">(Click title to review)</div>
+                <div>
+                    Full stack developer with over 15 years of Enterprise development experience. Currently focused on developing enterprise-wide systems using Node.js, AngularJS and Bootstrap. Daily work has involved using AngularJS, Bootstrap, jQuery Mobile, Node.js, Grunt, Bower, Jenkins and many other related libraries and tools.
+
+                    The quality of my work shows how much I enjoy what I do, I believe in strong teamwork and learning as I go.
+
+                </div>
+
+
+
+
+
+                <h3>WORK EXPERIENCE</h3>
+
+                <div class="row work-history">
+                    <div class="col-xs-2 history-date" >2012 - Current</div>
+                    <div class="col-xs-10">2012 - Current</div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+        <div class="col-xs-3">
+
+            <div>Angular <input type="checkbox" ng-model="programmingLanguages.angular" name="angular" value="angular"> Coldfusion <input type="checkbox" ng-model="programmingLanguages.coldfusion" name="coldfusion" value="coldfusion"> </div>
+            <!--div style="margin:5px;">(Click title to review)</div-->
+
+            TODO:
+            <ol>
+                <li>Use modal for code/demos</li>
+                <li>Make skills collapsible (Mobile as well)</li>
+            </ol>
+
 
             <div class="row check-element sample-show-hide" ng-show="programmingLanguages.angular">
                 <div class="col-xs-8 codeDescription">
