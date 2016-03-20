@@ -1,3 +1,36 @@
+.codeDisplay {
+    margin-top: 10px;
+}
+.showBorder {
+    border-style: dotted;
+}
+.main-container {
+    width:100%!important;
+}
+.work-history {
+
+}
+
+.work-history .history-date {
+    text-align:right;
+}
+
 .codeDescription {
     font-size: 14px;
+}
+
+.colDesktop {
+    display:block;
+}
+
+
+@media (max-width: 768px) {
+    .colDesktop {
+        display:none;
+    }
+
+    #main-container {
+        width:100%;
+    }
+
 }

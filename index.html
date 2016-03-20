@@ -25,6 +25,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
         <script src="https://code.angularjs.org/1.4.7/angular-animate.min.js"></script>
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
+
         <script src="scripts/app.js"></script>
 
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.2/ui-bootstrap-tpls.js"></script>
@@ -52,162 +54,51 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="http://blog.armandomusto.com">About</a></li>
             <li><a href="https://github.com/amusto">My Github</a></li>
           </ul>
         </div><!-- /.nav-collapse -->
       </div><!-- /.container -->
     </nav><!-- /.navbar -->
 
-    <style>
-        .codeDisplay {
-            margin-top: 10px;
-        }
-        .showBorder {
-            border-style: dotted;
-        }
-        .main-container {
-            width:100%!important;
-        }
-        .work-history {
-
-        }
-
-        .work-history .history-date {
-            text-align:right;
-        }
-
-    </style>
-
     <div class="container main-container">
 
       <div class="row row-offcanvas row-off canvas-right">
 
-        <div class="col-xs-9">
+        <div id="main-container" class="col-xs-9">
+
             <div class="well">
+                <div id="description">
+                    <p>Lead developer with over 15 years experience developing in a wide-range of environments. Focus is building web based systems, having designed/built solutions in a wide variety of business models.</p>
 
-                <div>
-                    Full stack developer with over 15 years of Enterprise development experience. Currently focused on developing enterprise-wide systems using Node.js, AngularJS and Bootstrap. Daily work has involved using AngularJS, Bootstrap, jQuery Mobile, Node.js, Grunt, Bower, Jenkins and many other related libraries and tools.
+                    <p>Working in a lead role means being accountable for the technical direction on a project and involving teams input and various skill sets.</p>
 
-                    The quality of my work shows how much I enjoy what I do, I believe in strong teamwork and learning as I go.
+                    <p>As a developer I strive to offer a semantic approach, incorporating a OOP approach, best practices and what can be agreed is the ideal technical stack as it might apply to the a client’s and project’s particular needs.</p>
 
+                    <p>Recently my focus is in the advanced UI development world, mainly involving Javascript, Node and Angular driven solutions. I am working on redefining how I think we view the UI developers role.</p>
+
+                    <p>Currently working in the following fun tools: AWS, AngularJS, NodeJS, Express.js, Bootstrap, JWT, SOLR, REST ......</p>
                 </div>
 
+                <!--div>
 
+                    <h3>WORK EXPERIENCE</h3>
 
+                    <div class="row work-history">
+                        <div class="col-xs-2 history-date" >2012 - Current</div>
+                        <div class="col-xs-10">2012 - Current</div>
+                    </div>
 
-
-                <h3>WORK EXPERIENCE</h3>
-
-                <div class="row work-history">
-                    <div class="col-xs-2 history-date" >2012 - Current</div>
-                    <div class="col-xs-10">2012 - Current</div>
-                </div>
+                </div-->
 
 
 
 
             </div>
         </div>
-        <div class="col-xs-3">
 
-            <div>Angular <input type="checkbox" ng-model="programmingLanguages.angular" name="angular" value="angular"> Coldfusion <input type="checkbox" ng-model="programmingLanguages.coldfusion" name="coldfusion" value="coldfusion"> </div>
-            <!--div style="margin:5px;">(Click title to review)</div-->
-
-            TODO:
-            <ol>
-                <li>Use modal for code/demos</li>
-                <li>Make skills collapsible (Mobile as well)</li>
-            </ol>
-
-
-            <div class="row check-element sample-show-hide" ng-show="programmingLanguages.angular">
-                <div class="col-xs-8 codeDescription">
-                    <button type="button" class="btn btn-default btn-xs" ng-click="isNgTabsCollapsed = !isNgTabsCollapsed">
-                        <span style="font-weight:bold;">Tabs Directive</span>
-                        <span ng-class="{'glyphicon glyphicon-plus' : !isNgTabsCollapsed, 'glyphicon glyphicon-minus' : isNgTabsCollapsed}" aria-hidden="true" style="font-family: arial; font-weight: bold;"></span>
-                    </button> (angularjs)
-                    <div style="margin-top: 5px;">
-                        <div uib-collapse="isNgTabsCollapsed" class="codeDisplay">
-                            <p>Angular directive providing tabs vertically, pulling content from templates</p>
-                        </div>
-                        <div uib-collapse="!isNgTabsCollapsed">
-                            <div class="well well-lg">
-                                <p>Angular directive providing tabs vertically, pulling content from templates</p>
-                                <div>
-                                    <a class="btn btn-default" target="_blank" href="https://github.com/amusto/ngVerticalTabs" role="button">Code</a>
-                                    <a class="btn btn-default" target="_blank" href="http://plnkr.co/edit/vPdszEEHFUIXdfZZ2dyQ?p=preview" role="button">Plunker</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row check-element sample-show-hide" ng-show="programmingLanguages.angular">
-                <div class="col-xs-8 codeDescription">
-                    <button type="button" class="btn btn-default btn-xs" ng-click="isNgDatePickerCollapsed = !isNgDatePickerCollapsed">
-                        <span style="font-weight:bold;">ngDatePicker</span>
-                        <span ng-class="{'glyphicon glyphicon-plus' : !isNgDatePickerCollapsed, 'glyphicon glyphicon-minus' : isNgDatePickerCollapsed}" aria-hidden="true" style="font-family: arial; font-weight: bold;"></span>
-                    </button> (angularjs)
-                    <div style="margin-top: 5px;">
-                        <div uib-collapse="isNgDatePickerCollapsed" class="codeDisplay">
-                            <p>Angular directive using a Javascript datepicker</p>
-                        </div>
-                        <div uib-collapse="!isNgDatePickerCollapsed">
-                            <div class="well well-lg">
-                                <p>Angular directive created to wrap a Javascript datepicker</p>
-                                <div>
-                                    <a class="btn btn-default" target="_blank" href="https://github.com/amusto/ngJavascriptDatePicker" role="button">Code</a>
-                                    <a class="btn btn-default" target="_blank" href="http://plnkr.co/edit/LC1TvmK8xKXczujjJLza?p=preview" role="button">Plunker</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row check-element sample-show-hide" ng-show="programmingLanguages.angular && programmingLanguages.coldfusion || programmingLanguages.coldfusion">
-                <div class="col-xs-8 codeDescription">
-                    <button type="button" class="btn btn-default btn-xs" ng-click="isCollapsed = !isCollapsed">
-                        <span style="font-weight:bold;">ngContacts</span>
-                        <span ng-class="{'glyphicon glyphicon-plus' : !isCollapsed, 'glyphicon glyphicon-minus' : isCollapsed}" aria-hidden="true" style="font-family: arial; font-weight: bold;"></span>
-                    </button> (angularjs, coldfusion)
-                    <div style="margin-top: 5px;">
-                        <div uib-collapse="isCollapsed" class="codeDisplay">
-                            <p>Contact manager built using AngularJS Contacts are originally pulled from a webservice via jquery using $.getJSON</p>
-                        </div>
-                        <div uib-collapse="!isCollapsed">
-                            <div class="well well-lg">
-                                <p>Contact manager built using AngularJS Contacts are originally pulled from a webservice via jquery using $.getJSON</p>
-                                <p><a class="btn btn-default" target="_blank" href="https://github.com/amusto/ngContactManager" role="button">Code and Demo</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row check-element sample-show-hide" ng-show="programmingLanguages.angular">
-                <div class="col-xs-8 codeDescription">
-                    <button type="button" class="btn btn-default btn-xs" ng-click="isNgAircraftCollapsed = !isNgAircraftCollapsed">
-                        <span style="font-weight:bold;">Aircraft Control System</span>
-                        <span ng-class="{'glyphicon glyphicon-plus' : !isNgAircraftCollapsed, 'glyphicon glyphicon-minus' : isNgAircraftCollapsed}" aria-hidden="true" style="font-family: arial; font-weight: bold;"></span>
-                    </button> (angularjs)
-                    <div style="margin-top: 5px;">
-                        <div uib-collapse="isNgAircraftCollapsed" class="codeDisplay">
-                            <p>Simple exercise demonstrating programming concepts<br> Used Angular and Node as the stack.</p>
-                        </div>
-                        <div uib-collapse="!isNgAircraftCollapsed">
-                            <div class="well well-lg">
-                                <p>Simple exercise demonstrating programming concepts<br> Used Angular and Node as the stack.</p>
-                                <p><a class="btn btn-default" target="_blank" href="https://github.com/amusto/ngAirTrafficControlSystem" role="button">Code and Demo</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+        <!-- START DETAILS -->
+        <div ui-view="userDetails" class="col-xs-3 colDesktop"></div>
+        <!-- END DETAILS -->
 
       </div>
 
