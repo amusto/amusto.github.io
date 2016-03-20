@@ -1,3 +1,16 @@
+
+.user-description {
+    margin:5px;
+}
+
+.user-details {
+    margin: 10px
+}
+
+.user-info-line {
+    font-weight: bold;
+}
+
 .codeDisplay {
     margin-top: 10px;
 }

@@ -64,10 +64,23 @@
 
       <div class="row row-offcanvas row-off canvas-right">
 
-        <div id="main-container" class="col-xs-9">
+        <div id="main-container" class="col-md-8">
 
             <div class="well">
-                <div id="description">
+
+                <div class="row">
+                    <div class="col-md-1">
+                        <img src="http://www.gravatar.com/avatar/b7cf4d5a166284d7f2cb1b71c3e1ccdb" />
+                    </div>
+                    <div class="col-md-10">
+                        <div class="user-info-line">Armando Musto</div>
+                        <div class="user-info-line">Full stack developer</div>
+                        <div class="user-info-line">Working @ USPTO</div>
+                    </div>
+
+                </div>
+
+                <div class="row user-description">
                     <p>Lead developer with over 15 years experience developing in a wide-range of environments. Focus is building web based systems, having designed/built solutions in a wide variety of business models.</p>
 
                     <p>Working in a lead role means being accountable for the technical direction on a project and involving teams input and various skill sets.</p>
@@ -97,7 +110,7 @@
         </div>
 
         <!-- START DETAILS -->
-        <div ui-view="userDetails" class="col-xs-3 colDesktop"></div>
+        <div ui-view="userDetails" class="col-md-4"></div>
         <!-- END DETAILS -->
 
       </div>
