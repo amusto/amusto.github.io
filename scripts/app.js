@@ -43,8 +43,11 @@ angular.module('app', ['ui.bootstrap', 'ui.router', 'ngAnimate'])
             angular : true,
             coldfusion : true,
             nodejs : true,
-            sql : true
+            sql : true,
+            jquery: true
         };
+
+        console.log($scope.programmingLanguages);
 
     })
 .controller('userDetailsController', function($scope) {

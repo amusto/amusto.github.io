@@ -4,7 +4,22 @@
 }
 
 .user-details {
-    margin: 10px
+    font-weight:bold;
+    margin-left:15px;
+}
+
+.linksBox{
+    position: relative;
+    bottom:-10px;
+    right:0;
+}
+
+.skills-list {
+    margin-left: 15px;
+}
+
+.user-description {
+    margin-top:10px;
 }
 
 .user-info-line {
@@ -34,6 +49,29 @@
 
 .colDesktop {
     display:block;
+}
+
+.gravatar-container {
+
+}
+
+@media (max-width: 455px) {
+    .user-info-line {
+        font-weight: normal!important;
+    }
+
+    #title-description {
+        display: none;
+    }
+
+    #career-description {
+        display: none;
+    }
+
+    .user-description {
+        display: none;
+    }
+
 }
 
 
