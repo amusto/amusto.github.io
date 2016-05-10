@@ -46,9 +46,6 @@ angular.module('app', ['ui.bootstrap', 'ui.router', 'ngAnimate'])
             sql : true,
             jquery: true
         };
-
-        console.log($scope.programmingLanguages);
-
     })
 .controller('userDetailsController', function($scope) {
     $scope.oneAtATime = true;
@@ -75,8 +72,5 @@ angular.module('app', ['ui.bootstrap', 'ui.router', 'ngAnimate'])
         isFirstOpen: true,
         isFirstDisabled: false
     };
-
-        console.log($scope.status);
-
 
 });
