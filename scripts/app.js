@@ -44,6 +44,7 @@ angular.module('app', ['ui.bootstrap', 'ui.router', 'ngAnimate'])
             coldfusion : true,
             nodejs : true,
             sql : true,
+            mongo : true,
             jquery: true
         };
     })
