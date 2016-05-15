@@ -15,6 +15,15 @@
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+    text-align: center;
+}
+
+.linksRow{
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    text-align: center;
 }
 
 .skills-list {
