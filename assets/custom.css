@@ -37,6 +37,12 @@
     font-weight: bold;
 }
 
+.header-section h3 {
+    margin-top:0;
+    font-weight: bold;
+    text-align: right;
+}
+
 .codeDisplay {
     margin-top: 10px;
 }
