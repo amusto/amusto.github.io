@@ -66,6 +66,28 @@
 
 }
 
+.profile__skill-badge {
+    margin: 2px;
+}
+
+.profile__skill-badge:hover {
+    background-color: #1B81D3;
+    color: white;
+}
+
+.skill-selected {
+    background-color: #1B81D3;
+    color: white;
+}
+
+.skill-resource-button:nth-child(n+2) {
+    margin-left:3px;
+}
+
+.desc-skills {
+    margin-top:10px;
+}
+
 @media (max-width: 455px) {
     .user-info-line {
         font-weight: normal!important;

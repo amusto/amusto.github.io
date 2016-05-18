@@ -1,50 +1,31 @@
+<!--div style="margin:10px;">
+    <uib-tabset active="active">
+        <uib-tab index="0" heading="Static title">Static content</uib-tab>
+        <uib-tab index="$index + 1" ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disable="tab.disabled">
+            {{tab.content}}
+        </uib-tab>
+    </uib-tabset>
+</div-->
+
     <div>
-        <h3>Projects/Code samples</h3>
-        <div class="col-sm-5 skills-list">Angular <input type="checkbox" ng-model="programmingLanguages.angular" name="angular" value="angular"> Coldfusion <input type="checkbox" ng-model="programmingLanguages.coldfusion" name="coldfusion" value="coldfusion"> </div>
+        <h3>Code Review</h3>
+        <div class="xs-mbh0">
+            <span ng-repeat="language in programmingLanguages" class="profile__skill-badge badge badge--pill badge--white-dark text-medium text-normal xs-mbh0" ng-click="updateSkillStatus($index)" ng-class="{'skill-selected':language.selected}">{{language.name}}</span>
+        </div>
     </div>
 
-    <div class="row check-element sample-show-hide" ng-show="programmingLanguages.angular">
+    <!-- TODO: replace with a directive -->
+    <div class="row check-element sample-show-hide" ng-repeat="review in profileCodeReview" ng-show="displayCodeReview(review.skills)">
         <div class="col-xs-12 codeDescription">
-            <span style="font-weight:bold;">Custom Angular Tabs Directive</span>
+            <span style="font-weight:bold;">{{review.title}}</span>
             <div class="well well-lg">
-                <p>Angular directive providing tabs vertically, pulling content from templates</p>
-                <div>
-                    <a class="btn btn-default" target="_blank" href="https://github.com/amusto/ngVerticalTabs" role="button">Code</a>
-                    <a class="btn btn-default" target="_blank" href="http://plnkr.co/edit/vPdszEEHFUIXdfZZ2dyQ?p=preview" role="button">Plunker</a>
+                <p>{{review.header}} </p>
+                <div class="resource-section" ng-if="review.resources.length > 0">
+                    <a class="btn btn-default skill-resource-button" target="_blank" href="{{resource.url}}" role="button" ng-repeat="resource in review.resources">{{resource.text}}</a>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row check-element sample-show-hide" ng-show="programmingLanguages.angular">
-        <div class="col-xs-12 codeDescription">
-            <span style="font-weight:bold;">Angular directive using a Javascript datepicker</span>
-            <div class="well well-lg">
-                <p>Angular directive created to wrap a Javascript datepicker</p>
-                <div>
-                    <a class="btn btn-default" target="_blank" href="https://github.com/amusto/ngJavascriptDatePicker" role="button">Code</a>
-                    <a class="btn btn-default" target="_blank" href="http://plnkr.co/edit/LC1TvmK8xKXczujjJLza?p=preview" role="button">Plunker</a>
+                <div class="desc-skills">
+                    <span ng-repeat="language in review.skills" class="profile__skill-badge badge badge--pill badge--white-dark text-medium text-normal xs-mbh0 skill-selected">{{language}}</span>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row check-element sample-show-hide" ng-show="programmingLanguages.angular && programmingLanguages.coldfusion || programmingLanguages.coldfusion">
-        <div class="col-xs-12 codeDescription">
-            <span style="font-weight:bold;">Contact manager built using AngularJS Contacts</span>
-            <div class="well well-lg">
-                <p>Contact manager built using AngularJS Contacts are originally pulled from a webservice via jquery using $.getJSON</p>
-                <p><a class="btn btn-default" target="_blank" href="https://github.com/amusto/ngContactManager" role="button">Code and Demo</a></p>
-            </div>
-        </div>
-    </div>
-
-    <div class="row check-element sample-show-hide" ng-show="programmingLanguages.angular">
-        <div class="col-xs-12 codeDescription">
-            <span style="font-weight:bold;">Simple exercise demonstrating programming concepts</span>
-            <div class="well well-lg">
-                <p>Simple exercise demonstrating programming concepts<br> Used Angular and Node as the stack.</p>
-                <p><a class="btn btn-default" target="_blank" href="https://github.com/amusto/ngAirTrafficControlSystem" role="button">Code and Demo</a></p>
             </div>
         </div>
     </div>

@@ -1,4 +1,4 @@
-angular.module('app', ['ui.bootstrap', 'ui.router', 'ngAnimate'])
+angular.module('app', ['ui.router', 'ngAnimate', 'app.commonConstants'])
     .run(
     [          '$rootScope', '$state', '$stateParams',
         function ($rootScope,   $state,   $stateParams) {
@@ -38,16 +38,44 @@ angular.module('app', ['ui.bootstrap', 'ui.router', 'ngAnimate'])
 
 
     })
-    .controller('mainController', function($scope) {
-        $scope.programmingLanguages = {
-            angular : true,
-            coldfusion : true,
-            nodejs : true,
-            sql : true,
-            mongo : true,
-            jquery: true
+    .controller('mainController', ['$scope', '$filter', 'profile_code_descs', function($scope, $filter, profile_code_descs) {
+        $scope.profileCodeReview = profile_code_descs;
+
+        $scope.programmingLanguages = [
+            {name:"Angular", selected:true},
+            {name:"Node", selected:true},
+            {name:"jQuery", selected:true},
+            {name:"CSS", selected:true},
+            {name:"HTML5", selected:true},
+            {name:"SQL", selected:true},
+            {name:"JSON", selected:true},
+            {name:"Bootstrap", selected:true},
+            {name:"Coldfusion", selected:true}
+        ];
+
+        $scope.displayCodeReview = function(skills){
+            var returnStatus = false;
+            var codeSkills = skills;
+            angular.forEach($scope.programmingLanguages, function(value, key){
+                if($scope.programmingLanguages[key].selected === true){
+                    var result = $filter('filter')(codeSkills, $scope.programmingLanguages[key].name);
+                    if(result.length > 0){
+                        returnStatus = true;
+                    }
+                }
+            });
+            return returnStatus;
         };
-    })
+
+        $scope.updateSkillStatus = function(index){
+            if($scope.programmingLanguages[index].selected){
+                $scope.programmingLanguages[index].selected = false;
+            }else{
+                $scope.programmingLanguages[index].selected = true;
+            }
+        };
+
+    }])
 .controller('userDetailsController', function($scope) {
     $scope.oneAtATime = true;
 
@@ -74,4 +102,4 @@ angular.module('app', ['ui.bootstrap', 'ui.router', 'ngAnimate'])
         isFirstDisabled: false
     };
 
-});
+});;

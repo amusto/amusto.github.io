@@ -19,5 +19,6 @@
   "scripts": {
     "prestart": "npm install",
     "start": "http-server -p 8000"
-  }
+  },
+  "dependencies": {}
 }
