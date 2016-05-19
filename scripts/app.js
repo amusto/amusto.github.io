@@ -1,4 +1,4 @@
-angular.module('app', ['ui.router', 'ngAnimate', 'app.commonConstants'])
+angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonConstants'])
     .run(
     [          '$rootScope', '$state', '$stateParams',
         function ($rootScope,   $state,   $stateParams) {
@@ -78,6 +78,8 @@ angular.module('app', ['ui.router', 'ngAnimate', 'app.commonConstants'])
     }])
 .controller('userDetailsController', function($scope) {
     $scope.oneAtATime = true;
+
+    $scope.isCollapsed = true;
 
     $scope.groups = [
         {

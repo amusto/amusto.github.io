@@ -18,7 +18,7 @@
   },
   "scripts": {
     "prestart": "npm install",
-    "start": "http-server -p 8000"
+    "start": "live-server --port=8282"
   },
   "dependencies": {}
 }
