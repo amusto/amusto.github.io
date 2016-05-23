@@ -35,8 +35,6 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
             })
 
 
-
-
     })
     .controller('mainController', ['$scope', '$filter', 'profile_code_descs', function($scope, $filter, profile_code_descs) {
         $scope.profileCodeReview = profile_code_descs;
@@ -44,6 +42,7 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
         $scope.programmingLanguages = [
             {name:"Angular", selected:true},
             {name:"Node", selected:true},
+            {name:"D3", selected:true},            
             {name:"jQuery", selected:true},
             {name:"CSS", selected:true},
             {name:"HTML5", selected:true},
@@ -104,4 +103,52 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
         isFirstDisabled: false
     };
 
-});;
+})
+.controller('ModalDemoCtrl', function($scope, $uibModal) {
+
+ //$scope.items = ['item1', 'item2', 'item3'];
+
+  $scope.animationsEnabled = true;
+
+  $scope.open = function (size) {
+
+    var modalInstance = $uibModal.open({
+      animation: $scope.animationsEnabled,
+      templateUrl: 'myModalContent.html',
+      controller: 'ModalInstanceCtrl',
+      size: size,
+      resolve: {
+        /*items: function () {
+          return $scope.items;
+        }*/
+      }
+    });
+
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    }, function () {
+      console.log('Modal dismissed at: ' + new Date());
+    });
+  };
+
+  $scope.toggleAnimation = function () {
+    $scope.animationsEnabled = !$scope.animationsEnabled;
+  };
+
+})
+.controller('ModalInstanceCtrl', function($scope, $uibModalInstance) {
+
+  /*$scope.items = items;
+  $scope.selected = {
+    item: $scope.items[0]
+  };*/
+
+  $scope.ok = function () {
+    $uibModalInstance.close();
+  };
+
+  $scope.cancel = function () {
+    $uibModalInstance.dismiss('cancel');
+  };    
+
+});

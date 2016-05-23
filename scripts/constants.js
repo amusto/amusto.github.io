@@ -3,7 +3,7 @@ angular.module('app.commonConstants', [])
         {
             title: "Custom Angular Tabs Directive",
             skills: ['Angular', 'Bootstrap'],
-            collapsed: false,
+            collapsed: true,
             header: 'Angular directive providing tabs vertically, pulling content from templates',
             resources: [
                 {url: 'https://github.com/amusto/ngVerticalTabs', text: 'Code'},
