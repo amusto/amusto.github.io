@@ -1,6 +1,15 @@
 angular.module('app.commonConstants', [])
     .constant('profile_code_descs', [
         {
+            title: "D3 Code Sample",
+            skills: ['Angular', 'Bootstrap'],
+            collapsed: false,
+            header: "The D3js library https://d3js.org/ is robust and offers every possible function you will need in it's api. \n Here I built a simple page that accepts a search term (keyword) and hits the NSF search URL, gets the results and summarizes the award counts by state",
+            resources: [
+                {srcUrl: '//jsfiddle.net/amusto/wtLpv742/23/embed/', text: 'Example', type: 'modal'}
+            ]
+        },
+        {
             title: "Custom Angular Tabs Directive",
             skills: ['Angular', 'Bootstrap'],
             collapsed: true,

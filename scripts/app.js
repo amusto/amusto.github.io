@@ -1,4 +1,4 @@
-angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonConstants'])
+angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonConstants', 'ngSanitize'])
     .run(
     [          '$rootScope', '$state', '$stateParams',
         function ($rootScope,   $state,   $stateParams) {
@@ -12,7 +12,9 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
         }
     ]
 )
-    .config(function($stateProvider, $urlRouterProvider) {
+    .config(function($stateProvider, $urlRouterProvider, $sceProvider) {
+
+        $sceProvider.enabled(false);
         //
         // For any unmatched url, redirect to /state1
         $urlRouterProvider.otherwise("/");
@@ -36,7 +38,7 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
 
 
     })
-    .controller('mainController', ['$scope', '$filter', 'profile_code_descs', function($scope, $filter, profile_code_descs) {
+    .controller('mainController', ['$scope', '$filter', 'profile_code_descs', '$uibModal', function($scope, $filter, profile_code_descs, $uibModal) {
         $scope.profileCodeReview = profile_code_descs;
 
         $scope.programmingLanguages = [
@@ -74,6 +76,33 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
             }
         };
 
+        $scope.animationsEnabled = true;
+
+        $scope.openReviewModal = function (size, srcUrl) {
+
+            $scope.srcUrl = srcUrl;
+            console.log($scope.srcUrl);
+
+            var modalInstance = $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: './views/myModalContent.html',
+                controller: 'ModalInstanceCtrl',
+                size: size,
+                resolve: {
+                    codeUrl: function () {
+                     return srcUrl;
+                     }
+                }
+            });
+
+            modalInstance.result.then(function (selectedItem) {
+                $scope.selected = selectedItem;
+            }, function () {
+                console.log('Modal dismissed at: ' + new Date());
+            });
+        };
+
+
     }])
 .controller('userDetailsController', function($scope) {
     $scope.oneAtATime = true;
@@ -106,11 +135,9 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
 })
 .controller('ModalDemoCtrl', function($scope, $uibModal) {
 
- //$scope.items = ['item1', 'item2', 'item3'];
-
   $scope.animationsEnabled = true;
 
-  $scope.open = function (size) {
+  /*$scope.open = function (size) {
 
     var modalInstance = $uibModal.open({
       animation: $scope.animationsEnabled,
@@ -118,9 +145,9 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
       controller: 'ModalInstanceCtrl',
       size: size,
       resolve: {
-        /*items: function () {
+        items: function () {
           return $scope.items;
-        }*/
+        }
       }
     });
 
@@ -129,19 +156,22 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
     }, function () {
       console.log('Modal dismissed at: ' + new Date());
     });
-  };
+  };*/
 
   $scope.toggleAnimation = function () {
     $scope.animationsEnabled = !$scope.animationsEnabled;
   };
 
 })
-.controller('ModalInstanceCtrl', function($scope, $uibModalInstance) {
+.controller('ModalInstanceCtrl', function($scope, $uibModalInstance, codeUrl) {
 
-  /*$scope.items = items;
-  $scope.selected = {
-    item: $scope.items[0]
-  };*/
+    $scope.getSafeUrl = function(url){
+        var safeUrl = url;
+
+        return safeUrl;
+    };
+    $scope.codeUrl = $scope.getSafeUrl(codeUrl);
+
 
   $scope.ok = function () {
     $uibModalInstance.close();
