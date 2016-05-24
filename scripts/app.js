@@ -79,9 +79,7 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
         $scope.animationsEnabled = true;
 
         $scope.openReviewModal = function (size, srcUrl) {
-
             $scope.srcUrl = srcUrl;
-            console.log($scope.srcUrl);
 
             var modalInstance = $uibModal.open({
                 animation: $scope.animationsEnabled,
