@@ -8,24 +8,6 @@
         </div>
     </div>
 
-
-    <!--div class="row check-element sample-show-hide" ng-controller="ModalDemoCtrl">
-        <div class="col-xs-12 codeDescription">
-            <span style="font-weight:bold;">D3 Code Sample</span> <a href="" aria-hidden="true" ng-click="review.collapsed = !review.collapsed" style="font-family:arial; text-decoration: none;">(review)</a>
-            <div class="well well-lg" uib-collapse="review.collapsed">
-                <p>D3 - Code sample</p>
-                <div class="resource-section">
-                    <a class="btn btn-default skill-resource-button" target="_blank" href="" role="button" ng-click="open('lg')">Review</a>
-                </div>
-                <div class="desc-skills">
-                    <span class="profile__skill-badge badge badge--pill badge--white-dark text-medium text-normal xs-mbh0 skill-selected">D3</span>
-                    <span class="profile__skill-badge badge badge--pill badge--white-dark text-medium text-normal xs-mbh0 skill-selected">Angular</span>                    
-                    <span class="profile__skill-badge badge badge--pill badge--white-dark text-medium text-normal xs-mbh0 skill-selected">Bootstrap</span>                    
-                </div>
-            </div>
-        </div>
-    </div-->
-
     <!-- TODO: replace with a directive -->
     <div class="row check-element sample-show-hide" ng-repeat="review in profileCodeReview" ng-show="displayCodeReview(review.skills)">
         <div class="col-xs-12 codeDescription">
@@ -34,7 +16,7 @@
                 <p>{{review.header}} </p>
 
                 <div class="resource-section" ng-if="review.resources.length > 0">
-                    <a ng-if="review.resources[0].type == 'modal'" class="btn btn-default skill-resource-button" target="_blank" href="" role="button" ng-click="openReviewModal('lg', review.resources[0].srcUrl)">Review</a>
+                    <a ng-if="review.resources[0].type == 'modal'" class="btn btn-default skill-resource-button" target="_blank" href="" role="button" ng-click="openReviewModal('lg', $index)">Review</a>
                     <a ng-if="review.resources[0].type !== 'modal'" class="btn btn-default skill-resource-button" target="_blank" href="{{resource.url}}" role="button" ng-repeat="resource in review.resources">{{resource.text}}</a>
                 </div>
                 <div class="desc-skills">

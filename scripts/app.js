@@ -1,19 +1,9 @@
 angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonConstants', 'ngSanitize'])
-    .run(
-    [          '$rootScope', '$state', '$stateParams',
-        function ($rootScope,   $state,   $stateParams) {
-
-            // It's very handy to add references to $state and $stateParams to the $rootScope
-            // so that you can access them from any scope within your applications.For example,
-            // <li ng-class="{ active: $state.includes('contacts.list') }"> will set the <li>
-            // to active whenever 'contacts.list' or one of its decendents is active.
-            $rootScope.$state = $state;
-            $rootScope.$stateParams = $stateParams;
-        }
-    ]
-)
+    .run(['$rootScope', '$state', '$stateParams', function ($rootScope,   $state,   $stateParams) {
+                $rootScope.$state = $state;
+                $rootScope.$stateParams = $stateParams;
+    }])
     .config(function($stateProvider, $urlRouterProvider, $sceProvider) {
-
         $sceProvider.enabled(false);
         //
         // For any unmatched url, redirect to /state1
@@ -28,11 +18,7 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
                     "userDetails": {
                         templateUrl: 'views/common/viewUserDetails.html',
                         controller: 'userDetailsController'
-                    }/*,
-                    "mainView": {
-                        templateUrl: 'faq/faq.html',
-                        controller: 'faqController'
-                    }*/
+                    }
                 }
             })
 
@@ -78,8 +64,10 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
 
         $scope.animationsEnabled = true;
 
-        $scope.openReviewModal = function (size, srcUrl) {
-            $scope.srcUrl = srcUrl;
+        $scope.openReviewModal = function (size, resourceIndex) {
+            console.log(resourceIndex);
+            $scope.reviewData = $scope.profileCodeReview[resourceIndex];
+            console.log($scope.reviewData);
 
             var modalInstance = $uibModal.open({
                 animation: $scope.animationsEnabled,
@@ -87,8 +75,8 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
                 controller: 'ModalInstanceCtrl',
                 size: size,
                 resolve: {
-                    codeUrl: function () {
-                     return srcUrl;
+                    reviewData: function () {
+                     return $scope.reviewData;
                      }
                 }
             });
@@ -131,45 +119,9 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
     };
 
 })
-.controller('ModalDemoCtrl', function($scope, $uibModal) {
-
-  $scope.animationsEnabled = true;
-
-  /*$scope.open = function (size) {
-
-    var modalInstance = $uibModal.open({
-      animation: $scope.animationsEnabled,
-      templateUrl: 'myModalContent.html',
-      controller: 'ModalInstanceCtrl',
-      size: size,
-      resolve: {
-        items: function () {
-          return $scope.items;
-        }
-      }
-    });
-
-    modalInstance.result.then(function (selectedItem) {
-      $scope.selected = selectedItem;
-    }, function () {
-      console.log('Modal dismissed at: ' + new Date());
-    });
-  };*/
-
-  $scope.toggleAnimation = function () {
-    $scope.animationsEnabled = !$scope.animationsEnabled;
-  };
-
-})
-.controller('ModalInstanceCtrl', function($scope, $uibModalInstance, codeUrl) {
-
-    $scope.getSafeUrl = function(url){
-        var safeUrl = url;
-
-        return safeUrl;
-    };
-    $scope.codeUrl = $scope.getSafeUrl(codeUrl);
-
+.controller('ModalInstanceCtrl', function($scope, $uibModalInstance, reviewData) {
+    console.log(reviewData);
+    $scope.codeReview = reviewData;
 
   $scope.ok = function () {
     $uibModalInstance.close();
