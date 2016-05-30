@@ -15,17 +15,28 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
                 url: "/",
                 templateUrl: "index.html",
                 views: {
-                    "userDetails": {
-                        templateUrl: 'views/common/viewUserDetails.html',
-                        controller: 'userDetailsController'
+                    "viewUserCodeSamples": {
+                        templateUrl: 'views/common/viewUserCodeSamples.html',
+                        controller: 'userCodeSamplesController'
+                    },
+                    "viewUserBio": {
+                        templateUrl: 'views/common/viewUserBio.html',
+                        controller: 'viewUserBioController'
+                    },
+                    "viewFeaturedProject": {
+                        templateUrl: 'views/common/viewFeaturedProject.html',
+                        controller: 'viewFeaturedProjectController'
                     }
                 }
             })
-
-
     })
     .controller('mainController', ['$scope', '$filter', 'profile_code_descs', '$uibModal', function($scope, $filter, profile_code_descs, $uibModal) {
         $scope.profileCodeReview = profile_code_descs;
+
+        $scope.navTabs = [
+            {name:"About me", view:"viewUserBio"},
+            {name:"Code samples", view:"viewUserCodeSamples"}
+        ];
 
         $scope.programmingLanguages = [
             {name:"Angular", selected:true},
@@ -90,45 +101,129 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
 
 
     }])
-.controller('userDetailsController', function($scope) {
-    $scope.oneAtATime = true;
+    .controller('userCodeSamplesController', function($scope) {
+        $scope.oneAtATime = true;
 
-    $scope.isCollapsed = true;
+        $scope.isCollapsed = true;
 
-    $scope.groups = [
-        {
-            title: 'Dynamic Group Header - 1',
-            content: 'Dynamic Group Body - 1'
-        },
-        {
-            title: 'Dynamic Group Header - 2',
-            content: 'Dynamic Group Body - 2'
+        $scope.groups = [
+            {
+                title: 'Dynamic Group Header - 1',
+                content: 'Dynamic Group Body - 1'
+            },
+            {
+                title: 'Dynamic Group Header - 2',
+                content: 'Dynamic Group Body - 2'
+            }
+        ];
+
+        $scope.items = ['Item 1', 'Item 2', 'Item 3'];
+
+        $scope.addItem = function() {
+            var newItemNo = $scope.items.length + 1;
+            $scope.items.push('Item ' + newItemNo);
+        };
+
+        $scope.status = {
+            isFirstOpen: true,
+            isFirstDisabled: false
+        };
+
+    })
+    .controller('viewUserBioController', function($scope) {
+
+    })
+    .controller('viewFeaturedProjectController', function($scope) {
+
+        $scope.myInterval = 5000;
+        $scope.noWrapSlides = false;
+        $scope.active = 0;
+        var slides = $scope.slides = [];
+        var currIndex = 0;
+
+        $scope.isCollapsed = false;
+
+        $scope.myInterval = 5000;
+        $scope.noWrapSlides = false;
+        $scope.active = 0;
+
+        //TODO: Update to populate from an image directory
+        $scope.slides = [
+            {
+                id:1,
+                image: "//assets/wedding-app-screen.png"
+            }
+        ];
+
+        var slides = $scope.slides = [];
+
+        var currIndex = 0;
+
+        $scope.addSlide = function(img,text) {
+            var newWidth = 600 + slides.length + 1;
+            slides.push({
+                image: img,
+                text: text,
+                id: currIndex++
+            });
+        };
+
+        $scope.randomize = function() {
+            var indexes = generateIndexesArray();
+            assignNewIndexesToSlides(indexes);
+        };
+
+        /*for (var i = 0; i < 4; i++) {
+            $scope.addSlide();
+        }*/
+        $scope.addSlide('assets/wedding-app-screen.png', 'Wedding app');
+        $scope.addSlide('assets/wedding-app-screen2.png', 'Side menu');
+
+        // Randomize logic below
+        function assignNewIndexesToSlides(indexes) {
+            for (var i = 0, l = slides.length; i < l; i++) {
+                slides[i].id = indexes.pop();
+            }
         }
-    ];
 
-    $scope.items = ['Item 1', 'Item 2', 'Item 3'];
+        function generateIndexesArray() {
+            var indexes = [];
+            for (var i = 0; i < currIndex; ++i) {
+                indexes[i] = i;
+            }
+            return shuffle(indexes);
+        }
 
-    $scope.addItem = function() {
-        var newItemNo = $scope.items.length + 1;
-        $scope.items.push('Item ' + newItemNo);
-    };
+        // http://stackoverflow.com/questions/962802#962890
+        function shuffle(array) {
+            var tmp, current, top = array.length;
 
-    $scope.status = {
-        isFirstOpen: true,
-        isFirstDisabled: false
-    };
+            if (top) {
+                while (--top) {
+                    current = Math.floor(Math.random() * (top + 1));
+                    tmp = array[current];
+                    array[current] = array[top];
+                    array[top] = tmp;
+                }
+            }
 
-})
-.controller('ModalInstanceCtrl', function($scope, $uibModalInstance, reviewData) {
-    console.log(reviewData);
-    $scope.codeReview = reviewData;
+            return array;
+        }
 
-  $scope.ok = function () {
-    $uibModalInstance.close();
-  };
+        console.log($scope.slides);
 
-  $scope.cancel = function () {
-    $uibModalInstance.dismiss('cancel');
-  };    
 
-});
+    })
+    .controller('ModalInstanceCtrl', function($scope, $uibModalInstance, reviewData) {
+        console.log(reviewData);
+        $scope.codeReview = reviewData;
+
+      $scope.ok = function () {
+        $uibModalInstance.close();
+      };
+
+      $scope.cancel = function () {
+        $uibModalInstance.dismiss('cancel');
+      };
+
+    });

@@ -9,8 +9,10 @@
         <meta name="author" content="">
         <link rel="icon" href="http://getbootstrap.com/favicon.ico">
         <title>amusto.github.io</title>
+
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
         <!-- Custom styles for this template -->
         <link href="assets/offcanvas.css" rel="stylesheet">
         <link href="assets/custom.css" rel="stylesheet">
@@ -27,9 +29,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.2/ui-bootstrap-tpls.js"></script>
-
-        <!--script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.2/ui-bootstrap-tpls.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.2/ui-bootstrap.js"></script-->
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -74,86 +73,30 @@
 
     <div class="container main-container">
 
-        <div class="row">
-
-            <div class="col-sm-4">
-                <div class="panel panel-primary"> <div class="panel-heading"> <h3 class="panel-title">Full stack developer</h3> </div>
-                    <div class="panel-body">
-                            <div class="row">
-                                <div class="col-sm-3 col-xs-4">
-                                    <!--img src="http://www.gravatar.com/avatar/b7cf4d5a166284d7f2cb1b71c3e1ccdb"-->
-                                    <img src="assets/395206_10150592677883068_920629903_n.jpg" width="120px" id="my-image">
-                                </div>
-                                <div class="col-sm-8 col-xs-7 user-details">
-                                    Armando Musto<br>
-                                    <a href="mailto:armando.musto@gmail.com">armando.musto@gmail.com</a>
-
-                                    <div class="linksBox">
-                                        <a href="assets/armando musto - Lead developer.docx"><button type="button" class="btn btn-primary btn-xs" style="margin-right:10px;">Download resume</button></a>
-                                        <a href="https://www.linkedin.com/in/armandomusto"><img src="assets/linkedin.png"></a>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <!--div class="row center-block">
-                                <div class="linksRow">
-                                    <a href="assets/armando musto - Lead developer.docx"><button type="button" class="btn btn-primary btn-xs" style="margin-right:10px;">Download resume</button></a>
-                                    <a href="https://www.linkedin.com/in/armandomusto"><img src="assets/linkedin.png"></a>
-                                </div>
-                            </div-->
-                            <div class="row">
-                                <div class="col-sm-12 user-description">
-                                    <p>Lead developer with over 15 years experience developing in a wide-range of environments. Focus is building web based systems, having designed/built solutions in a wide variety of business models.</p>
-                                    <p>As a developer I strive to offer a semantic approach, incorporating a OOP approach, best practices and what can be agreed is the ideal technical stack as it might apply to the a client’s and project’s particular needs.</p>
-                                    <p>Recently my focus is in the advanced UI development world, mainly involving Javascript, Node and Angular driven solutions. I am working on redefining how I think we view the UI developers role.</p>
-                                </div>
-                            </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-8">
-                <div ui-view="userDetails"></div>
-            </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div ui-view="viewFeaturedProject"></div>
         </div>
 
-      <!--div class="row row-offcanvas row-off canvas-right">
+        <div class="col-sm-8">
 
-        <div id="main-container" class="col-md-8">
-
-            <div class="well">
-                <div class="row">
-                    <div class="col-sm-1 pull-left">
-                        <img src="http://www.gravatar.com/avatar/b7cf4d5a166284d7f2cb1b71c3e1ccdb" />
+            <uib-tabset active="activePill" vertical="true" type="pills" justified="false" class="profile-navigation">
+                <uib-tab index="$index + 1" heading="{{nav.name}}" ng-repeat="nav in navTabs">
+                    <div class="panel panel-primary"> <div class="panel-heading"> <h3 class="panel-title" ng-bind="nav.name"></h3> </div>
+                        <div class="panel-body">
+                            <div class="container col-sm-12">
+                                <div class="row">
+                                    <div ui-view="{{nav.view}}"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-sm-10 pull-left">
-                        <div class="user-info-line">Armando Musto<span id="title-description"> | Full stack developer</span></div>
-                        <div class="user-info-line">armando.musto@gmail.com</div>
-                        <p id="career-description">Lead developer with over 15 years experience developing in a wide-range of environments. Focus is building web based systems, having designed/built solutions in a wide variety of business models.</p>
-                    </div>
-                </div>
-                <div class="row user-description">
-
-                    <p>Currently my focus is on the front end, mainly with Javascript, Node and Angular driven solutions. I am enjoying how we are redefining the front end developers role.</p>
-
-                    <p>Currently working with the following fun tools: AWS, AngularJS, NodeJS, Express.js, Bootstrap, JWT, SOLR, REST ......</p>
-                </div>
-            </div>
-
-            <div class="well">
-                <h4>WORK EXPERIENCE</h4>
-                <div class="row work-history">
-                    <div class="col-xs-2 history-date" >2012 - Current</div>
-                    <div class="col-xs-10">2012 - Current</div>
-                </div>
-            </div>
-
+                </uib-tab>
+            </uib-tabset>
         </div>
 
-        <div ui-view="userDetails" class="col-md-4"></div>
+    </div>
 
-      </div>
-
-    </div-->
 
     <script src="scripts/app.js"></script>
     <script src="scripts/constants.js"></script>

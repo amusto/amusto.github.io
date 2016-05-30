@@ -4,10 +4,26 @@
 }
 
 .user-details {
-    font-weight:bold;
     margin-left:15px;
     min-height:80px;
 }
+
+.user-details span {
+    font-weight:bold;
+}
+
+.user-details #description {
+    margin-top: 5px;
+}
+
+.project-details span {
+    font-weight:bold;
+}
+
+.project-details #description {
+    margin-top: 5px;
+}
+
 
 .linksBox{
     position: absolute;
@@ -84,6 +100,7 @@
 .skill-selected {
     background-color: #1B81D3;
     color: white;
+    cursor:pointer
 }
 
 .skill-resource-button:nth-child(n+2) {
@@ -129,5 +146,36 @@
     #main-container {
         width:100%;
     }
+}
+
+
+@media (min-width: 675px) {
+
+    .profile-navigation {
+        float:left;
+        width:100%;
+
+    }
+    .profile-navigation ul.nav {
+        float:right;
+        width:20%;
+    }
+    .profile-navigation li>a{
+        border-radius: 0px 4px 4px 0px;
+    }
+
+    div.tab-content{
+        width:80%;
+        border-radius: 4px 0px 4px 4px;
+    }
+
+    div.tab-content div.panel {
+        border-radius: 4px 0px 4px 4px;
+    }
+
+    div.tab-content div.panel-heading {
+        border-radius: 4px 0px 0px 0px;
+    }
 
 }
+

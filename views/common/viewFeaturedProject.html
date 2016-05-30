@@ -1,0 +1,25 @@
+<div class="panel panel-primary">
+    <div class="panel-heading" style="min-height: 40px;"> <h3 class="panel-title pull-left">Just another fun project!</h3> <span class="glyphicon pull-right" ng-click="isCollapsed = !isCollapsed" ng-class="{'glyphicon-chevron-right':isCollapsed, 'glyphicon-chevron-down':!isCollapsed}" aria-hidden="true"></span></div>
+
+    <div class="panel-body" uib-collapse="isCollapsed">
+        <div class="row">
+            <div class="col-sm-4 col-xs-4">
+                <uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+                    <uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+                        <img ng-src="{{slide.image}}" style="margin:auto;">
+                        <!--div class="carousel-caption project-carousel-caption">
+                            <p>{{slide.text}}</p>
+                        </div-->
+                    </uib-slide>
+                </uib-carousel>
+                <!--img src="assets/wedding-app-screen.png" width="120px" id="my-image"-->
+            </div>
+            <div class="col-sm-8 col-xs-7 project-details">
+                <div><span>Project:</span> Mobile Wedding Invitation</div>
+                <div><span>Stack:</span> NodeJS, Ionic, Angular</div>
+                <div><span>Details:</span> Supporting Android and IOS</div>
+                <div id="description"><span>Descrption:</span><br>Working with a friend to create a wedding focused mobile app. We chose Ionic since it's so easy to ramp up with it. Our idea is to provide a common approach for some of the basic functions you'd want for a wedding invitation.</div>
+            </div>
+        </div>
+    </div>
+</div>
