@@ -34,8 +34,8 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
         $scope.profileCodeReview = profile_code_descs;
 
         $scope.navTabs = [
-            {name:"About me", view:"viewUserBio"},
-            {name:"Code samples", view:"viewUserCodeSamples"}
+            {name:"Code samples", view:"viewUserCodeSamples"},
+            {name:"About me", view:"viewUserBio"}
         ];
 
         $scope.programmingLanguages = [
