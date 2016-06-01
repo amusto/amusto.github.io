@@ -1,9 +1,18 @@
 angular.module('app.commonConstants', [])
     .constant('profile_code_descs', [
         {
+            title: "jQuery AMD project example",
+            skills: ['JSON', 'jQuery', 'AMD'],
+            collapsed: false,
+            header: 'Extended the jQuery AMD example to review the AMD spec.',
+            resources: [
+                {url: 'https://github.com/amusto/jquery-amd', text: 'Github code'}
+            ]
+        },
+        {
             title: "Highchart example",
             skills: ['Angular', 'Bootstrap', 'highcharts'],
-            collapsed: false,
+            collapsed: true,
             header: "Charting example using the Highchart library. http://www.highcharts.com/",
             resources: [
                 {srcUrl: 'https://embed.plnkr.co/pZ1QOYY4Ql5u7CzqXis7/', text: 'Example', type: 'modal'}
@@ -12,7 +21,7 @@ angular.module('app.commonConstants', [])
         {
             title: "D3 Code Sample",
             skills: ['Angular', 'Bootstrap', 'D3'],
-            collapsed: false,
+            collapsed: true,
             header: "The D3js library https://d3js.org/ is robust and offers every possible function you will need in it's api. \n Here I built a simple page that accepts a search term (keyword) and hits the NSF search URL, gets the results and summarizes the award counts by state",
             resources: [
                 {srcUrl: '//jsfiddle.net/amusto/wtLpv742/23/embedded/', text: 'Example', type: 'modal'}

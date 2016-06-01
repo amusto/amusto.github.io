@@ -43,6 +43,7 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
             {name:"Node", selected:true},
             {name:"D3", selected:true},            
             {name:"jQuery", selected:true},
+            {name:"AMD", selected:true},
             {name:"CSS", selected:true},
             {name:"HTML5", selected:true},
             {name:"SQL", selected:true},
