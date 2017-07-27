@@ -41,15 +41,16 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
         $scope.programmingLanguages = [
             {name:"Angular", selected:true},
             {name:"Node", selected:true},
-            {name:"D3", selected:true},            
+            {name:"D3", selected:false},
             {name:"jQuery", selected:true},
-            {name:"AMD", selected:true},
-            {name:"CSS", selected:true},
+            {name:"AMD", selected:false},
+            {name:"CSS", selected:false},
             {name:"HTML5", selected:true},
-            {name:"SQL", selected:true},
+            {name:"SQL", selected:false},
             {name:"JSON", selected:true},
-            {name:"Bootstrap", selected:true},
-            {name:"Coldfusion", selected:true}
+            {name:"javascript", selected:true},
+            {name:"Bootstrap", selected:false},
+            {name:"Coldfusion", selected:false}
         ];
 
         $scope.displayCodeReview = function(skills){
