@@ -10,6 +10,15 @@ angular.module('app.commonConstants', [])
             ]
         },
         {
+            title: "Javascript Interview Basic Questions",
+            skills: ['javascript'],
+            collapsed: false,
+            header: 'Examples of Basic Javascript Interview Questions.',
+            resources: [
+                {url: 'https://plnkr.co/edit/LBmRpQTWYTLnYLJnNIs0?p=preview', text: 'Plunker Example'}
+            ]
+        },
+        {
             title: "Highchart example",
             skills: ['Angular', 'Bootstrap', 'highcharts'],
             collapsed: true,
