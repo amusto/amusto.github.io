@@ -1,21 +1,12 @@
 angular.module('app.commonConstants', [])
     .constant('profile_code_descs', [
         {
-            title: "jQuery AMD project example",
-            skills: ['JSON', 'jQuery', 'AMD'],
+            title: "D3 Code Sample",
+            skills: ['Angular', 'Bootstrap', 'D3'],
             collapsed: false,
-            header: 'Extended the jQuery AMD example to review the AMD spec.',
+            header: "The D3js library https://d3js.org/ is robust and offers every possible function you will need in it's api. \n Here I built a simple page that accepts a search term (keyword) and hits the NSF search URL, gets the results and summarizes the award counts by state",
             resources: [
-                {url: 'https://github.com/amusto/jquery-amd', text: 'Github code'}
-            ]
-        },
-        {
-            title: "Javascript Interview Basic Questions",
-            skills: ['javascript'],
-            collapsed: false,
-            header: 'Examples of Basic Javascript Interview Questions.',
-            resources: [
-                {url: 'https://plnkr.co/edit/LBmRpQTWYTLnYLJnNIs0?p=preview', text: 'Plunker Example'}
+                {srcUrl: '//jsfiddle.net/amusto/wtLpv742/23/embedded/', text: 'Example', type: 'modal'}
             ]
         },
         {
@@ -25,15 +16,6 @@ angular.module('app.commonConstants', [])
             header: "Charting example using the Highchart library. http://www.highcharts.com/",
             resources: [
                 {srcUrl: 'https://embed.plnkr.co/pZ1QOYY4Ql5u7CzqXis7/', text: 'Example', type: 'modal'}
-            ]
-        },
-        {
-            title: "D3 Code Sample",
-            skills: ['Angular', 'Bootstrap', 'D3'],
-            collapsed: true,
-            header: "The D3js library https://d3js.org/ is robust and offers every possible function you will need in it's api. \n Here I built a simple page that accepts a search term (keyword) and hits the NSF search URL, gets the results and summarizes the award counts by state",
-            resources: [
-                {srcUrl: '//jsfiddle.net/amusto/wtLpv742/23/embedded/', text: 'Example', type: 'modal'}
             ]
         },
         {
@@ -72,6 +54,15 @@ angular.module('app.commonConstants', [])
             header: 'Simple exercise demonstrating programming concepts<br> Used Angular and Node as the stack.',
             resources: [
                 {url: 'https://github.com/amusto/ngAirTrafficControlSystem', text: 'Code & Demo'}
+            ]
+        },
+        {
+            title: "Javascript Interview Basic Questions",
+            skills: ['javascript'],
+            collapsed: true,
+            header: 'Examples of Basic Javascript Interview Questions.',
+            resources: [
+                {url: 'https://plnkr.co/edit/LBmRpQTWYTLnYLJnNIs0?p=preview', text: 'Plunker Example'}
             ]
         }
     ]);

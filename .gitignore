@@ -1,0 +1,8 @@
+# Bower dependency directory (https://bower.io/)
+bower_components
+
+# Dependency directories
+node_modules/
+.idea
+.gitignore
+.idea/
