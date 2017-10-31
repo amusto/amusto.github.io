@@ -23,6 +23,10 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
                         templateUrl: 'views/common/viewUserBio.html',
                         controller: 'viewUserBioController'
                     },
+                    "viewUserProfile": {
+                        templateUrl: 'views/common/viewUserProfile.html',
+                        controller: 'viewUserProfileController'
+                    },
                     "viewFeaturedProject": {
                         templateUrl: 'views/common/viewFeaturedProject.html',
                         controller: 'viewFeaturedProjectController'
@@ -78,9 +82,7 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
         $scope.animationsEnabled = true;
 
         $scope.openReviewModal = function (size, resourceIndex) {
-            console.log(resourceIndex);
             $scope.reviewData = $scope.profileCodeReview[resourceIndex];
-            console.log($scope.reviewData);
 
             var modalInstance = $uibModal.open({
                 animation: $scope.animationsEnabled,
@@ -133,6 +135,9 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
 
     })
     .controller('viewUserBioController', function($scope) {
+
+    })
+    .controller('viewUserProfileController', function($scope) {
 
     })
     .controller('viewFeaturedProjectController', function($scope) {
@@ -212,12 +217,8 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
             return array;
         }
 
-        console.log($scope.slides);
-
-
     })
     .controller('ModalInstanceCtrl', function($scope, $uibModalInstance, reviewData) {
-        console.log(reviewData);
         $scope.codeReview = reviewData;
 
       $scope.ok = function () {

@@ -1,11 +1,16 @@
 
 .user-description {
     margin:5px;
+    padding:20px;
+}
+
+.user-image-col {
+    margin:5px;
 }
 
 .user-details {
     margin-left:15px;
-    //min-height:80px;
+    padding:20px;
 }
 
 .user-details span {
@@ -46,7 +51,7 @@
 }
 
 .user-description {
-    margin-top:10px;
+
 }
 
 .user-info-line {
