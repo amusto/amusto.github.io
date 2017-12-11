@@ -1,6 +1,15 @@
 angular.module('app.commonConstants', [])
     .constant('profile_code_descs', [
         {
+            title: "REACT Basic Code Samples",
+            skills: ['REACT', 'Bootstrap'],
+            collapsed: false,
+            header: "REACT Working code examples using react-bootstrap components, displaying code samples dynamically with Tabs such as example of boiling temperature calculator",
+            resources: [
+                {url: 'https://github.com/amusto/react-examples', text: 'Code & Demo'}
+            ]
+        },
+        {
             title: "D3 Code Sample",
             skills: ['Angular', 'Bootstrap', 'D3'],
             collapsed: false,
@@ -63,6 +72,16 @@ angular.module('app.commonConstants', [])
             header: 'Examples of Basic Javascript Interview Questions.',
             resources: [
                 {url: 'https://plnkr.co/edit/LBmRpQTWYTLnYLJnNIs0?p=preview', text: 'Plunker Example'}
+            ]
+        }
+    ])
+    .constant('profile_articles', [
+        {
+            title: "What is the difference between using var or let?",
+            collapsed: false,
+            header: "What is the difference between using var or let?",
+            resources: [
+                {srcUrl: 'https://gist.github.com/amusto/bdaf4c8e52a463baf88f63d8b36721ee.js', text: 'Example', type: 'modal'}
             ]
         }
     ]);

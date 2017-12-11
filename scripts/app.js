@@ -19,6 +19,10 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
                         templateUrl: 'views/common/viewUserCodeSamples.html',
                         controller: 'userCodeSamplesController'
                     },
+                    "viewArticles": {
+                        templateUrl: 'views/common/viewArticles.html',
+                        controller: 'viewArticlesController'
+                    },
                     "viewUserBio": {
                         templateUrl: 'views/common/viewUserBio.html',
                         controller: 'viewUserBioController'
@@ -34,16 +38,21 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
                 }
             })
     })
-    .controller('mainController', ['$scope', '$filter', 'profile_code_descs', '$uibModal', function($scope, $filter, profile_code_descs, $uibModal) {
+    .controller('mainController', ['$scope', '$filter', 'profile_code_descs', '$uibModal', 'dataService', function($scope, $filter, profile_code_descs, $uibModal, dataService) {
         $scope.profileCodeReview = profile_code_descs;
+        var currentReviewData = profile_code_descs;
+
+        /*$scope.newArticles = dataService.getArticles();
+        console.log($scope.newArticles);*/
 
         $scope.navTabs = [
             {name:"Code samples", view:"viewUserCodeSamples"},
-            {name:"About me", view:"viewUserBio"}
+            {name:"Articles", view:"viewArticles"}
         ];
 
         $scope.programmingLanguages = [
             {name:"Angular", selected:true},
+            {name:"React", selected:true},
             {name:"Node", selected:true},
             {name:"D3", selected:false},
             {name:"jQuery", selected:true},
@@ -55,6 +64,14 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
             {name:"javascript", selected:true},
             {name:"Bootstrap", selected:false},
             {name:"Coldfusion", selected:false}
+        ];
+
+        $scope.articleTags = [
+            {name:"Angular", selected:true},
+            {name:"React", selected:true},
+            {name:"Node", selected:true},
+            {name:"HTML5", selected:true},
+            {name:"javascript", selected:true}
         ];
 
         $scope.displayCodeReview = function(skills){
@@ -72,9 +89,9 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
         };
 
         $scope.updateSkillStatus = function(index){
-            if($scope.programmingLanguages[index].selected){
+            if ($scope.programmingLanguages[index].selected){
                 $scope.programmingLanguages[index].selected = false;
-            }else{
+            } else{
                 $scope.programmingLanguages[index].selected = true;
             }
         };
@@ -82,7 +99,7 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
         $scope.animationsEnabled = true;
 
         $scope.openReviewModal = function (size, resourceIndex) {
-            $scope.reviewData = $scope.profileCodeReview[resourceIndex];
+            $scope.reviewData = currentReviewData[resourceIndex];
 
             var modalInstance = $uibModal.open({
                 animation: $scope.animationsEnabled,
@@ -101,6 +118,38 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
             }, function () {
                 console.log('Modal dismissed at: ' + new Date());
             });
+        };
+
+
+    }])
+    .controller('viewArticlesController', ['$scope', '$filter', 'profile_articles', '$uibModal', function($scope, $filter, profile_articles, $uibModal) {
+        $scope.profileArticles = profile_articles;
+
+        $scope.oneAtATime = true;
+        $scope.isCollapsed = true;
+
+
+        $scope.openArticleModal = function (size, resourceIndex) {
+            $scope.reviewData = $scope.profileArticles[resourceIndex];
+
+            var modalInstance = $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: './views/myModalArticleContent.html',
+                controller: 'ModalInstanceCtrl',
+                size: size,
+                resolve: {
+                    reviewData: function () {
+                        return $scope.reviewData;
+                    }
+                }
+            });
+
+            modalInstance.result.then(function (selectedItem) {
+                $scope.selected = selectedItem;
+            }, function () {
+                console.log('Modal dismissed at: ' + new Date());
+            });
+
         };
 
 
@@ -229,4 +278,31 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
         $uibModalInstance.dismiss('cancel');
       };
 
-    });
+    })
+    .service('dataService', ['$http', '$timeout', '$q', function ($http, $timeout, $q) {
+        const api_config = {
+            host: "apiadmin.musto.io"
+            // host: "localhost:8080"
+        };
+
+        this.getArticles = function () {
+            var deferred = $q.defer();
+
+            var request = $http({
+                method: "get",
+                url: `http://${api_config.host}/api/articles`
+            });
+
+            request.then(
+                function(response) {
+                    console.log(response);
+                    deferred.resolve(response);
+                }
+            );
+
+            return deferred.promise;
+        };
+
+        return this;
+
+    }]);
