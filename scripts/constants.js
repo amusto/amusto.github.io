@@ -1,12 +1,12 @@
 angular.module('app.commonConstants', [])
     .constant('profile_code_descs', [
         {
-            title: "REACT Basic Code Samples",
-            skills: ['REACT', 'Bootstrap'],
+            title: "REACT/Redux Blog Example",
+            skills: ['REACT', 'Redux', 'REST', 'MongoDB'],
             collapsed: false,
-            header: "REACT Working code examples using react-bootstrap components, displaying code samples dynamically with Tabs such as example of boiling temperature calculator",
+            header: "REACT/Redux Blog example, demonstrating react routing, REST, MongoDB",
             resources: [
-                {url: 'https://github.com/amusto/react-examples', text: 'Code & Demo'}
+                {url: 'https://github.com/amusto/react-heroku', text: 'Code & Demo'}
             ]
         },
         {
