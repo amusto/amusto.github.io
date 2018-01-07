@@ -1,6 +1,15 @@
 angular.module('app.commonConstants', [])
     .constant('profile_code_descs', [
         {
+            title: "MERN Starter Project (aka BoilerPlate)",
+            skills: ['REACT', 'Redux', 'Express', 'REST', 'MongoDB'],
+            collapsed: false,
+            header: "MERN Boilerplate, using Webpack middleware, running node for local API. Demonstrating react routing, REST, MongoDB, Webpack",
+            resources: [
+                {url: 'https://github.com/amusto/mern-webpack-starter', text: 'Code & Demo'}
+            ]
+        },
+        {
             title: "REACT/Redux Blog Example",
             skills: ['REACT', 'Redux', 'REST', 'MongoDB'],
             collapsed: false,
