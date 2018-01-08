@@ -1,7 +1,7 @@
 angular.module('app.commonConstants', [])
     .constant('profile_code_descs', [
         {
-            title: "React/Webpack Starter Project (aka MERN BoilerPlate)",
+            title: "React/Webpack Starter (aka MERN BoilerPlate)",
             skills: ['REACT', 'Webpack', 'Redux', 'Express', 'REST', 'MongoDB'],
             collapsed: false,
             header: "React, Mongo, Express Boilerplate, using Webpack middleware, running node for local API. Demonstrating React routing, REST, MongoDB, Webpack",
