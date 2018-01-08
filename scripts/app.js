@@ -42,9 +42,6 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
         $scope.profileCodeReview = profile_code_descs;
         var currentReviewData = profile_code_descs;
 
-        /*$scope.newArticles = dataService.getArticles();
-        console.log($scope.newArticles);*/
-
         $scope.navTabs = [
             {name:"Code samples", view:"viewUserCodeSamples"},
             {name:"Articles", view:"viewArticles"}
@@ -53,6 +50,8 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
         $scope.programmingLanguages = [
             {name:"Angular", selected:true},
             {name:"React", selected:true},
+            {name:"Redux", selected:true},
+            {name:"Webpack", selected:true},
             {name:"Node", selected:true},
             {name:"D3", selected:false},
             {name:"jQuery", selected:true},
@@ -282,7 +281,6 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
     .service('dataService', ['$http', '$timeout', '$q', function ($http, $timeout, $q) {
         const api_config = {
             host: "apiadmin.musto.io"
-            // host: "localhost:8080"
         };
 
         this.getArticles = function () {
@@ -295,7 +293,6 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
 
             request.then(
                 function(response) {
-                    console.log(response);
                     deferred.resolve(response);
                 }
             );
