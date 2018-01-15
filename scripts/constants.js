@@ -1,6 +1,15 @@
 angular.module('app.commonConstants', [])
     .constant('profile_code_descs', [
         {
+            title: "Webpack Sample (React/Webpack Example Project)",
+            skills: ['REACT', 'Webpack'],
+            collapsed: false,
+            header: "Webpack, React sample project hosted via Github Pages",
+            resources: [
+                {url: 'https://github.com/amusto/WebpackSampleDeploy', text: 'Code & Demo'}
+            ]
+        },
+        {
             title: "React/Webpack Starter (aka MERN BoilerPlate)",
             skills: ['REACT', 'Webpack', 'Redux', 'Express', 'REST', 'MongoDB'],
             collapsed: false,
@@ -21,7 +30,7 @@ angular.module('app.commonConstants', [])
         {
             title: "D3 Code Sample",
             skills: ['Angular', 'Bootstrap', 'D3'],
-            collapsed: false,
+            collapsed: true,
             header: "The D3js library https://d3js.org/ is robust and offers every possible function you will need in it's api. \n Here I built a simple page that accepts a search term (keyword) and hits the NSF search URL, gets the results and summarizes the award counts by state",
             resources: [
                 {srcUrl: '//jsfiddle.net/amusto/wtLpv742/23/embedded/', text: 'Example', type: 'modal'}
@@ -72,15 +81,6 @@ angular.module('app.commonConstants', [])
             header: 'Simple exercise demonstrating programming concepts<br> Used Angular and Node as the stack.',
             resources: [
                 {url: 'https://github.com/amusto/ngAirTrafficControlSystem', text: 'Code & Demo'}
-            ]
-        },
-        {
-            title: "Javascript Interview Basic Questions",
-            skills: ['javascript'],
-            collapsed: true,
-            header: 'Examples of Basic Javascript Interview Questions.',
-            resources: [
-                {url: 'https://plnkr.co/edit/LBmRpQTWYTLnYLJnNIs0?p=preview', text: 'Plunker Example'}
             ]
         }
     ])
