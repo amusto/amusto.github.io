@@ -1,7 +1,7 @@
 angular.module('app.commonConstants', [])
     .constant('profile_code_descs', [
         {
-            title: "Webpack Sample (React/Webpack Example Project)",
+            title: "Webpack Sample Project (React/Webpack Project)",
             skills: ['REACT', 'Webpack'],
             collapsed: false,
             header: "Webpack, React sample project hosted via Github Pages",

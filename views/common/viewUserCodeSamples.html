@@ -7,7 +7,7 @@
     <!-- TODO: replace with a directive -->
     <div class="row check-element sample-show-hide" ng-repeat="review in profileCodeReview" ng-show="displayCodeReview(review.skills)">
         <div class="col-xs-12 codeDescription">
-            <span style="font-weight:bold;">{{review.title}}</span> <a href="" aria-hidden="true" ng-click="review.collapsed = !review.collapsed" style="font-family:arial; text-decoration: none;">(review)</a>
+            <span style="font-weight:bold;">{{review.title}}</span> <a href="" aria-hidden="true" ng-click="review.collapsed = !review.collapsed" class="pull-right" style="font-family:arial; text-decoration: none;">(expand/collapse)</a>
             <div class="well well-lg" uib-collapse="review.collapsed">
                 <p>{{review.header}} </p>
 
