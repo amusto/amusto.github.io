@@ -12,7 +12,7 @@ angular.module('app.commonConstants', [])
         {
             title: "React/Webpack Starter (aka MERN BoilerPlate)",
             skills: ['REACT', 'Webpack', 'Redux', 'Express', 'REST', 'MongoDB'],
-            collapsed: false,
+            collapsed: true,
             header: "React, Mongo, Express Boilerplate, using Webpack middleware, running node for local API. Demonstrating React routing, REST, MongoDB, Webpack",
             resources: [
                 {url: 'https://github.com/amusto/mern-webpack-starter', text: 'Code & Demo'}
@@ -21,7 +21,7 @@ angular.module('app.commonConstants', [])
         {
             title: "REACT/Redux Blog Example",
             skills: ['REACT', 'Redux', 'REST', 'MongoDB'],
-            collapsed: false,
+            collapsed: true,
             header: "REACT/Redux Blog example, demonstrating react routing, REST, MongoDB",
             resources: [
                 {url: 'https://github.com/amusto/react-heroku', text: 'Code & Demo'}
