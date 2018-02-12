@@ -12,8 +12,8 @@
                 <p>{{review.header}} </p>
 
                 <div class="resource-section" ng-if="review.resources.length > 0">
-                    <a ng-if="review.resources[0].type == 'modal'" class="btn btn-default skill-resource-button" target="_blank" href="" role="button" ng-click="openReviewModal('lg', $index)">Review</a>
-                    <a ng-if="review.resources[0].type !== 'modal'" class="btn btn-default skill-resource-button" target="_blank" href="{{resource.url}}" role="button" ng-repeat="resource in review.resources">{{resource.text}}</a>
+                    <a ng-if="review.resources[0].type == 'modal'" class="btn btn-primary skill-resource-button" target="_blank" href="" role="button" ng-click="openReviewModal('lg', $index)">Review</a>
+                    <a ng-if="review.resources[0].type !== 'modal'" class="btn btn-primary skill-resource-button" target="_blank" href="{{resource.url}}" role="button" ng-repeat="resource in review.resources">{{resource.text}}</a>
                 </div>
                 <div class="desc-skills">
                     <span ng-repeat="language in review.skills" class="profile__skill-badge badge badge--pill badge--white-dark text-medium text-normal xs-mbh0 skill-selected">{{language}}</span>

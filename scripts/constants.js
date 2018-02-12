@@ -1,9 +1,18 @@
 angular.module('app.commonConstants', [])
     .constant('profile_code_descs', [
         {
+            title: "Mongo, Express, React, Node - Email Survey App",
+            skills: ['REACT', 'Express', 'Node', 'MongoDB'],
+            collapsed: false,
+            header: "M.E.R.N, React/Node/Mongo Application",
+            resources: [
+                {url: 'https://github.com/amusto/mern-boilerplate-app', text: 'Review Code & Live Demo'}
+            ]
+        },
+        {
             title: "Webpack Sample Project (React/Webpack Project)",
             skills: ['REACT', 'Webpack'],
-            collapsed: false,
+            collapsed: true,
             header: "Webpack, React sample project hosted via Github Pages",
             resources: [
                 {url: 'https://github.com/amusto/WebpackSampleDeploy', text: 'Code & Demo'}
