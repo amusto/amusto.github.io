@@ -2,6 +2,7 @@ angular.module('app.commonConstants', [])
     .constant('profile_code_descs', [
         {
             title: "Mongo, Express, React, Node - Email Survey App",
+            description: "Fullstack application demonstrating REACT front end interaction with Node driven Authentication with Google and secure CC processor using Stripe library.",
             skills: ['REACT', 'Express', 'Node', 'MongoDB'],
             collapsed: false,
             header: "M.E.R.N, React/Node/Mongo Application",
@@ -80,7 +81,7 @@ angular.module('app.commonConstants', [])
             collapsed: true,
             header: 'Contact manager built using AngularJS Contacts are originally pulled from a webservice via jquery using $.getJSON',
             resources: [
-                {url: 'https://github.com/amusto/ngContactManager', text: 'Code & Demo'}
+                {url: 'https://github.com/amusto/ngContactManager', text: 'Github Code'}
             ]
         },
         {
@@ -89,7 +90,7 @@ angular.module('app.commonConstants', [])
             collapsed: true,
             header: 'Simple exercise demonstrating programming concepts<br> Used Angular and Node as the stack.',
             resources: [
-                {url: 'https://github.com/amusto/ngAirTrafficControlSystem', text: 'Code & Demo'}
+                {url: 'https://github.com/amusto/ngAirTrafficControlSystem', text: 'Github Code'}
             ]
         }
     ])

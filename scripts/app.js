@@ -43,8 +43,8 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
         var currentReviewData = profile_code_descs;
 
         $scope.navTabs = [
-            {name:"Code samples", view:"viewUserCodeSamples"},
-            {name:"Articles", view:"viewArticles"}
+            {name:"Portfolio Projects (Code and Live)", view:"viewUserCodeSamples"},
+            {name:"Articles and Code Samples", view:"viewArticles"}
         ];
 
         $scope.programmingLanguages = [
