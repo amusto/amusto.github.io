@@ -2,8 +2,8 @@ angular.module('app.commonConstants', [])
     .constant('profile_code_descs', [
         {
             title: "Mongo, Express, React, Node - Email Survey App",
-            description: "Fullstack application demonstrating REACT front end interaction with Node driven Authentication with Google and secure CC processor using Stripe library.",
-            skills: ['REACT', 'Express', 'Node', 'MongoDB'],
+            description: "Fullstack application demonstrating REACT front end interaction with Node driven Authentication with Google and secure CC processor using Stripe library. Backend server sent out email surveys using Sendgrid.",
+            skills: ['REACT', 'Express', 'Node', 'MongoDB', 'SendGrid'],
             collapsed: false,
             header: "M.E.R.N, React/Node/Mongo Application",
             resources: [
@@ -96,9 +96,9 @@ angular.module('app.commonConstants', [])
     ])
     .constant('profile_articles', [
         {
-            title: "What is the difference between using var or let?",
+            title: "What are the differences between const, var and let?",
             collapsed: false,
-            header: "What is the difference between using var or let?",
+            header: "What are the differences between const, var and let?",
             resources: [
                 {srcUrl: 'https://gist.github.com/amusto/bdaf4c8e52a463baf88f63d8b36721ee.js', text: 'Example', type: 'modal'}
             ]
