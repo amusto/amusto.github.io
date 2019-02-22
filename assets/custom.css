@@ -1,0 +1,186 @@
+
+.user-description {
+    margin:5px;
+    padding:20px;
+}
+
+.user-image-col {
+    margin:5px;
+}
+
+.user-details {
+    margin-left:15px;
+    padding:20px;
+}
+
+.user-details span {
+    font-weight:bold;
+}
+
+.user-details #description {
+    margin-top: 5px;
+}
+
+.project-details span {
+    font-weight:bold;
+}
+
+.project-details #description {
+    margin-top: 5px;
+}
+
+
+.linksBox{
+    position: absolute;
+    bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.linksRow{
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    text-align: center;
+}
+
+.skills-list {
+    margin-left: 15px;
+}
+
+.user-description {
+
+}
+
+.user-info-line {
+    font-weight: bold;
+}
+
+.header-section h3 {
+    margin-top:0;
+    font-weight: bold;
+    text-align: right;
+}
+
+.codeDisplay {
+    margin-top: 10px;
+}
+.showBorder {
+    border-style: dotted;
+}
+.main-container {
+    width:100%!important;
+}
+.work-history {
+
+}
+
+.work-history .history-date {
+    text-align:right;
+}
+
+.codeDescription {
+    font-size: 14px;
+}
+
+.colDesktop {
+    display:block;
+}
+
+.gravatar-container {
+
+}
+
+.profile__skill-badge {
+    margin: 2px;
+}
+
+.profile__skill-badge:hover {
+    background-color: #1B81D3;
+    color: white;
+}
+
+.skill-selected {
+    background-color: #1B81D3;
+    color: white;
+    cursor:pointer
+}
+
+.skill-resource-button:nth-child(n+2) {
+    margin-left:3px;
+}
+
+.desc-skills {
+    margin-top:10px;
+}
+
+@media (max-width: 455px) {
+    .user-info-line {
+        font-weight: normal!important;
+    }
+
+    #title-description {
+        display: none;
+    }
+
+    #career-description {
+        display: none;
+    }
+
+    .user-description {
+        display: none;
+    }
+
+}
+
+@media (min-width: 455px) {
+
+    #my-image {
+        width: 160px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .colDesktop {
+        display:none;
+    }
+
+    #main-container {
+        width:100%;
+    }
+}
+
+
+@media (min-width: 675px) {
+
+    .profile-navigation {
+        float:left;
+        width:100%;
+
+    }
+    .profile-navigation ul.nav {
+        float:right;
+        width:20%;
+    }
+    .profile-navigation li>a{
+        border-radius: 0px 4px 4px 0px;
+    }
+
+    div.tab-content{
+        width:80%;
+        border-radius: 4px 0px 4px 4px;
+    }
+
+    div.tab-content div.panel {
+        border-radius: 4px 0px 4px 4px;
+    }
+
+    div.tab-content div.panel-heading {
+        border-radius: 4px 0px 0px 0px;
+    }
+
+}
+
