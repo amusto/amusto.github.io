@@ -1,0 +1,2 @@
+export const SEARCH_REPORTS = 'SEARCH_REPORTS'
+export const SELECT_REPORT = 'SELECT_REPORT'
