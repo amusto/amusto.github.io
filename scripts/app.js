@@ -44,7 +44,7 @@ angular.module('app', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'app.commonCons
 
         $scope.navTabs = [
             {name:"Portfolio Projects (Code and Live)", view:"viewUserCodeSamples"},
-            {name:"Articles and Code Samples", view:"viewArticles"}
+            // {name:"Articles and Code Samples", view:"viewArticles"}
         ];
 
         $scope.programmingLanguages = [

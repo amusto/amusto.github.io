@@ -1,6 +1,16 @@
 angular.module('app.commonConstants', [])
     .constant('profile_code_descs', [
         {
+            title: "Javascript, Jest - Common Interview Coding Tests",
+            description: "Random, common Javascript related interview code tests..",
+            skills: ['REACT', 'Javascript'],
+            collapsed: false,
+            header: "Javascript, Common Interview Questions",
+            resources: [
+                {url: 'https://codepen.io/amusto/pen/JgNjYG?editors=0010', text: 'Review Code on Codepen'}
+            ]
+        },
+        {
             title: "Mongo, Express, React, Node - Email Survey App",
             description: "Fullstack application demonstrating REACT front end interaction with Node driven Authentication with Google and secure CC processor using Stripe library. Backend server sent out email surveys using Sendgrid.",
             skills: ['REACT', 'Express', 'Node', 'MongoDB', 'SendGrid'],
