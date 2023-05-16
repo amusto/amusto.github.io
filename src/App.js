@@ -1,7 +1,10 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Image } from "react-bootstrap";
 
-import { Card } from "./components";
-import profilePic from "./assets/images/professional-profile-pic.jpg";
+import {
+    Card,
+    ContentCard
+} from "./components";
+import profilePic from "./assets/images/armando-home-office-sm.png";
 
 import './App.scss';
 
@@ -15,11 +18,22 @@ function App() {
 
     return (
         <Container fluid className="App">
-            <Row>
-                <Col md={3}>
-                    <Card {...profileCardProps} />
+            <Row className="App-header">
+                <Col>
+                    <Image src={profilePic} rounded fluid className="header-profile-image" />
+                    <div className="profile-content">
+                        <h1 className={'name'}>Armando Musto</h1>
+                        <h2 >Software Engineer / Solutions Architect</h2>
+                    </div>
                 </Col>
-                <Col md={9}></Col>
+            </Row>
+            <Row className="main-container">
+                <Col md={{ span: 8 }}>
+                    <ContentCard />
+                </Col>
+                <Col>
+                    <ContentCard />
+                </Col>
             </Row>
         </Container>
     );

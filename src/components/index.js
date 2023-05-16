@@ -1,1 +1,3 @@
 export {default as Card} from "./Card/Card";
+
+export {default as ContentCard} from "./ContentCard/ContentCard";
