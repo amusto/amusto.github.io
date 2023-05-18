@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.83201aa3.css",
-    "main.js": "/static/js/main.b7702807.js",
+    "main.css": "/static/css/main.2deaaa1e.css",
+    "main.js": "/static/js/main.059d6e51.js",
     "static/media/armando-home-office-sm.png": "/static/media/armando-home-office-sm.fbb508e60a19719b0f32.png",
     "index.html": "/index.html",
-    "main.83201aa3.css.map": "/static/css/main.83201aa3.css.map",
-    "main.b7702807.js.map": "/static/js/main.b7702807.js.map"
+    "main.2deaaa1e.css.map": "/static/css/main.2deaaa1e.css.map",
+    "main.059d6e51.js.map": "/static/js/main.059d6e51.js.map"
   },
   "entrypoints": [
-    "static/css/main.83201aa3.css",
-    "static/js/main.b7702807.js"
+    "static/css/main.2deaaa1e.css",
+    "static/js/main.059d6e51.js"
   ]
 }
