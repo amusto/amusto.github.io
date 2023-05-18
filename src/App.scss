@@ -1,5 +1,4 @@
 .App {
-  text-align: center;
   background-color: #DAE3E6;
   min-height: 100vh;
 
@@ -47,6 +46,13 @@
     min-height: 100%;
     padding-left: 100px;
     padding-right: 100px;
+  }
+}
+
+.list-inline-item {
+  .location {
+    display: flex;
+    width: 100%;
   }
 }
 
