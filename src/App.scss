@@ -13,6 +13,8 @@
     justify-content: center;
     margin-bottom: 50px;
     min-height: 100px;
+    padding-left: 120px;
+    padding-right: 120px;
 
     .col {
       align-items: center;
@@ -24,7 +26,6 @@
         font-size: 38px;
         margin-left: 20px;
         font-family: 'Montserrat', sans-serif;
-        font-weight: 700;
         text-align: left;
 
         .name {
@@ -32,6 +33,15 @@
           font-size: 38px;
           margin-bottom: 5px;
           margin-top: 30px;
+        }
+
+        .desc {
+          color: #778492;
+          font-family: "Lato", arial, sans-serif;
+          font-weight: 400!important;
+          font-size: 24px;
+          margin-top: 0;
+          margin-bottom: 15px;
         }
       }
 
@@ -44,8 +54,8 @@
 
   .main-container {
     min-height: 100%;
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 150px;
+    padding-right: 150px;
   }
 }
 
@@ -53,6 +63,21 @@
   .location {
     display: flex;
     width: 100%;
+  }
+
+  .project-image {
+    width: 250px;
+    margin-right: 10px;
+  }
+
+  .title {
+    font-size: 18px;
+    margin-top: 0;
+  }
+
+  .skills-header {
+    display: flex;
+    white-space: pre-wrap;
   }
 }
 
