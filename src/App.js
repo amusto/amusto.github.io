@@ -1,8 +1,12 @@
-import { Container, Row, Col, Image } from "react-bootstrap";
+import { useState, useEffect } from "react";
+import { Container, Row, Col, Image, ProgressBar } from "react-bootstrap";
 
 import {
-    ContentCard
+    ContentCard,
+    SkillsProgressBar
 } from "./components";
+
+import SkillsData from "./content/mySkills.json";
 
 import profilePic from "./assets/images/armando-home-office-sm.png";
 import remoteiScreenshot from "./assets/images/REMOTEi-screenshot.png";
@@ -12,12 +16,26 @@ import './App.scss';
 import { Linkedin, Github, GeoAlt, Envelope } from 'react-bootstrap-icons';
 
 function App() {
+    const [mySkillsList, setMySkillsList] = useState();
 
-    const mySkills = ['AWS', 'Cloud Computing', 'Javascript']
+    useEffect(() => {
+        setMySkillsList({ loading: true });
+        const user = `https://api.github.com/users/hacktivist123/repos`;
+        fetch(user)
+            .then((res) => res.json())
+            .then((repos) => {
+                setMySkillsList({ loading: false, repos: repos });
+            });
+    }, [setMySkillsList]);
+
+    useEffect(() => {
+        console.log({mySkillsList});
+    }, [mySkillsList]);
+
 
     const aboutMeCardProps = {
         title: 'About Me',
-        body: `In my current role I am the Principal Engineer and Solutions Architect for uExamS where we provide virtual learning resources for persons with special needs.`
+        body: `I'm enjoying my current role at uExamS where as the Principal Engineer & Solutions Architect we provide virtual learning resources for people with special needs or disabilities.`
     }
 
     const LocationDetails = () => {
@@ -42,7 +60,7 @@ function App() {
                 <Image src={remoteiScreenshot} rounded fluid className="project-image" />
                 <div>
                     <h3 className={'title'}>REMOTEi - A Desktop Application built using (Electron, React, Typescript)</h3>
-                    <p>REMOTEi - a Virtual Learning Desktop application supporting persons with special needs and disabilities.</p>
+                    <p>A Virtual Learning Desktop application supporting persons with special needs and disabilities.</p>
                 </div>
             </li>
         </ul>
@@ -59,13 +77,12 @@ function App() {
             <p className={'skills-header'}>
                 {skillsText}
             </p>
-            <ul>
-                {mySkills.map(skill => {
-                    return <li className="list-inline-item mb-3" style={{display: 'flex'}}>
-                        <h3 className={'title'}>{skill}</h3>
-                    </li>
-                })}
-            </ul>
+
+            {SkillsData.map(skill => {
+                const compProps = { title: skill?.title, percentage: skill?.percentage}
+                return <SkillsProgressBar key={`skill-${skill?.title}`} {...compProps} />
+            })}
+
         </div>
     }
 
