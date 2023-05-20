@@ -10,6 +10,7 @@ import SkillsData from "./content/mySkills.json";
 
 import profilePic from "./assets/images/armando-home-office-sm.png";
 import remoteiScreenshot from "./assets/images/REMOTEi-screenshot.png";
+import amazonCardShufflerScreenshot from "./assets/images/52-card-pickup.png";
 
 import './App.scss';
 
@@ -18,19 +19,20 @@ import { Linkedin, Github, GeoAlt, Envelope } from 'react-bootstrap-icons';
 function App() {
     const [mySkillsList, setMySkillsList] = useState();
 
-    useEffect(() => {
-        setMySkillsList({ loading: true });
-        const user = `https://api.github.com/users/hacktivist123/repos`;
-        fetch(user)
-            .then((res) => res.json())
-            .then((repos) => {
-                setMySkillsList({ loading: false, repos: repos });
-            });
-    }, [setMySkillsList]);
-
-    useEffect(() => {
-        console.log({mySkillsList});
-    }, [mySkillsList]);
+    // TODO: Setup to pull content from a backend resource (API)
+    // useEffect(() => {
+    //     setMySkillsList({ loading: true });
+    //     const user = `https://api.github.com/users/hacktivist123/repos`;
+    //     fetch(user)
+    //         .then((res) => res.json())
+    //         .then((repos) => {
+    //             setMySkillsList({ loading: false, repos: repos });
+    //         });
+    // }, [setMySkillsList]);
+    //
+    // useEffect(() => {
+    //     console.log({mySkillsList});
+    // }, [mySkillsList]);
 
 
     const aboutMeCardProps = {
@@ -63,6 +65,15 @@ function App() {
                     <p>A Virtual Learning Desktop application supporting persons with special needs and disabilities.</p>
                 </div>
             </li>
+            <li className="list-inline-item mb-3" style={{display: 'flex', borderTopStyle: 'solid', borderTopColor: 'black', paddingTop: '20px'}}>
+                <Image src={amazonCardShufflerScreenshot} rounded fluid className="project-image" />
+                <div>
+                    <h3 className={'title'}>52 Pickup Card Shuffler</h3>
+                    <p>During an interview at Amazon I was asked to build a simple card shuffler app. The original ask was to use Javascript Classes and I took it a bit further.</p>
+                    <p>Demo: <a href={'http://react-52-card-pickup.armandomusto.com/'} target="_blank">http://react-52-card-pickup.armandomusto.com</a></p>
+                    <p>Github: <a href={'https://github.com/amusto/react-shuffle-deck/'} target="_blank">https://github.com/amusto/react-shuffle-deck</a></p>
+                </div>
+            </li>
         </ul>
     }
 
@@ -78,9 +89,13 @@ function App() {
                 {skillsText}
             </p>
 
-            {SkillsData.map(skill => {
-                const compProps = { title: skill?.title, percentage: skill?.percentage}
-                return <SkillsProgressBar key={`skill-${skill?.title}`} {...compProps} />
+            {SkillsData
+                .sort((a,b) => b.percentage - a.percentage)
+                .map(skill => {
+                    const compProps = { title: skill?.title, percentage: skill?.percentage}
+                    return <div className={'mt-4'}>
+                        <SkillsProgressBar key={`skill-${skill?.title}`} {...compProps} />
+                    </div>
             })}
 
         </div>

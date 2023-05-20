@@ -1,6 +1,54 @@
 [
   {
+    "title": "Javascript",
+    "percentage": 80
+  },
+  {
+    "title": "Typescript",
+    "percentage": 75
+  },
+  {
+    "title": "React.js",
+    "percentage": 80
+  },
+  {
+    "title": "Redux",
+    "percentage": 80
+  },
+  {
+    "title": "RDBMS/SQL",
+    "percentage": 80
+  },
+  {
+    "title": "Node.js",
+    "percentage": 80
+  },
+  {
+    "title": "Webpack",
+    "percentage": 75
+  },
+  {
+    "title": "HTML5, CSS3, SASS",
+    "percentage": 80
+  },
+  {
+    "title": "Ruby on Rails",
+    "percentage": 60
+  },
+  {
+    "title": "Docker",
+    "percentage": 50
+  },
+  {
+    "title": "Git",
+    "percentage": 75
+  },
+  {
     "title": "AWS - Cloud Development",
+    "percentage": 80
+  },
+  {
+    "title": "CI/CD",
     "percentage": 75
   }
 ]
