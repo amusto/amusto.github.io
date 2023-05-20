@@ -88,7 +88,6 @@ function App() {
             <p className={'skills-header'}>
                 {skillsText}
             </p>
-
             {SkillsData
                 .sort((a,b) => b.percentage - a.percentage)
                 .map(skill => {
@@ -97,13 +96,45 @@ function App() {
                         <SkillsProgressBar key={`skill-${skill?.title}`} {...compProps} />
                     </div>
             })}
-
         </div>
     }
 
     const skillsCardProps = {
         title: 'Skills',
         body: <SkillsDetails />
+    }
+
+
+    const WorkExperienceDetails = () => {
+        const uexamsJobDesc = `As the Principal Engineer & Solutions Architect at uExamS I enjoy working closely with the founding members and team of highly-skilled engineers. Leading architecture initiatives and development workload I closely interact with leadership, aligning features and solutions with our Technology Stack and roadmap.`
+        return <ul>
+            <li className="list-inline-item mb-3" style={{display: 'flex'}}>
+                <div>
+                    <h3 className={'title'}>Principal Engineer / Solutions Architect - uExamS (2020 - Present)</h3>
+                    <p>{uexamsJobDesc}</p>
+                </div>
+            </li>
+            <li className="list-inline-item mb-3" style={{display: 'flex'}}>
+                <div>
+                    <h3 className={'title'}>Senior Software Engineer - College Board (2019 - 2020)</h3>
+                    <p>{`Worked as a Senior Developer leading and mentoring developers on a variety of solutions covering both backend and front end. As a Technical Lead on our team of 5 developers.`}</p>
+                </div>
+            </li>
+            {/*<li className="list-inline-item mb-3" style={{display: 'flex', borderTopStyle: 'solid', borderTopColor: 'black', paddingTop: '20px'}}>*/}
+            {/*    <Image src={amazonCardShufflerScreenshot} rounded fluid className="project-image" />*/}
+            {/*    <div>*/}
+            {/*        <h3 className={'title'}>52 Pickup Card Shuffler</h3>*/}
+            {/*        <p>During an interview at Amazon I was asked to build a simple card shuffler app. The original ask was to use Javascript Classes and I took it a bit further.</p>*/}
+            {/*        <p>Demo: <a href={'http://react-52-card-pickup.armandomusto.com/'} target="_blank">http://react-52-card-pickup.armandomusto.com</a></p>*/}
+            {/*        <p>Github: <a href={'https://github.com/amusto/react-shuffle-deck/'} target="_blank">https://github.com/amusto/react-shuffle-deck</a></p>*/}
+            {/*    </div>*/}
+            {/*</li>*/}
+        </ul>
+    }
+
+    const workExperienceCardProps = {
+        title: 'Work Experience',
+        body: <WorkExperienceDetails />
     }
 
     return (
@@ -129,6 +160,7 @@ function App() {
                 <Col md={{ span: 8 }}>
                     <ContentCard {...aboutMeCardProps} />
                     <ContentCard {...projectsCardProps} />
+                    <ContentCard {...workExperienceCardProps} />
                 </Col>
                 <Col>
                     <ContentCard {...locationCardProps} />
