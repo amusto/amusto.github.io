@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
-import { Container, Row, Col, Image, ProgressBar } from "react-bootstrap";
+import { Container, Row, Col, Image } from "react-bootstrap";
 
 import {
     ContentCard,
     SkillsProgressBar
 } from "./components";
+
+import { getProjects } from "./services";
 
 import SkillsData from "./content/mySkills.json";
 
@@ -17,23 +19,16 @@ import './App.scss';
 import { Linkedin, Github, GeoAlt, Envelope } from 'react-bootstrap-icons';
 
 function App() {
-    const [mySkillsList, setMySkillsList] = useState();
+    const [mySkillsList, setMySkillsList] = useState([]);
 
     // TODO: Setup to pull content from a backend resource (API)
-    // useEffect(() => {
-    //     setMySkillsList({ loading: true });
-    //     const user = `https://api.github.com/users/hacktivist123/repos`;
-    //     fetch(user)
-    //         .then((res) => res.json())
-    //         .then((repos) => {
-    //             setMySkillsList({ loading: false, repos: repos });
-    //         });
-    // }, [setMySkillsList]);
-    //
-    // useEffect(() => {
-    //     console.log({mySkillsList});
-    // }, [mySkillsList]);
+    useEffect(() => {
+        getProjects().then(response => setMySkillsList(response?.Items));
+    }, [setMySkillsList]);
 
+    useEffect(() => {
+        console.log({mySkillsList});
+    }, [mySkillsList]);
 
     const aboutMeCardProps = {
         title: 'About Me',
@@ -70,8 +65,8 @@ function App() {
                 <div>
                     <h3 className={'title'}>52 Pickup Card Shuffler</h3>
                     <p>During an interview at Amazon I was asked to build a simple card shuffler app. The original ask was to use Javascript Classes and I took it a bit further.</p>
-                    <p>Demo: <a href={'http://react-52-card-pickup.armandomusto.com/'} target="_blank">http://react-52-card-pickup.armandomusto.com</a></p>
-                    <p>Github: <a href={'https://github.com/amusto/react-shuffle-deck/'} target="_blank">https://github.com/amusto/react-shuffle-deck</a></p>
+                    <p>Demo: <a href={'http://react-52-card-pickup.armandomusto.com/'} target="_blank" rel={'noreferrer'}>http://react-52-card-pickup.armandomusto.com</a></p>
+                    <p>Github: <a href={'https://github.com/amusto/react-shuffle-deck/'} target="_blank" rel={'noreferrer'}>https://github.com/amusto/react-shuffle-deck</a></p>
                 </div>
             </li>
         </ul>
@@ -92,7 +87,7 @@ function App() {
                 .sort((a,b) => b.percentage - a.percentage)
                 .map(skill => {
                     const compProps = { title: skill?.title, percentage: skill?.percentage}
-                    return <div className={'mt-4'}>
+                    return <div className={'mt-4'} key={skill?.title}>
                         <SkillsProgressBar key={`skill-${skill?.title}`} {...compProps} />
                     </div>
             })}
@@ -146,10 +141,10 @@ function App() {
                         <h1 className={'name'}>Armando Musto</h1>
                         <h2 className={'desc'}>Software Engineer / Solutions Architect</h2>
                         <ul className="social list-inline">
-                            <li className="list-inline-item"><a href="https://www.linkedin.com/in/armandomusto/" target="_blank">
+                            <li className="list-inline-item"><a href="https://www.linkedin.com/in/armandomusto/" target="_blank" rel={'noreferrer'}>
                                 <Linkedin color="grey" size={40} />
                             </a></li>
-                            <li className="list-inline-item"><a href="https://github.com/amusto" target="_blank">
+                            <li className="list-inline-item"><a href="https://github.com/amusto" target="_blank" rel={'noreferrer'}>
                                 <Github color="grey" size={40} />
                             </a></li>
                         </ul>

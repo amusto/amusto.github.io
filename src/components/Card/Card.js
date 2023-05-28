@@ -1,4 +1,4 @@
-import { Button, Card } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
 const CardComponent = ({ title = 'Profile', image, description = 'Blah blah blah'}) => {
 
