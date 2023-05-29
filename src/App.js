@@ -171,11 +171,14 @@ function App() {
                         <ContentCard {...projectsCardProps} />
                     </Row>
                     <Row>
+                        <a name='work' />
                         <ContentCard {...workExperienceCardProps} />
                     </Row>
                 </Col>
                 <Col>
                     <ContentCard {...locationCardProps} />
+
+                    <a name='skills' />
                     <ContentCard {...skillsCardProps} />
                 </Col>
             </Row>
