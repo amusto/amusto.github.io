@@ -16,6 +16,10 @@
     padding-left: 120px;
     padding-right: 120px;
 
+    @media (max-width: 575px) {
+      display: none;
+    }
+
     .col {
       align-items: center;
       display: flex;
@@ -54,8 +58,8 @@
 
   .main-container {
     min-height: 100%;
-    padding-left: 150px;
-    padding-right: 150px;
+    padding-left: 10%;
+    padding-right: 10%;
   }
 }
 

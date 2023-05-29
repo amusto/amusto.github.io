@@ -3,7 +3,8 @@ import { Container, Row, Col, Image } from "react-bootstrap";
 
 import {
     ContentCard,
-    SkillsProgressBar
+    SkillsProgressBar,
+    Navbar
 } from "./components";
 
 import { getProjects } from "./services";
@@ -132,10 +133,20 @@ function App() {
         body: <WorkExperienceDetails />
     }
 
+    const navProps = {
+        sticky: 'top',
+        title: 'Armando Musto - Software Engineer',
+        links: [{ name: 'About Me', link: 'aboutMe' }]
+    }
+
     return (
         <Container fluid className="App">
+            <Row className='d-block d-sm-none'>
+                <Navbar {...navProps} />
+            </Row>
             <Row className="App-header">
                 <Col>
+                    <a name='home' />
                     <Image src={profilePic} rounded fluid className="header-profile-image" />
                     <div className="profile-content">
                         <h1 className={'name'}>Armando Musto</h1>
@@ -152,10 +163,16 @@ function App() {
                 </Col>
             </Row>
             <Row className="main-container">
-                <Col md={{ span: 8 }}>
-                    <ContentCard {...aboutMeCardProps} />
-                    <ContentCard {...projectsCardProps} />
-                    <ContentCard {...workExperienceCardProps} />
+                <Col xs={{ span: 12 }} sm={{ span: 12 }} md={{ span: 12 }} lg={{ span: 8 }}>
+                    <Row>
+                        <ContentCard {...aboutMeCardProps} />
+                    </Row>
+                    <Row className='d-none d-sm-block'>
+                        <ContentCard {...projectsCardProps} />
+                    </Row>
+                    <Row>
+                        <ContentCard {...workExperienceCardProps} />
+                    </Row>
                 </Col>
                 <Col>
                     <ContentCard {...locationCardProps} />
