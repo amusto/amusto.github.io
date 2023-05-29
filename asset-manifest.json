@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.ae63c500.css",
-    "main.js": "/static/js/main.ead536dd.js",
+    "main.css": "/static/css/main.53c3d352.css",
+    "main.js": "/static/js/main.ac19a72d.js",
     "static/media/REMOTEi-screenshot.png": "/static/media/REMOTEi-screenshot.022dcc6acc417e09f9a0.png",
     "static/media/armando-home-office-sm.png": "/static/media/armando-home-office-sm.fbb508e60a19719b0f32.png",
     "static/media/52-card-pickup.png": "/static/media/52-card-pickup.3f473cdbf42f6802ce3f.png",
     "index.html": "/index.html",
-    "main.ae63c500.css.map": "/static/css/main.ae63c500.css.map",
-    "main.ead536dd.js.map": "/static/js/main.ead536dd.js.map"
+    "main.53c3d352.css.map": "/static/css/main.53c3d352.css.map",
+    "main.ac19a72d.js.map": "/static/js/main.ac19a72d.js.map"
   },
   "entrypoints": [
-    "static/css/main.ae63c500.css",
-    "static/js/main.ead536dd.js"
+    "static/css/main.53c3d352.css",
+    "static/js/main.ac19a72d.js"
   ]
 }
