@@ -13,6 +13,7 @@ import SkillsData from "./content/mySkills.json";
 
 import profilePic from "./assets/images/armando-home-office-sm.png";
 import remoteiScreenshot from "./assets/images/REMOTEi-screenshot.png";
+import esteeLauderCodeAssessmentScreenshot from "./assets/images/EsteeLauderAssessment-screenshot.png";
 import amazonCardShufflerScreenshot from "./assets/images/52-card-pickup.png";
 
 import './App.scss';
@@ -33,10 +34,10 @@ function App() {
         });
     }, [setMySkillsList, setMyWorkHistory]);
 
-    useEffect(() => {
-      // console.log({mySkillsList});
-      console.log({myWorkHistory});
-    }, [mySkillsList, myWorkHistory]);
+    // useEffect(() => {
+    //   // console.log({mySkillsList});
+    //   console.log({myWorkHistory});
+    // }, [mySkillsList, myWorkHistory]);
 
     const aboutMeCardProps = {
         title: 'About Me',
@@ -61,6 +62,15 @@ function App() {
     // Should provide multiple projects (multiple list items)
     const ProjectRemoteDetails = () => {
         return <ul>
+          <li className="list-inline-item mb-3" style={{display: 'flex'}}>
+            <Image src={esteeLauderCodeAssessmentScreenshot} rounded fluid className="project-image" />
+            <div>
+              <h3 className={'title'}>TypeAhead Code Assessment (React/Node/SASS))</h3>
+              <p>I  was asked to complete a code assessment where I used React and SASS on the front end and Node/Express to mimic the Typeahead backend services</p>
+              <p>It was a fun weekend project and turned out real well. (Demo site coming soon!)</p>
+              <p><a href={'https://github.com/amusto/typeahead-search-code-assessment'}>Code Repo</a></p>
+            </div>
+          </li>
             <li className="list-inline-item mb-3" style={{display: 'flex'}}>
                 <Image src={remoteiScreenshot} rounded fluid className="project-image" />
                 <div>
