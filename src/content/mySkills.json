@@ -4,6 +4,10 @@
     "percentage": 80
   },
   {
+    "title": "Spring Boot / Java",
+    "percentage": 70
+  },
+  {
     "title": "Typescript",
     "percentage": 75
   },
@@ -37,7 +41,15 @@
   },
   {
     "title": "Docker",
-    "percentage": 50
+    "percentage": 75
+  },
+  {
+    "title": "Kafka",
+    "percentage": 70
+  },
+  {
+    "title": "Kubernetes",
+    "percentage": 75
   },
   {
     "title": "Git",
@@ -48,7 +60,11 @@
     "percentage": 80
   },
   {
-    "title": "CI/CD",
+    "title": "DevOps (CI/CD, Pipelines, IaC)",
+    "percentage": 80
+  },
+  {
+    "title": "Terraform",
     "percentage": 75
   }
 ]

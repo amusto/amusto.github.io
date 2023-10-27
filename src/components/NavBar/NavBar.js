@@ -1,7 +1,6 @@
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 
 const NavBar = (props) => {
-    console.log({props});
     return (
         <Navbar bg="light" expand="lg" className="mb-4">
             <Container>
