@@ -62,32 +62,32 @@ function App() {
     // Should provide multiple projects (multiple list items)
     const ProjectRemoteDetails = () => {
         return <ul>
-          <li className="list-inline-item mb-3" style={{display: 'flex'}}>
-            <Image src={esteeLauderCodeAssessmentScreenshot} rounded fluid className="project-image" />
-            <div>
-              <h3 className={'title'}>TypeAhead Code Assessment (React/Node/SASS))</h3>
-              <p>I  was asked to complete a code assessment where I used React and SASS on the front end and Node/Express to mimic the Typeahead backend services</p>
-              <p>It was a fun weekend project and turned out real well. (Demo site coming soon!)</p>
-              <p><a href={'https://github.com/amusto/typeahead-search-code-assessment'}>Code Repo</a></p>
-            </div>
+          {/*<li className="list-inline-item mb-3" style={{display: 'flex'}}>*/}
+          {/*  <Image src={esteeLauderCodeAssessmentScreenshot} rounded fluid className="project-image" />*/}
+          {/*  <div>*/}
+          {/*    <h3 className={'title'}>TypeAhead Code Assessment (React/Node/SASS))</h3>*/}
+          {/*    <p>I  was asked to complete a code assessment where I used React and SASS on the front end and Node/Express to mimic the Typeahead backend services</p>*/}
+          {/*    <p>It was a fun weekend project and turned out real well. (Demo site coming soon!)</p>*/}
+          {/*    <p><a href={'https://github.com/amusto/typeahead-search-code-assessment'}>Code Repo</a></p>*/}
+          {/*  </div>*/}
+          {/*</li>*/}
+          <li className="list-inline-item mb-3" style={{display: 'flex', borderTopStyle: 'solid', borderTopColor: 'black', paddingTop: '20px'}}>
+              <Image src={remoteiScreenshot} rounded fluid className="project-image" />
+              <div>
+                  <h3 className={'title'}>REMOTEi - A Desktop Application built using (Electron, React, Typescript)</h3>
+                  <p>A Virtual Learning Desktop application supporting persons with special needs and disabilities.</p>
+                  <p>The desktop application was build using the Electron library (https://www.electronjs.org/), Typescript and React.js</p>
+              </div>
           </li>
-            <li className="list-inline-item mb-3" style={{display: 'flex'}}>
-                <Image src={remoteiScreenshot} rounded fluid className="project-image" />
-                <div>
-                    <h3 className={'title'}>REMOTEi - A Desktop Application built using (Electron, React, Typescript)</h3>
-                    <p>A Virtual Learning Desktop application supporting persons with special needs and disabilities.</p>
-                    <p>The desktop application was build using the Electron library (https://www.electronjs.org/), Typescript and React.js</p>
-                </div>
-            </li>
-            <li className="list-inline-item mb-3" style={{display: 'flex', borderTopStyle: 'solid', borderTopColor: 'black', paddingTop: '20px'}}>
-                <Image src={amazonCardShufflerScreenshot} rounded fluid className="project-image" />
-                <div>
-                    <h3 className={'title'}>52 Pickup Card Shuffler</h3>
-                    <p>During an interview at Amazon I was asked to build a simple card shuffler app. The original ask was to use Javascript Classes and I took it a bit further.</p>
-                    <p>Demo: <a href={'http://react-52-card-pickup.armandomusto.com/'} target="_blank" rel={'noreferrer'}>http://react-52-card-pickup.armandomusto.com</a></p>
-                    <p>Github: <a href={'https://github.com/amusto/react-shuffle-deck/'} target="_blank" rel={'noreferrer'}>https://github.com/amusto/react-shuffle-deck</a></p>
-                </div>
-            </li>
+          <li className="list-inline-item mb-3" style={{display: 'flex', borderTopStyle: 'solid', borderTopColor: 'black', paddingTop: '20px'}}>
+              <Image src={amazonCardShufflerScreenshot} rounded fluid className="project-image" />
+              <div>
+                  <h3 className={'title'}>52 Pickup Card Shuffler</h3>
+                  <p>During an interview at Amazon I was asked to build a simple card shuffler app. The original ask was to use Javascript Classes and I took it a bit further.</p>
+                  <p>Demo: <a href={'http://react-52-card-pickup.armandomusto.com/'} target="_blank" rel={'noreferrer'}>http://react-52-card-pickup.armandomusto.com</a></p>
+                  <p>Github: <a href={'https://github.com/amusto/react-shuffle-deck/'} target="_blank" rel={'noreferrer'}>https://github.com/amusto/react-shuffle-deck</a></p>
+              </div>
+          </li>
         </ul>
     }
 
@@ -174,10 +174,10 @@ function App() {
                     <Row className='d-none d-sm-block'>
                         <ContentCard {...projectsCardProps} />
                     </Row>
-                    <Row>
-                        <a name='work' />
-                        <ContentCard {...workExperienceCardProps} />
-                    </Row>
+                    {/*<Row>*/}
+                    {/*    <a name='work' />*/}
+                    {/*    <ContentCard {...workExperienceCardProps} />*/}
+                    {/*</Row>*/}
                 </Col>
                 <Col>
                     <ContentCard {...locationCardProps} />
