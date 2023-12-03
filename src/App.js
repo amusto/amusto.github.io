@@ -14,6 +14,7 @@ import SkillsData from "./content/mySkills.json";
 import profilePic from "./assets/images/armando-home-office-sm.png";
 import remoteiScreenshot from "./assets/images/REMOTEi-screenshot.png";
 import esteeLauderCodeAssessmentScreenshot from "./assets/images/EsteeLauderAssessment-screenshot.png";
+import moduleFederationExampleScreenshot from "./assets/images/moduleFederationExampleScreenshot.png";
 import amazonCardShufflerScreenshot from "./assets/images/52-card-pickup.png";
 
 import './App.scss';
@@ -62,19 +63,28 @@ function App() {
     // Should provide multiple projects (multiple list items)
     const ProjectRemoteDetails = () => {
         return <ul>
-          {/*<li className="list-inline-item mb-3" style={{display: 'flex'}}>*/}
-          {/*  <Image src={esteeLauderCodeAssessmentScreenshot} rounded fluid className="project-image" />*/}
-          {/*  <div>*/}
-          {/*    <h3 className={'title'}>TypeAhead Code Assessment (React/Node/SASS))</h3>*/}
-          {/*    <p>I  was asked to complete a code assessment where I used React and SASS on the front end and Node/Express to mimic the Typeahead backend services</p>*/}
-          {/*    <p>It was a fun weekend project and turned out real well. (Demo site coming soon!)</p>*/}
-          {/*    <p><a href={'https://github.com/amusto/typeahead-search-code-assessment'}>Code Repo</a></p>*/}
-          {/*  </div>*/}
-          {/*</li>*/}
+          <li className="list-inline-item mb-3" style={{display: 'flex'}}>
+            <Image src={moduleFederationExampleScreenshot} rounded fluid className="project-image" />
+            <div>
+              <h3 className={'title'}>MFE Module Federation example (Using Lerna and Webpack)</h3>
+              <p>I'm evaluating various implementations for MFE architectures in the hopes of better understanding benefits of multiple modules and reuse.</p>
+              <p>Micro frontend anarchy refers to an MFE setup that mixes a range of competing technologies together. Understanding the drivers when designing a projects structure.</p>
+              <p><a href={'https://github.com/amusto/lerna-mfe-example'} target={'_blank'}>Code</a> | <a href={'http://demo.musto.io/'} target={'_blank'}>Demo</a></p>
+            </div>
+          </li>
+          <li className="list-inline-item mb-3" style={{display: 'flex', borderTopStyle: 'solid', borderTopColor: 'black', paddingTop: '20px'}}>
+            <Image src={esteeLauderCodeAssessmentScreenshot} rounded fluid className="project-image" />
+            <div>
+              <h3 className={'title'}>FullStack Development - TypeAhead (React/Node/SASS))</h3>
+              <p>I was asked in a code assessment where I used React and SASS on the front end and Node/Express to mimic the Typeahead backend services</p>
+              <p>It was a fun weekend project and turned out real well. (Demo site coming soon!)</p>
+              <p><a href={'https://github.com/amusto/typeahead-search-code-assessment'}>Code Repo</a></p>
+            </div>
+          </li>
           <li className="list-inline-item mb-3" style={{display: 'flex', borderTopStyle: 'solid', borderTopColor: 'black', paddingTop: '20px'}}>
               <Image src={remoteiScreenshot} rounded fluid className="project-image" />
               <div>
-                  <h3 className={'title'}>REMOTEi - A Desktop Application built using (Electron, React, Typescript)</h3>
+                  <h3 className={'title'}>Electron (React, Typescript) - REMOTEi Desktop Application</h3>
                   <p>A Virtual Learning Desktop application supporting persons with special needs and disabilities.</p>
                   <p>The desktop application was build using the Electron library (https://www.electronjs.org/), Typescript and React.js</p>
               </div>
@@ -82,7 +92,7 @@ function App() {
           <li className="list-inline-item mb-3" style={{display: 'flex', borderTopStyle: 'solid', borderTopColor: 'black', paddingTop: '20px'}}>
               <Image src={amazonCardShufflerScreenshot} rounded fluid className="project-image" />
               <div>
-                  <h3 className={'title'}>52 Pickup Card Shuffler</h3>
+                  <h3 className={'title'}>(React, Recursion, Javascript Classes) 52 Pickup Card Shuffler</h3>
                   <p>During an interview at Amazon I was asked to build a simple card shuffler app. The original ask was to use Javascript Classes and I took it a bit further.</p>
                   <p>Demo: <a href={'http://react-52-card-pickup.armandomusto.com/'} target="_blank" rel={'noreferrer'}>http://react-52-card-pickup.armandomusto.com</a></p>
                   <p>Github: <a href={'https://github.com/amusto/react-shuffle-deck/'} target="_blank" rel={'noreferrer'}>https://github.com/amusto/react-shuffle-deck</a></p>
