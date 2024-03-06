@@ -1,0 +1,28 @@
+.card {
+  background-color: #ffffff;
+  margin-bottom: 10px;
+
+  .header {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: #545e69;
+    font-size: 24px;
+  }
+
+  .body {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 600px;
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
+
+  .css-fix {
+    white-space: pre-wrap;
+  }
+
+}

@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
+import Card from "react-bootstrap/Card";
 
-import {
-    ContentCard,
-    SkillsProgressBar,
-    Navbar
-} from "./components";
+// import SkillsProgressBar from "./components/SkillsProgressBar/SkillsProgressBar";
+// import Navbar from "./components/NavBarMobile/NavBar";
+
+import ContentCard from "./components/ContentCard/ContentCard";
+import SideNavContentCard from "./components/SideNavContent/SideNavCard";
+import SkillsProgressBar from "./components/SkillsProgressBar/SkillsProgressBar";
+import Navbar from "./components/NavBar/NavBar";
+import { Icon } from "./components/Icon/Icon";
 
 import { getProjects } from "./services";
 
@@ -21,19 +25,30 @@ import './App.scss';
 
 import { Linkedin, Github, GeoAlt, Envelope } from 'react-bootstrap-icons';
 
+const SIDE_NAV_CONTENT = [
+  // {
+  //   title: 'About',
+  //   icon: 'Person'
+  // },
+  {
+    title: 'Works',
+    icon: 'FileEarmarkText'
+  }
+];
+
 function App() {
     const [mySkillsList, setMySkillsList] = useState([]);
     const [myWorkHistory, setMyWorkHistory] = useState([]);
 
     // TODO: Setup to pull content from a backend resource (API)
-    useEffect(() => {
-      getProjects().then(response => setMySkillsList(response?.Items));
-      getProjects()
-        .then(response => {
-          const workHistoryArray = response?.Items.sort((a,b) => {return new Date(b.startDate) - new Date(a.startDate)});
-          setMyWorkHistory(workHistoryArray);
-        });
-    }, [setMySkillsList, setMyWorkHistory]);
+    // useEffect(() => {
+    //   getProjects().then(response => setMySkillsList(response?.Items));
+    //   getProjects()
+    //     .then(response => {
+    //       const workHistoryArray = response?.Items.sort((a,b) => {return new Date(b.startDate) - new Date(a.startDate)});
+    //       setMyWorkHistory(workHistoryArray);
+    //     });
+    // }, [setMySkillsList, setMyWorkHistory]);
 
     // useEffect(() => {
     //   // console.log({mySkillsList});
@@ -48,7 +63,7 @@ function App() {
     const LocationDetails = () => {
         return <ul>
                 <li className="list-inline-item mb-3" style={{display: 'flex'}}>
-                    <GeoAlt color="grey" size={20} /> <span className={'ms-3'}>Washington, DC</span>
+                    <GeoAlt color="grey" size={20} /> <span className={'ms-3'}>Gaithersburg, MD</span>
                 </li>
                 <li className="list-inline-item" style={{display: 'flex'}}>
                     <Envelope color="grey" size={20} /> <span className={'ms-3'}><a href={'mailto:armando.musto@gmail.com'}>armando.musto@gmail.com</a></span>
@@ -106,14 +121,26 @@ function App() {
         body: <ProjectRemoteDetails />
     }
 
+  const SideNavigationContent = () => {
+    return SIDE_NAV_CONTENT.map(navItem => {
+          const props = { title: navItem?.title}
+          return <div className={'side-nav-item'} key={navItem?.title}>
+            <Icon
+              iconName={navItem?.icon}
+              color="white"
+              size={35}
+              className="align-top"
+            />
+            <span>{navItem?.title}</span>
+          </div>
+        })
+  }
+
     const SkillsDetails = () => {
-        const skillsText = `Over 20+ years experience across a range of disciplines in the Information Technology industry. \n\nI’ve enjoyed working on Enterprise-level projects with small to large development teams. This includes 10+ years working with Cloud solutions, specifically in AWS.`
+        // const skillsText = `Over 20+ years experience across a range of disciplines in the Information Technology industry. \n\nI’ve enjoyed working on Enterprise-level projects with small to large development teams. This includes 10+ years working with Cloud solutions, specifically in AWS.`
         return <div>
-            <p className={'skills-header'}>
-                {skillsText}
-            </p>
             {SkillsData
-                .sort((a,b) => b.percentage - a.percentage)
+                // .sort((a,b) => b.percentage - a.percentage)
                 .map(skill => {
                     const compProps = { title: skill?.title, percentage: skill?.percentage}
                     return <div className={'mt-4'} key={skill?.title}>
@@ -124,28 +151,32 @@ function App() {
     }
 
     const skillsCardProps = {
-        title: 'Skills',
+        title: '',
         body: <SkillsDetails />
     }
+  const sideNavigationProps = {
+    title: '',
+    body: <SideNavigationContent />
+  }
 
-    const WorkExperienceDetails = () => {
-        const uexamsJobDesc = `As the Principal Engineer & Solutions Architect at uExamS I enjoy working closely with the founding members and team of highly-skilled engineers. Leading architecture initiatives and development workload I closely interact with leadership, aligning features and solutions with our Technology Stack and roadmap.`
-        return <ul>
-            {myWorkHistory.map((workRecord) => {
-              return <li key={workRecord.projectId} className="list-inline-item mb-3" style={{display: 'flex'}}>
-                <div>
-                  <h3 className={'title'}>{workRecord.name} - {workRecord.company} ({new Date(Date.parse(workRecord.startDate)).toLocaleDateString('en-us', { year:"numeric", month:"short"})} - {workRecord.endDate ? workRecord.endDate : 'Present'})</h3>
-                  <p>{workRecord.description}</p>
-                </div>
-              </li>
-            })}
-        </ul>
-    }
-
-    const workExperienceCardProps = {
-        title: 'Work Experience',
-        body: <WorkExperienceDetails />
-    }
+    // const WorkExperienceDetails = () => {
+    //     const uexamsJobDesc = `As the Principal Engineer & Solutions Architect at uExamS I enjoy working closely with the founding members and team of highly-skilled engineers. Leading architecture initiatives and development workload I closely interact with leadership, aligning features and solutions with our Technology Stack and roadmap.`
+    //     return <ul>
+    //         {myWorkHistory.map((workRecord) => {
+    //           return <li key={workRecord.projectId} className="list-inline-item mb-3" style={{display: 'flex'}}>
+    //             <div>
+    //               <h3 className={'title'}>{workRecord.name} - {workRecord.company} ({new Date(Date.parse(workRecord.startDate)).toLocaleDateString('en-us', { year:"numeric", month:"short"})} - {workRecord.endDate ? workRecord.endDate : 'Present'})</h3>
+    //               <p>{workRecord.description}</p>
+    //             </div>
+    //           </li>
+    //         })}
+    //     </ul>
+    // }
+    //
+    // const workExperienceCardProps = {
+    //     title: 'Work Experience',
+    //     body: <WorkExperienceDetails />
+    // }
 
     const navProps = {
         sticky: 'top',
@@ -155,47 +186,108 @@ function App() {
 
     return (
         <Container fluid className="App">
-            <Row className='d-block d-sm-none'>
-                <Navbar {...navProps} />
-            </Row>
-            <Row className="App-header">
-                <Col>
-                    <a name='home' />
-                    <Image src={profilePic} rounded fluid className="header-profile-image" />
-                    <div className="profile-content">
-                        <h1 className={'name'}>Armando Musto</h1>
-                        <h2 className={'desc'}>Software Engineer / Solutions Architect</h2>
-                        <ul className="social list-inline">
+          <Row className='d-block d-sm-none'>
+            <Navbar {...navProps} />
+          </Row>
+          <Row className={'header-row'}>
+            <Col className={'header-title'}>
+              amusto.github.io
+            </Col>
+          </Row>
+          <Row>
+            <Col className={'main-container'}>
+              <div className={'profile-column container-item'}>
+                <Card
+                  className="mb-4"
+                >
+                  <Card.Body>
+                    <Card.Title>
+                      <div className={'profile-content'}>
+                        <div className={'personal-info-image'}>
+                          <Image src={profilePic} rounded fluid className="header-profile-image" />
+                        </div>
+                        <h4 className={'name'}>Armando Musto</h4>
+                        <span className={'title mb-15'}>
+                        Software Engineer / Architect
+                      </span>
+
+                        <div className={'contact-details'}>
+                          <div className={'email mb-15'}>
+                            <Icon
+                              iconName="Envelope"
+                              color="black"
+                              size={25}
+                              className="align-top icon-spacing"
+                            />
+                            <span className={'email-string'}>armando.musto@gmail.com</span>
+                          </div>
+
+                          <div className={'location mb-15'}>
+                            <Icon
+                              iconName="GeoAlt"
+                              color="black"
+                              size={25}
+                              className="align-top icon-spacing"
+                            />
+                            <span>Gaithersburg, MD</span>
+                          </div>
+                        </div>
+
+                        <div id={'profile-content-footer'}>
+                          <ul className="social list-inline">
                             <li className="list-inline-item"><a href="https://www.linkedin.com/in/armandomusto/" target="_blank" rel={'noreferrer'}>
-                                <Linkedin color="grey" size={40} />
+                              <Icon
+                                iconName="Linkedin"
+                                color="#0A66C2"
+                                size={35}
+                                className="align-top"
+                              />
                             </a></li>
                             <li className="list-inline-item"><a href="https://github.com/amusto" target="_blank" rel={'noreferrer'}>
-                                <Github color="grey" size={40} />
+                              <Icon
+                                iconName="Github"
+                                color="black"
+                                size={35}
+                                className="align-top"
+                              />
                             </a></li>
-                        </ul>
-                    </div>
-                </Col>
-            </Row>
-            <Row className="main-container">
-                <Col xs={{ span: 12 }} sm={{ span: 12 }} md={{ span: 12 }} lg={{ span: 8 }}>
-                    <Row>
-                        <ContentCard {...aboutMeCardProps} />
-                    </Row>
-                    <Row className='d-none d-sm-block'>
-                        <ContentCard {...projectsCardProps} />
-                    </Row>
-                    {/*<Row>*/}
-                    {/*    <a name='work' />*/}
-                    {/*    <ContentCard {...workExperienceCardProps} />*/}
-                    {/*</Row>*/}
-                </Col>
-                <Col>
-                    <ContentCard {...locationCardProps} />
+                          </ul>
+                        </div>
+                      </div>
+                    </Card.Title>
+                  </Card.Body>
+                </Card>
 
-                    <a name='skills' />
-                    <ContentCard {...skillsCardProps} />
-                </Col>
-            </Row>
+              </div>
+              <div className={'main-column container-item'}>
+                <ContentCard {...projectsCardProps} />
+              </div>
+              <div className={'sidenav-column container-item'}>
+                <SideNavContentCard {...sideNavigationProps} />
+              </div>
+            </Col>
+          </Row>
+
+            {/*<Row className="main-container">*/}
+            {/*    <Col xs={{ span: 12 }} sm={{ span: 12 }} md={{ span: 12 }} lg={{ span: 8 }}>*/}
+            {/*        <Row>*/}
+            {/*            <ContentCard {...aboutMeCardProps} />*/}
+            {/*        </Row>*/}
+            {/*        <Row className='d-none d-sm-block'>*/}
+            {/*            <ContentCard {...projectsCardProps} />*/}
+            {/*        </Row>*/}
+            {/*        /!*<Row>*!/*/}
+            {/*        /!*    <a name='work' />*!/*/}
+            {/*        /!*    <ContentCard {...workExperienceCardProps} />*!/*/}
+            {/*        /!*</Row>*!/*/}
+            {/*    </Col>*/}
+            {/*    <Col>*/}
+            {/*        <ContentCard {...locationCardProps} />*/}
+
+            {/*        <a name='skills' />*/}
+            {/*        <ContentCard {...skillsCardProps} />*/}
+            {/*    </Col>*/}
+            {/*</Row>*/}
         </Container>
     );
 }
