@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.60db393c.css",
-    "main.js": "/static/js/main.deecc765.js",
+    "main.css": "/static/css/main.9a57e872.css",
+    "main.js": "/static/js/main.823790d5.js",
     "static/media/REMOTEi-screenshot.png": "/static/media/REMOTEi-screenshot.022dcc6acc417e09f9a0.png",
     "static/media/armando-home-office-sm.png": "/static/media/armando-home-office-sm.fbb508e60a19719b0f32.png",
     "static/media/EsteeLauderAssessment-screenshot.png": "/static/media/EsteeLauderAssessment-screenshot.9c35cdf6573409f25f19.png",
     "static/media/52-card-pickup.png": "/static/media/52-card-pickup.3f473cdbf42f6802ce3f.png",
     "static/media/moduleFederationExampleScreenshot.png": "/static/media/moduleFederationExampleScreenshot.932c21ece9335278573d.png",
     "index.html": "/index.html",
-    "main.60db393c.css.map": "/static/css/main.60db393c.css.map",
-    "main.deecc765.js.map": "/static/js/main.deecc765.js.map"
+    "main.9a57e872.css.map": "/static/css/main.9a57e872.css.map",
+    "main.823790d5.js.map": "/static/js/main.823790d5.js.map"
   },
   "entrypoints": [
-    "static/css/main.60db393c.css",
-    "static/js/main.deecc765.js"
+    "static/css/main.9a57e872.css",
+    "static/js/main.823790d5.js"
   ]
 }
