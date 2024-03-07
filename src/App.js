@@ -37,24 +37,6 @@ const SIDE_NAV_CONTENT = [
 ];
 
 function App() {
-    const [mySkillsList, setMySkillsList] = useState([]);
-    const [myWorkHistory, setMyWorkHistory] = useState([]);
-
-    // TODO: Setup to pull content from a backend resource (API)
-    // useEffect(() => {
-    //   getProjects().then(response => setMySkillsList(response?.Items));
-    //   getProjects()
-    //     .then(response => {
-    //       const workHistoryArray = response?.Items.sort((a,b) => {return new Date(b.startDate) - new Date(a.startDate)});
-    //       setMyWorkHistory(workHistoryArray);
-    //     });
-    // }, [setMySkillsList, setMyWorkHistory]);
-
-    // useEffect(() => {
-    //   // console.log({mySkillsList});
-    //   console.log({myWorkHistory});
-    // }, [mySkillsList, myWorkHistory]);
-
     const aboutMeCardProps = {
         title: 'About Me',
         body: `I'm enjoying my current role at uExamS where as the Principal Engineer & Solutions Architect we provide virtual learning resources for people with special needs or disabilities.`
@@ -69,10 +51,6 @@ function App() {
                     <Envelope color="grey" size={20} /> <span className={'ms-3'}><a href={'mailto:armando.musto@gmail.com'}>armando.musto@gmail.com</a></span>
                 </li>
             </ul>
-    }
-
-    const locationCardProps = {
-        body: <LocationDetails />
     }
 
     // Should provide multiple projects (multiple list items)
@@ -159,25 +137,6 @@ function App() {
     body: <SideNavigationContent />
   }
 
-    // const WorkExperienceDetails = () => {
-    //     const uexamsJobDesc = `As the Principal Engineer & Solutions Architect at uExamS I enjoy working closely with the founding members and team of highly-skilled engineers. Leading architecture initiatives and development workload I closely interact with leadership, aligning features and solutions with our Technology Stack and roadmap.`
-    //     return <ul>
-    //         {myWorkHistory.map((workRecord) => {
-    //           return <li key={workRecord.projectId} className="list-inline-item mb-3" style={{display: 'flex'}}>
-    //             <div>
-    //               <h3 className={'title'}>{workRecord.name} - {workRecord.company} ({new Date(Date.parse(workRecord.startDate)).toLocaleDateString('en-us', { year:"numeric", month:"short"})} - {workRecord.endDate ? workRecord.endDate : 'Present'})</h3>
-    //               <p>{workRecord.description}</p>
-    //             </div>
-    //           </li>
-    //         })}
-    //     </ul>
-    // }
-    //
-    // const workExperienceCardProps = {
-    //     title: 'Work Experience',
-    //     body: <WorkExperienceDetails />
-    // }
-
     const navProps = {
         sticky: 'top',
         title: 'Armando Musto - Software Engineer',
@@ -196,7 +155,7 @@ function App() {
           </Row>
           <Row>
             <Col className={'main-container'}>
-              <div className={'profile-column container-item'}>
+              <div className={'profile-column'}>
                 <Card
                   className="mb-4"
                 >
@@ -257,37 +216,18 @@ function App() {
                     </Card.Title>
                   </Card.Body>
                 </Card>
-
               </div>
-              <div className={'main-column container-item'}>
+              <div className={'main-column'}>
                 <ContentCard {...projectsCardProps} />
               </div>
-              <div className={'sidenav-column container-item'}>
+              {/*<div className={'main-column container-item'}>*/}
+              {/*  <ContentCard {...projectsCardProps} />*/}
+              {/*</div>*/}
+              <div className={'sidenav-column'}>
                 <SideNavContentCard {...sideNavigationProps} />
               </div>
             </Col>
           </Row>
-
-            {/*<Row className="main-container">*/}
-            {/*    <Col xs={{ span: 12 }} sm={{ span: 12 }} md={{ span: 12 }} lg={{ span: 8 }}>*/}
-            {/*        <Row>*/}
-            {/*            <ContentCard {...aboutMeCardProps} />*/}
-            {/*        </Row>*/}
-            {/*        <Row className='d-none d-sm-block'>*/}
-            {/*            <ContentCard {...projectsCardProps} />*/}
-            {/*        </Row>*/}
-            {/*        /!*<Row>*!/*/}
-            {/*        /!*    <a name='work' />*!/*/}
-            {/*        /!*    <ContentCard {...workExperienceCardProps} />*!/*/}
-            {/*        /!*</Row>*!/*/}
-            {/*    </Col>*/}
-            {/*    <Col>*/}
-            {/*        <ContentCard {...locationCardProps} />*/}
-
-            {/*        <a name='skills' />*/}
-            {/*        <ContentCard {...skillsCardProps} />*/}
-            {/*    </Col>*/}
-            {/*</Row>*/}
         </Container>
     );
 }
