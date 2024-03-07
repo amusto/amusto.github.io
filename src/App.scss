@@ -3,7 +3,12 @@
   min-height: 100vh;
 
   .header-row {
-    margin-bottom: 105px;
+    display: none;
+
+    @media (min-width: 768px) {
+      display: flex;
+      margin-bottom: 105px;
+    }
 
     .header-title {
       font-weight: bold;
@@ -38,10 +43,15 @@
     margin: 0;
 
     .profile-column {
-      max-width: 350px;
-      padding-right: 15px;
+      width: 90%;
+
+      @media (min-width: 768px) {
+        max-width: 350px;
+        padding-right: 15px;
+        min-height: 100%;
+      }
+
       text-align: center;
-      min-height: 100%;
 
       .header-profile-image {
         height: 250px;
@@ -50,12 +60,19 @@
 
       .profile-content {
         position: relative;
-        min-height: 650px;
+        min-height: 500px;
+
+        @media (min-width: 768px) {
+          min-height: 650px;
+        }
+
         font-size: 18px;
         font-family: 'Montserrat', sans-serif;
 
-        .personal-info-image {
-          margin: -100px auto 21px;
+        @media (min-width: 768px) {
+          .personal-info-image {
+            margin: -100px auto 21px;
+          }
         }
 
         .name {
@@ -108,12 +125,23 @@
     }
 
     .main-column {
-      width: 1024px;
-      text-align: center;
+      width: 90%;
+
+      @media (min-width: 768px) {
+        width: 1024px;
+      }
+
+      //text-align: center;
       min-height: 100%;
     }
 
     .sidenav-column {
+      display: none;
+
+      @media (min-width: 768px) {
+        display: flex;
+      }
+
       border-radius: 20px;
       min-height: 100%;
       text-align: center;
@@ -143,8 +171,6 @@
 
   .main-container {
     min-height: 100%;
-    //padding-left: 10%;
-    //padding-right: 10%;
   }
 }
 
@@ -155,8 +181,15 @@
   }
 
   .project-image {
-    width: 250px;
-    margin-right: 10px;
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .project-image {
+      display: flex;
+      width: 250px;
+      margin-right: 10px;
+    }
   }
 
   .title {

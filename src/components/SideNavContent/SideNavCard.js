@@ -3,6 +3,11 @@ import {Card} from 'react-bootstrap';
 import "./SideNavCard.scss";
 
 const SideNavCard = ({title, body, image}) => {
+
+    // function changeUrl() {
+    //   window.location.href = 'http://my-new-url.com';
+    // }
+
     return (
         <Card
             className="mb-4"

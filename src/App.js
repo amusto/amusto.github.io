@@ -1,19 +1,10 @@
-import { useState, useEffect } from "react";
-import { Container, Row, Col, Image } from "react-bootstrap";
-import Card from "react-bootstrap/Card";
-
-// import SkillsProgressBar from "./components/SkillsProgressBar/SkillsProgressBar";
-// import Navbar from "./components/NavBarMobile/NavBar";
+import React, { useEffect, useState } from "react";
+import { Card, Container, Row, Col, Image } from "react-bootstrap";
 
 import ContentCard from "./components/ContentCard/ContentCard";
 import SideNavContentCard from "./components/SideNavContent/SideNavCard";
-import SkillsProgressBar from "./components/SkillsProgressBar/SkillsProgressBar";
 import Navbar from "./components/NavBar/NavBar";
 import { Icon } from "./components/Icon/Icon";
-
-import { getProjects } from "./services";
-
-import SkillsData from "./content/mySkills.json";
 
 import profilePic from "./assets/images/armando-home-office-sm.png";
 import remoteiScreenshot from "./assets/images/REMOTEi-screenshot.png";
@@ -23,35 +14,48 @@ import amazonCardShufflerScreenshot from "./assets/images/52-card-pickup.png";
 
 import './App.scss';
 
-import { Linkedin, Github, GeoAlt, Envelope } from 'react-bootstrap-icons';
-
-const SIDE_NAV_CONTENT = [
-  // {
-  //   title: 'About',
-  //   icon: 'Person'
-  // },
+const NAV_CONTENT = [
+  {
+    title: 'About',
+    icon: 'Person',
+    link: '#about'
+  },
   {
     title: 'Works',
-    icon: 'FileEarmarkText'
+    icon: 'FileEarmarkText',
+    link: '#works'
   }
 ];
 
-function App() {
-    const aboutMeCardProps = {
-        title: 'About Me',
-        body: `I'm enjoying my current role at uExamS where as the Principal Engineer & Solutions Architect we provide virtual learning resources for people with special needs or disabilities.`
-    }
+const aboutMeCardProps = {
+  title: 'About Me',
+  body: `I’m a Software Engineer, with over 20 years of experience. I'm currently focused on serverless and data centric development. I am strong and familiar with backend and front end development and am ready to share more in detail.
 
-    const LocationDetails = () => {
-        return <ul>
-                <li className="list-inline-item mb-3" style={{display: 'flex'}}>
-                    <GeoAlt color="grey" size={20} /> <span className={'ms-3'}>Gaithersburg, MD</span>
-                </li>
-                <li className="list-inline-item" style={{display: 'flex'}}>
-                    <Envelope color="grey" size={20} /> <span className={'ms-3'}><a href={'mailto:armando.musto@gmail.com'}>armando.musto@gmail.com</a></span>
-                </li>
-            </ul>
-    }
+I’ve had the opportunity to work on teams as a Senior engineer and as a Technical Lead. I enjoy both roles and can lead as well as follow. I’m a fan of collaboration and find that team members find me very approachable when it comes to asking for help or sharing details.
+
+I’m looking forward to answering any questions you might have regarding the depth of my experience around React, Typescript, backend, frontend, CI/CD, event driven architecture, code practices and what approaches I use when contributing to develop world class solutions.
+
+  `
+}
+
+function App() {
+  const [currentUrl, setCurrentUrl] = useState(window.location.hash);
+
+  const handleUrlChange = () => {
+    setCurrentUrl(window.location.hash);
+  };
+
+  useEffect(() => {
+    window.addEventListener('popstate', handleUrlChange);
+    return () => {
+      window.removeEventListener('popstate', handleUrlChange);
+    };
+  }, []);
+
+  useEffect(() => {
+    console.log({currentUrl});
+    if(currentUrl === '') setCurrentUrl("#works")
+  }, [currentUrl]);
 
     // Should provide multiple projects (multiple list items)
     const ProjectRemoteDetails = () => {
@@ -62,7 +66,7 @@ function App() {
               <h3 className={'title'}>MFE Module Federation example (Using Lerna and Webpack)</h3>
               <p>I'm evaluating various implementations for MFE architectures in the hopes of better understanding benefits of multiple modules and reuse.</p>
               <p>Micro frontend anarchy refers to an MFE setup that mixes a range of competing technologies together. Understanding the drivers when designing a projects structure.</p>
-              <p><a href={'https://github.com/amusto/lerna-mfe-example'} target={'_blank'}>Code</a> | <a href={'http://demo.musto.io/'} target={'_blank'}>Demo</a></p>
+              <p><a href={'https://github.com/amusto/lerna-mfe-example'} target={'_blank'} rel="noreferrer">Code</a> | <a href={'http://demo.musto.io/'} target={'_blank'} rel="noreferrer">Demo</a></p>
             </div>
           </li>
           <li className="list-inline-item mb-3" style={{display: 'flex', borderTopStyle: 'solid', borderTopColor: 'black', paddingTop: '20px'}}>
@@ -95,14 +99,11 @@ function App() {
     }
 
     const projectsCardProps = {
-        title: 'Projects & Code Samples',
+        title: 'Works',
         body: <ProjectRemoteDetails />
     }
 
-  const SideNavigationContent = () => {
-    return SIDE_NAV_CONTENT.map(navItem => {
-          const props = { title: navItem?.title}
-          return <div className={'side-nav-item'} key={navItem?.title}>
+  const SideNavigationContent = () => NAV_CONTENT.map(navItem => <a href={`${navItem?.link}`} className={currentUrl === navItem.link ? 'side-nav-item btn btn-primary active' : 'side-nav-item btn btn-primary'} key={navItem?.title}>
             <Icon
               iconName={navItem?.icon}
               color="white"
@@ -110,28 +111,9 @@ function App() {
               className="align-top"
             />
             <span>{navItem?.title}</span>
-          </div>
-        })
-  }
+          </a>
+        );
 
-    const SkillsDetails = () => {
-        // const skillsText = `Over 20+ years experience across a range of disciplines in the Information Technology industry. \n\nI’ve enjoyed working on Enterprise-level projects with small to large development teams. This includes 10+ years working with Cloud solutions, specifically in AWS.`
-        return <div>
-            {SkillsData
-                // .sort((a,b) => b.percentage - a.percentage)
-                .map(skill => {
-                    const compProps = { title: skill?.title, percentage: skill?.percentage}
-                    return <div className={'mt-4'} key={skill?.title}>
-                        <SkillsProgressBar key={`skill-${skill?.title}`} {...compProps} />
-                    </div>
-            })}
-        </div>
-    }
-
-    const skillsCardProps = {
-        title: '',
-        body: <SkillsDetails />
-    }
   const sideNavigationProps = {
     title: '',
     body: <SideNavigationContent />
@@ -140,7 +122,7 @@ function App() {
     const navProps = {
         sticky: 'top',
         title: 'Armando Musto - Software Engineer',
-        links: [{ name: 'About Me', link: 'aboutMe' }]
+        links: NAV_CONTENT
     }
 
     return (
@@ -217,12 +199,10 @@ function App() {
                   </Card.Body>
                 </Card>
               </div>
-              <div className={'main-column'}>
-                <ContentCard {...projectsCardProps} />
+              <div className={'main-column container-item'}>
+                {currentUrl === "#about" &&<ContentCard {...aboutMeCardProps} />}
+                {currentUrl === "#works" &&<ContentCard {...projectsCardProps} />}
               </div>
-              {/*<div className={'main-column container-item'}>*/}
-              {/*  <ContentCard {...projectsCardProps} />*/}
-              {/*</div>*/}
               <div className={'sidenav-column'}>
                 <SideNavContentCard {...sideNavigationProps} />
               </div>
