@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Armando Musto — Principal Engineer & Solutions Architect</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --ink: #0e0e0e;
+  --ink-muted: #565650;
+  --ink-faint: #9a9890;
+  --paper: #f7f4ef;
+  --paper-warm: #ede9e1;
+  --accent: #c9501e;
+  --accent-light: #f5ede7;
+  --green: #1a6b3c;
+  --green-light: #e4f0ea;
+  --blue: #153f70;
+  --blue-light: #e3ecf8;
+  --border: rgba(14,14,14,0.11);
+  --mono: 'DM Mono', monospace;
+  --serif: 'DM Serif Display', serif;
+  --sans: 'Outfit', sans-serif;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--paper); color: var(--ink); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.1rem 3.5rem;
+  background: rgba(247,244,239,0.92); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: 0.75rem; }
+.nav-dot { width: 7px; height: 7px; background: var(--accent); border-radius: 50%; display: inline-block; }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a { font-size: 12px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-muted); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--accent); }
+.nav-cta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.07em; padding: 0.5rem 1.25rem; border: 1px solid var(--ink); color: var(--ink); text-decoration: none; transition: background 0.2s, color 0.2s; }
+.nav-cta:hover { background: var(--ink); color: var(--paper); }
+
+/* HERO */
+.hero { min-height: 100vh; display: grid; grid-template-columns: 58% 42%; padding-top: 72px; border-bottom: 1px solid var(--border); }
+.hero-left { padding: 7rem 4rem 5rem 4.5rem; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--border); position: relative; }
+.hero-left::before { content: ''; position: absolute; bottom: 3rem; right: 4rem; width: 80px; height: 80px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.hero-eyebrow { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 2rem; }
+.eyebrow-line { width: 32px; height: 1px; background: var(--accent); }
+.eyebrow-text { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+.hero-name { font-family: var(--serif); font-size: clamp(4rem, 7vw, 6.5rem); line-height: 1.0; letter-spacing: -0.025em; margin-bottom: 0.25rem; }
+.hero-name-last { font-style: italic; color: var(--accent); display: block; }
+.hero-tagline { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 2.5rem; margin-top: 0.75rem; }
+.hero-bio { font-size: 19px; font-weight: 300; color: var(--ink-muted); max-width: 520px; line-height: 1.75; margin-bottom: 3.5rem; }
+.hero-bio strong { font-weight: 500; color: var(--ink); }
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.85rem 2.25rem; transition: all 0.2s; }
+.btn-dark { background: var(--ink); color: var(--paper); }
+.btn-dark:hover { background: var(--accent); transform: translateY(-2px); }
+.btn-outline { border: 1px solid var(--ink); color: var(--ink); }
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+.hero-right { padding: 7rem 3.5rem 5rem 3.5rem; display: flex; flex-direction: column; justify-content: space-between; background: var(--paper-warm); }
+.hero-stats { display: flex; flex-direction: column; gap: 2.5rem; }
+.stat-item { padding-bottom: 2.5rem; border-bottom: 1px solid var(--border); }
+.stat-item:last-child { border-bottom: none; padding-bottom: 0; }
+.stat-num { font-family: var(--serif); font-size: 4rem; line-height: 1; letter-spacing: -0.02em; margin-bottom: 0.3rem; }
+.stat-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); }
+.hero-stack { margin-top: auto; padding-top: 3rem; }
+.stack-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 1rem; }
+.stack-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.chip { font-family: var(--mono); font-size: 10px; padding: 4px 9px; border: 1px solid var(--border); color: var(--ink-muted); background: var(--paper); letter-spacing: 0.03em; }
+.chip.hot { border-color: rgba(201,80,30,0.3); color: var(--accent); background: var(--accent-light); }
+.chip.cool { border-color: rgba(21,63,112,0.25); color: var(--blue); background: var(--blue-light); }
+.chip.go { border-color: rgba(26,107,60,0.25); color: var(--green); background: var(--green-light); }
+
+/* SECTIONS */
+section { padding: 5.5rem 0; }
+.inner { max-width: 1140px; margin: 0 auto; padding: 0 4.5rem; }
+.section-head { display: grid; grid-template-columns: auto 1fr; align-items: baseline; gap: 1.25rem; margin-bottom: 4rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+.s-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+.s-title { font-family: var(--serif); font-size: 2.75rem; letter-spacing: -0.025em; line-height: 1.1; font-weight: 400; }
+
+/* EXPERTISE */
+.exp-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--border); }
+.exp-card { padding: 2.25rem 2rem; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); transition: background 0.25s; }
+.exp-card:hover { background: var(--paper-warm); }
+.exp-card:nth-child(3n) { border-right: none; }
+.exp-card:nth-child(n+4) { border-bottom: none; }
+.exp-glyph { font-family: var(--mono); font-size: 22px; color: var(--accent); margin-bottom: 1.25rem; display: block; }
+.exp-card h3 { font-family: var(--serif); font-size: 1.35rem; font-weight: 400; margin-bottom: 0.75rem; }
+.exp-card p { font-size: 14px; color: var(--ink-muted); line-height: 1.7; }
+.exp-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.25rem; }
+
+/* TIMELINE */
+#experience { background: var(--paper-warm); }
+.timeline { position: relative; }
+.tl-item { display: grid; grid-template-columns: 210px 1fr; gap: 3rem; padding-left: 2.5rem; margin-bottom: 3.5rem; position: relative; }
+.tl-item::before { content: ''; position: absolute; left: 0; top: 0; bottom: -3.5rem; width: 1px; background: var(--border); }
+.tl-item:last-child::before { bottom: 0; }
+.tl-item::after { content: ''; position: absolute; left: -4px; top: 0.5rem; width: 9px; height: 9px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 0 3px var(--paper-warm); }
+.tl-meta { padding-top: 0.15rem; }
+.tl-date { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; color: var(--ink-faint); display: block; margin-bottom: 0.6rem; text-transform: uppercase; }
+.tl-co { font-weight: 600; font-size: 14px; margin-bottom: 0.2rem; }
+.tl-role { font-family: var(--mono); font-size: 11px; color: var(--ink-muted); }
+.tl-body h4 { font-family: var(--serif); font-size: 1.45rem; font-weight: 400; margin-bottom: 0.75rem; line-height: 1.25; }
+.tl-body p { font-size: 15px; color: var(--ink-muted); line-height: 1.72; margin-bottom: 0.6rem; }
+.tl-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
+.pill { font-family: var(--mono); font-size: 11px; padding: 4px 11px; border: 1px solid var(--border); color: var(--ink-muted); background: var(--paper); }
+.pill.win { background: var(--green-light); border-color: rgba(26,107,60,0.2); color: var(--green); }
+
+/* PROJECTS */
+.proj-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+.proj-card { display: block; text-decoration: none; color: var(--ink); border: 1px solid var(--border); padding: 2.25rem; position: relative; transition: transform 0.2s, box-shadow 0.2s; background: var(--paper); }
+.proj-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(14,14,14,0.08); }
+.proj-card.hero-proj { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; background: var(--ink); color: var(--paper); border-color: transparent; padding: 3rem; }
+.proj-card.geo-proj { background: var(--blue); color: var(--paper); border-color: transparent; }
+.proj-type { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.85rem; }
+.proj-card.hero-proj .proj-type, .proj-card.geo-proj .proj-type { color: rgba(247,244,239,0.45); }
+.proj-card h3 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; margin-bottom: 0.85rem; line-height: 1.2; }
+.proj-card p { font-size: 14px; line-height: 1.7; color: var(--ink-muted); }
+.proj-card.hero-proj p, .proj-card.geo-proj p { color: rgba(247,244,239,0.7); }
+.proj-divider { margin: 1.5rem 0; height: 1px; background: var(--border); }
+.proj-card.hero-proj .proj-divider, .proj-card.geo-proj .proj-divider { background: rgba(247,244,239,0.15); }
+.proj-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.proj-chip { font-family: var(--mono); font-size: 10px; padding: 3px 9px; border: 1px solid var(--border); color: var(--ink-muted); }
+.proj-card.hero-proj .proj-chip, .proj-card.geo-proj .proj-chip { border-color: rgba(247,244,239,0.2); color: rgba(247,244,239,0.65); background: rgba(247,244,239,0.07); }
+.proj-arrow { position: absolute; top: 1.75rem; right: 1.75rem; font-size: 1.1rem; color: var(--ink-faint); transition: color 0.2s, transform 0.2s; }
+.proj-card:hover .proj-arrow { color: var(--accent); transform: translate(3px,-3px); }
+.proj-card.hero-proj .proj-arrow, .proj-card.geo-proj .proj-arrow { color: rgba(247,244,239,0.4); }
+.proj-card.hero-proj:hover .proj-arrow, .proj-card.geo-proj:hover .proj-arrow { color: rgba(247,244,239,0.9); transform: translate(3px,-3px); }
+.proj-meta-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.5rem; }
+.proj-card.hero-proj .proj-meta-label { color: rgba(247,244,239,0.4); }
+
+/* ARTICLES */
+#articles { background: var(--paper-warm); }
+.articles-intro { font-size: 17px; font-weight: 300; color: var(--ink-muted); max-width: 640px; line-height: 1.75; margin-bottom: 3rem; }
+.article-list { display: flex; flex-direction: column; }
+.article-item { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: start; padding: 2rem 0; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--ink); transition: padding-left 0.22s; }
+.article-item:first-child { border-top: 1px solid var(--border); }
+.article-item:hover { padding-left: 0.6rem; }
+.article-title { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; line-height: 1.3; margin-bottom: 0.5rem; }
+.article-hook { font-size: 14px; color: var(--ink-muted); line-height: 1.65; }
+.article-meta { text-align: right; }
+.article-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 0.5rem; white-space: nowrap; }
+.article-read { font-family: var(--mono); font-size: 10px; color: var(--ink-faint); white-space: nowrap; display: block; }
+.article-status { display: inline-block; font-family: var(--mono); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; border: 1px solid rgba(201,80,30,0.3); color: var(--accent); margin-top: 0.4rem; }
+
+/* CONTACT */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+.contact-left h2 { font-family: var(--serif); font-size: 3.2rem; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5rem; font-weight: 400; }
+.contact-left p { font-size: 17px; font-weight: 300; color: var(--ink-muted); line-height: 1.75; margin-bottom: 2rem; }
+.avail-row { display: flex; align-items: center; gap: 0.75rem; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; color: var(--green); text-transform: uppercase; margin-bottom: 2.5rem; }
+.avail-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: blink 2s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.35} }
+.contact-links { display: flex; flex-direction: column; }
+.contact-link { display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 0; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--ink); transition: padding-left 0.2s, color 0.2s; }
+.contact-link:first-child { border-top: 1px solid var(--border); }
+.contact-link:hover { padding-left: 0.5rem; color: var(--accent); }
+.cl-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.25rem; }
+.cl-value { font-size: 15px; }
+.cl-arrow { opacity: 0.4; transition: opacity 0.2s; }
+.contact-link:hover .cl-arrow { opacity: 1; }
+
+/* FOOTER */
+.footer-wrap { border-top: 1px solid var(--border); }
+footer { max-width: 1140px; margin: 0 auto; padding: 1.75rem 4.5rem; display: flex; justify-content: space-between; align-items: center; }
+footer p { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); letter-spacing: 0.05em; }
+footer a { color: var(--accent); text-decoration: none; }
+
+/* ANIMATIONS */
+@keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+.fade { opacity: 0; animation: fadeUp 0.7s ease forwards; }
+.d1{animation-delay:.1s} .d2{animation-delay:.22s} .d3{animation-delay:.34s} .d4{animation-delay:.46s} .d5{animation-delay:.58s}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  nav{padding:1rem 1.5rem}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr}
+  .hero-left{border-right:none;border-bottom:1px solid var(--border);padding:5rem 2rem 3.5rem}
+  .hero-left::before{display:none}
+  .hero-right{padding:3rem 2rem}
+  .hero-stats{flex-direction:row;flex-wrap:wrap;gap:1.5rem}
+  .stat-item{border-bottom:none;padding-bottom:0;border-right:1px solid var(--border);padding-right:1.5rem}
+  .stat-item:last-child{border-right:none}
+  .exp-grid{grid-template-columns:1fr}
+  .exp-card{border-right:none}
+  .tl-item{grid-template-columns:1fr;gap:.75rem}
+  .proj-grid{grid-template-columns:1fr}
+  .proj-card.hero-proj{grid-column:1;grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr;gap:3rem}
+  .inner{padding:0 1.5rem}
+  footer{flex-direction:column;gap:.75rem;padding:1.5rem;text-align:center}
+  .article-item{grid-template-columns:1fr;gap:.5rem}
+  .article-meta{text-align:left}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo"><span class="nav-dot"></span>AM / Principal Engineer</a>
+  <ul class="nav-links">
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#articles">Writing</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:armando.musto@gmail.com" class="nav-cta">Hire Me</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow fade d1">
+      <span class="eyebrow-line"></span>
+      <span class="eyebrow-text">Washington DC · Remote-ready · Open to opportunities</span>
+    </div>
+    <h1 class="hero-name fade d2">Armando<span class="hero-name-last">Musto</span></h1>
+    <p class="hero-tagline fade d3">Principal Engineer · Solutions Architect · Technical Lead</p>
+    <p class="hero-bio fade d4">
+      I design and build <strong>cloud-native systems at enterprise scale</strong> — event-driven microservices,
+      serverless AWS pipelines, and full-stack platforms that replace legacy infrastructure.
+      20+ years of hands-on engineering across aviation, edtech, government, and enterprise software.
+    </p>
+    <div class="hero-actions fade d5">
+      <a href="#projects" class="btn btn-dark">View My Work</a>
+      <a href="mailto:armando.musto@gmail.com" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stats">
+      <div class="stat-item"><div class="stat-num">20+</div><div class="stat-label">Years in the trenches</div></div>
+      <div class="stat-item"><div class="stat-num">120+</div><div class="stat-label">GitHub repositories</div></div>
+      <div class="stat-item"><div class="stat-num">∞</div><div class="stat-label">Problems left to solve</div></div>
+    </div>
+    <div class="hero-stack">
+      <div class="stack-label">Current stack</div>
+      <div class="stack-chips">
+        <span class="chip hot">AWS</span>
+        <span class="chip hot">Kafka</span>
+        <span class="chip hot">Kubernetes</span>
+        <span class="chip cool">NestJS</span>
+        <span class="chip cool">React / Next.js</span>
+        <span class="chip cool">TypeScript</span>
+        <span class="chip go">Terraform</span>
+        <span class="chip go">PostgreSQL</span>
+        <span class="chip">Java / Spring Boot</span>
+        <span class="chip">Docker</span>
+        <span class="chip">CI/CD</span>
+        <span class="chip">Event-Driven Arch</span>
+        <span class="chip">Mapbox / GeoJSON</span>
+        <span class="chip">Electron</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERTISE -->
+<section id="expertise">
+  <div class="inner">
+    <div class="section-head"><span class="s-num">01 —</span><h2 class="s-title">Areas of Expertise</h2></div>
+    <div class="exp-grid">
+      <div class="exp-card">
+        <span class="exp-glyph">⬡</span>
+        <h3>Cloud Architecture</h3>
+        <p>Resilient, serverless-first systems on AWS and Azure. Lambda orchestration, API Gateway, SQS, DynamoDB, S3 — wired together with Terraform so infrastructure is code, not a wiki page.</p>
+        <div class="exp-tags"><span class="chip hot">AWS</span><span class="chip hot">Azure</span><span class="chip go">Terraform</span><span class="chip">Serverless</span></div>
+      </div>
+      <div class="exp-card">
+        <span class="exp-glyph">⇄</span>
+        <h3>Event-Driven Systems</h3>
+        <p>Mission-critical streaming pipelines using Kafka and ActiveMQ. I've processed real-time satellite aviation data at Aireon and built choreographed microservices that hold up under production load.</p>
+        <div class="exp-tags"><span class="chip hot">Kafka</span><span class="chip">ActiveMQ</span><span class="chip cool">Microservices</span></div>
+      </div>
+      <div class="exp-card">
+        <span class="exp-glyph">◎</span>
+        <h3>Full-Stack Engineering</h3>
+        <p>I own the full vertical — NestJS APIs, React/Redux UIs, Postgres schemas. My boilerplate repos reflect a decade of stack evolution and real opinions about how a production system should be wired.</p>
+        <div class="exp-tags"><span class="chip cool">NestJS</span><span class="chip cool">React</span><span class="chip cool">TypeScript</span><span class="chip">MFE</span></div>
+      </div>
+      <div class="exp-card">
+        <span class="exp-glyph">◈</span>
+        <h3>Platform Modernization</h3>
+        <p>Replacing legacy systems — ServiceNow backends, monolithic APIs, aging Java apps — with maintainable cloud-native replacements. Currently doing exactly this at Cisco.</p>
+        <div class="exp-tags"><span class="chip">Legacy → Cloud</span><span class="chip">API-First</span><span class="chip">ETL</span></div>
+      </div>
+      <div class="exp-card">
+        <span class="exp-glyph">⬕</span>
+        <h3>Technical Leadership</h3>
+        <p>Led teams of 5 to 20 engineers across government, enterprise, and startup contexts. I write the architecture docs, run the grooming sessions, and still ship code every single day.</p>
+        <div class="exp-tags"><span class="chip">Tech Lead</span><span class="chip">Agile</span><span class="chip">Mentoring</span></div>
+      </div>
+      <div class="exp-card">
+        <span class="exp-glyph">▣</span>
+        <h3>Geospatial & Data Viz</h3>
+        <p>Built isochrone generators on both the Mapbox Matrix API and Google Maps with CONREC polygonization and GeoJSON output. Chart-heavy UIs using Recharts, D3, Highcharts, and Plotly.</p>
+        <div class="exp-tags"><span class="chip cool">Mapbox</span><span class="chip">GeoJSON</span><span class="chip">D3</span><span class="chip">Recharts</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="inner">
+    <div class="section-head"><span class="s-num">02 —</span><h2 class="s-title">Career History</h2></div>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-meta">
+          <span class="tl-date">Apr 2025 — Present</span>
+          <div class="tl-co">Cisco</div>
+          <div class="tl-role">Technical Lead</div>
+        </div>
+        <div class="tl-body">
+          <h4>Greenfield Source-of-Truth Platform</h4>
+          <p>Defining architecture and leading a team building a custom issue-tracking platform to replace a legacy ServiceNow backend. Daily hands-on work in NestJS, React/Redux, Terraform, Kubernetes, and Postgres on AWS — with CI/CD pipelines that actually ship.</p>
+          <div class="tl-pills"><span class="pill win">↑ Delivery velocity</span><span class="pill win">↑ Platform scalability</span><span class="pill">NestJS · React · K8s · Terraform · AWS</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-meta">
+          <span class="tl-date">Apr 2024 — Apr 2025</span>
+          <div class="tl-co">Aireon</div>
+          <div class="tl-role">Senior Software Engineer</div>
+        </div>
+        <div class="tl-body">
+          <h4>Mission-Critical ADS-B Satellite Streaming</h4>
+          <p>Managed product teams processing real-time global aircraft surveillance data. Architected Kafka-driven microservices and AWS Lambda pipelines handling streams where dropped data has real-world safety consequences.</p>
+          <div class="tl-pills"><span class="pill win">↓ Pipeline latency</span><span class="pill win">↑ Fault tolerance</span><span class="pill">Kafka · Node.js · AWS Lambda · Azure DevOps</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-meta">
+          <span class="tl-date">Jun 2023 — May 2024</span>
+          <div class="tl-co">Northstrat</div>
+          <div class="tl-role">Senior Software Engineer</div>
+        </div>
+        <div class="tl-body">
+          <h4>Java Messaging Platform · Kafka + ActiveMQ</h4>
+          <p>Led design and implementation of dual-broker message integrations for satellite data systems. Drove an API-first approach using Spring Boot, Gradle/Kotlin builds, and consistent ORM/Hibernate patterns across the team.</p>
+          <div class="tl-pills"><span class="pill">Spring Boot · Kafka · ActiveMQ · Hibernate · Gradle/Kotlin</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-meta">
+          <span class="tl-date">Nov 2020 — Jun 2023</span>
+          <div class="tl-co">uExamS</div>
+          <div class="tl-role">Principal Engineer</div>
+        </div>
+        <div class="tl-body">
+          <h4>EdTech Platform: Electron App + AWS Rekognition Proctoring</h4>
+          <p>80% coding, 20% architecture. Built and maintained an Electron/React/TypeScript desktop app and a fully serverless AWS backend — Lambdas, API Gateway, S3, Rekognition for ML-based video analysis, and Twilio for live collaborative sessions.</p>
+          <div class="tl-pills"><span class="pill win">ML proctoring at scale</span><span class="pill">Electron · React · Rekognition · Twilio · Terraform</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-meta">
+          <span class="tl-date">Aug 2019 — Nov 2020</span>
+          <div class="tl-co">College Board</div>
+          <div class="tl-role">Senior SWE & Tech Lead</div>
+        </div>
+        <div class="tl-body">
+          <h4>Micro-Frontend Architecture + Elasticsearch ETL Pipeline</h4>
+          <p>Led a true Micro-Frontend React application serving millions of students. Also independently designed a multi-Lambda ETL pipeline (SQS → S3 → DynamoDB → Elasticsearch bulk ingest) using raw ES REST verbs rather than the AWS SDK for full control over indexing behavior.</p>
+          <div class="tl-pills"><span class="pill win">MFE serving millions of students</span><span class="pill">React · Lerna · Elasticsearch · Lambda · SQS · DynamoDB</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-meta">
+          <span class="tl-date">2012 — 2019</span>
+          <div class="tl-co">Broadsoft/Cisco · NuWave · USPTO</div>
+          <div class="tl-role">Lead Developer & Architect</div>
+        </div>
+        <div class="tl-body">
+          <h4>Enterprise Products, Federal Government & Isomorphic Apps</h4>
+          <p>Seven years spanning: Angular/Node enterprise products at Broadsoft/Cisco; an isomorphic React/Redux/Node app with custom Webpack config, Sequelize ORM, and Plotly/ChartJS data viz at NuWave; and leading a team of 20 at USPTO to build the Patent Trial &amp; Appeal Board portal — a federally mandated project to modernize the US patent process.</p>
+          <div class="tl-pills"><span class="pill win">Led 20-dev team · USPTO federal mandate</span><span class="pill">React · Redux · Angular · Node · Sails · Webpack · oAuth</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="inner">
+    <div class="section-head"><span class="s-num">03 —</span><h2 class="s-title">Selected Projects</h2></div>
+    <div class="proj-grid">
+
+      <a href="https://github.com/amusto/development-roadmap-tracker" class="proj-card hero-proj" target="_blank" rel="noopener">
+        <span class="proj-arrow">↗</span>
+        <div>
+          <p class="proj-type">Full-Stack Product · TypeScript · Active</p>
+          <h3>Development Roadmap Tracker</h3>
+          <p>A self-built project management tool that reflects real engineering opinions — not a tutorial project. NestJS backend, React frontend, PostgreSQL persistence, Recharts for metrics visualization, and drag-and-drop (DnD) for requirement management. The kind of system principal engineers build for themselves.</p>
+        </div>
+        <div>
+          <p style="font-size:14px;color:rgba(247,244,239,0.65);line-height:1.72;margin-bottom:1.5rem;">
+            Demonstrates full-stack ownership with real concerns: proper API layer, drag-and-drop UX patterns, charted progress metrics, and a Postgres schema designed to hold up. A living example of my current preferred stack.
+          </p>
+          <div style="height:1px;background:rgba(247,244,239,0.12);margin-bottom:1.5rem;"></div>
+          <div class="proj-meta-label">Stack</div>
+          <div class="proj-chips">
+            <span class="proj-chip">NestJS</span><span class="proj-chip">React</span>
+            <span class="proj-chip">PostgreSQL</span><span class="proj-chip">Recharts</span>
+            <span class="proj-chip">DnD</span><span class="proj-chip">TypeScript</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://github.com/amusto/mapbox-isochrone" class="proj-card geo-proj" target="_blank" rel="noopener">
+        <span class="proj-arrow">↗</span>
+        <p class="proj-type">Geospatial · JavaScript · Public</p>
+        <h3>Mapbox Isochrone Generator</h3>
+        <p>Travel-time polygon generator built atop the Mapbox Matrix API using CONREC polygonization — the same contouring algorithm used in topographic mapping — applied to drive-time reachability. Returns GeoJSON feature collections at configurable time thresholds with support for both divergent and convergent travel modes.</p>
+        <div class="proj-divider"></div>
+        <div class="proj-chips">
+          <span class="proj-chip">Mapbox Matrix API</span><span class="proj-chip">CONREC</span>
+          <span class="proj-chip">GeoJSON</span><span class="proj-chip">JavaScript</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/amusto/isochrone-isodistance-with-google-maps" class="proj-card" target="_blank" rel="noopener">
+        <span class="proj-arrow">↗</span>
+        <p class="proj-type">Geospatial · JavaScript · Public</p>
+        <h3>Google Maps Isodistance Polygons</h3>
+        <p>Companion geospatial tool that draws network-based reachability polygons on Google Maps. Demonstrates understanding of spatial algorithms that most frontend engineers never touch: the difference between straight-line buffers and true network-distance isodistance shapes.</p>
+        <div class="proj-divider"></div>
+        <div class="proj-chips">
+          <span class="proj-chip">Google Maps API</span><span class="proj-chip">Distance Matrix</span>
+          <span class="proj-chip">Isodistance</span><span class="proj-chip">GeoJSON</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/amusto/lerna-mfe-example" class="proj-card" target="_blank" rel="noopener">
+        <span class="proj-arrow">↗</span>
+        <p class="proj-type">Architecture · JavaScript · Public</p>
+        <h3>Lerna Micro-Frontend Example</h3>
+        <p>Working reference implementation of true Micro-Frontend architecture using Lerna for monorepo management. Built directly from production MFE experience at College Board, where this pattern served millions of students. Not module federation marketing — actual MFE composition.</p>
+        <div class="proj-divider"></div>
+        <div class="proj-chips">
+          <span class="proj-chip">Lerna</span><span class="proj-chip">React</span>
+          <span class="proj-chip">MFE</span><span class="proj-chip">Monorepo</span><span class="proj-chip">JavaScript</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/amusto/job-pipeline-app" class="proj-card" target="_blank" rel="noopener">
+        <span class="proj-arrow">↗</span>
+        <p class="proj-type">Full-Stack · TypeScript · Private</p>
+        <h3>Full-Stack Job Pipeline App</h3>
+        <p>Infrastructure-included full-stack application: Terraform provisions VPC and database, NestJS powers the API, React drives the UI, MySQL handles persistence. End-to-end ownership from cloud config to browser — the way I think every full-stack project should be built.</p>
+        <div class="proj-divider"></div>
+        <div class="proj-chips">
+          <span class="proj-chip">Terraform</span><span class="proj-chip">NestJS</span>
+          <span class="proj-chip">React</span><span class="proj-chip">MySQL</span><span class="proj-chip">TypeScript</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/amusto/serverless-aws-api-project" class="proj-card" target="_blank" rel="noopener">
+        <span class="proj-arrow">↗</span>
+        <p class="proj-type">Cloud · Shell · Public</p>
+        <h3>Serverless AWS API Project</h3>
+        <p>A structured serverless API reference demonstrating Lambda orchestration, API Gateway configuration, and IAM wiring — with shell scripts for deployment automation. A clean, repeatable starting point for the serverless patterns I apply across production systems.</p>
+        <div class="proj-divider"></div>
+        <div class="proj-chips">
+          <span class="proj-chip">AWS Lambda</span><span class="proj-chip">API Gateway</span>
+          <span class="proj-chip">IAM</span><span class="proj-chip">Shell</span>
+        </div>
+      </a>
+
+    </div>
+    <p style="margin-top:2rem;font-family:var(--mono);font-size:12px;color:var(--ink-faint);">
+      → 120+ repositories at <a href="https://github.com/amusto" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">github.com/amusto</a> — spanning Angular to NestJS, ColdFusion to Kafka, jQuery Mobile to Kubernetes.
+    </p>
+  </div>
+</section>
+
+<!-- ARTICLES -->
+<section id="articles">
+  <div class="inner">
+    <div class="section-head"><span class="s-num">04 —</span><h2 class="s-title">Writing & Thinking</h2></div>
+    <p class="articles-intro">
+      Twenty years of engineering decisions, hard lessons, and strong opinions — condensed into articles you can actually use. Publishing on <a href="https://dev.to" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">Dev.to</a> and <a href="https://medium.com" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">Medium</a>.
+    </p>
+    <div class="article-list">
+
+      <a href="#" class="article-item">
+        <div>
+          <div class="article-title">Kafka vs SQS: When Event Streaming Beats a Queue (And When It Doesn't)</div>
+          <div class="article-hook">I've run both in production — Kafka at Aireon for real-time satellite surveillance, SQS at College Board for ETL fan-out. Here's the real decision matrix, not the marketing version. Covers throughput, ordering guarantees, consumer groups, and the cost curves nobody talks about.</div>
+        </div>
+        <div class="article-meta">
+          <span class="article-tag">Architecture</span>
+          <span class="article-read">~8 min read</span>
+          <span class="article-status">Draft</span>
+        </div>
+      </a>
+
+      <a href="#" class="article-item">
+        <div>
+          <div class="article-title">How I Structure a NestJS Project From Scratch (With Real Opinions)</div>
+          <div class="article-hook">My nestjs-backend-boilerplate distilled into prose — module boundaries, the Repository pattern, DTOs, guards, interceptors, and why I stopped fighting the framework's opinions and started leaning into them. Includes the folder structure I actually ship with.</div>
+        </div>
+        <div class="article-meta">
+          <span class="article-tag">NestJS</span>
+          <span class="article-read">~10 min read</span>
+          <span class="article-status">Draft</span>
+        </div>
+      </a>
+
+      <a href="#" class="article-item">
+        <div>
+          <div class="article-title">Micro-Frontend Architecture: What the Blog Posts Leave Out</div>
+          <div class="article-hook">I ran true MFE in production at College Board. The Lerna monorepo worked. Module federation is not the same thing. This covers shell app coordination, shared dependency hell, independent deployability, and the organizational alignment you need before writing a line of code.</div>
+        </div>
+        <div class="article-meta">
+          <span class="article-tag">React / MFE</span>
+          <span class="article-read">~12 min read</span>
+          <span class="article-status">Draft</span>
+        </div>
+      </a>
+
+      <a href="#" class="article-item">
+        <div>
+          <div class="article-title">Geospatial for JavaScript Developers: Building Isochrone Maps With Mapbox</div>
+          <div class="article-hook">Most frontend engineers never touch GeoJSON. I built two isochrone generators — one with the Mapbox Matrix API using CONREC polygonization, one with Google Maps Distance Matrix. Explains the spatial math, the API calls, and why "as the crow flies" is the wrong buffer for human movement.</div>
+        </div>
+        <div class="article-meta">
+          <span class="article-tag">Geospatial</span>
+          <span class="article-read">~11 min read</span>
+          <span class="article-status">Draft</span>
+        </div>
+      </a>
+
+      <a href="#" class="article-item">
+        <div>
+          <div class="article-title">Terraform First: Why I Provision Infrastructure Before Writing a Single Route</div>
+          <div class="article-hook">Full-stack doesn't stop at the API layer. My boilerplate repos include VPC, DB, and compute config because IaC is a first-class concern, not an afterthought. A practical walkthrough of spinning up a NestJS + React + Postgres stack entirely from HCL before touching application code.</div>
+        </div>
+        <div class="article-meta">
+          <span class="article-tag">DevOps</span>
+          <span class="article-read">~9 min read</span>
+          <span class="article-status">Draft</span>
+        </div>
+      </a>
+
+      <a href="#" class="article-item">
+        <div>
+          <div class="article-title">Senior vs. Principal Engineer: What Actually Changes</div>
+          <div class="article-hook">After 20 years the answer isn't about skills — it's about surface area. How much of the system, the team, and the business are you willing to own? A candid breakdown of the shift, the traps, and what it looks like when it's working.</div>
+        </div>
+        <div class="article-meta">
+          <span class="article-tag">Career</span>
+          <span class="article-read">~7 min read</span>
+          <span class="article-status">Draft</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="inner">
+    <div class="section-head"><span class="s-num">05 —</span><h2 class="s-title">Get in Touch</h2></div>
+    <div class="contact-grid">
+      <div class="contact-left">
+        <h2>Let's build something that lasts.</h2>
+        <p>Open to Staff / Principal Engineer, Solutions Architect, and Technical Lead roles — as well as fractional engineering leadership and advisory engagements. Based in Washington DC, remote-first.</p>
+        <div class="avail-row"><span class="avail-dot"></span>Available for new opportunities</div>
+        <a href="mailto:armando.musto@gmail.com" class="btn btn-dark">Send me a message</a>
+      </div>
+      <div>
+        <div class="contact-links">
+          <a href="mailto:armando.musto@gmail.com" class="contact-link">
+            <div><div class="cl-label">Email</div><div class="cl-value">armando.musto@gmail.com</div></div>
+            <span class="cl-arrow">→</span>
+          </a>
+          <a href="https://github.com/amusto" target="_blank" rel="noopener" class="contact-link">
+            <div><div class="cl-label">GitHub</div><div class="cl-value">github.com/amusto</div></div>
+            <span class="cl-arrow">→</span>
+          </a>
+          <a href="https://linkedin.com/in/armandoMusto" target="_blank" rel="noopener" class="contact-link">
+            <div><div class="cl-label">LinkedIn</div><div class="cl-value">linkedin.com/in/armandoMusto</div></div>
+            <span class="cl-arrow">→</span>
+          </a>
+          <div class="contact-link" style="cursor:default;">
+            <div><div class="cl-label">Location</div><div class="cl-value">Washington, DC Metro · Remote-friendly</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="footer-wrap">
+  <footer>
+    <p>© 2025 Armando Musto — <a href="https://github.com/amusto">github.com/amusto</a></p>
+    <p>Principal Engineer · Solutions Architect · Washington DC</p>
+  </footer>
+</div>
+
+</body>
+</html>
