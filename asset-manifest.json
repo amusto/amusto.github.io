@@ -1,18 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.05566abf.css",
-    "main.js": "/static/js/main.1169cff3.js",
-    "static/media/REMOTEi-screenshot.png": "/static/media/REMOTEi-screenshot.022dcc6acc417e09f9a0.png",
-    "static/media/armando-home-office-sm.png": "/static/media/armando-home-office-sm.fbb508e60a19719b0f32.png",
-    "static/media/EsteeLauderAssessment-screenshot.png": "/static/media/EsteeLauderAssessment-screenshot.9c35cdf6573409f25f19.png",
-    "static/media/52-card-pickup.png": "/static/media/52-card-pickup.3f473cdbf42f6802ce3f.png",
-    "static/media/moduleFederationExampleScreenshot.png": "/static/media/moduleFederationExampleScreenshot.932c21ece9335278573d.png",
+    "main.css": "/static/css/main.b3876375.css",
+    "main.js": "/static/js/main.1eb26653.js",
+    "static/media/professional-profile-pic.jpg": "/static/media/professional-profile-pic.f63b7a0050f2eefd8f33.jpg",
     "index.html": "/index.html",
-    "main.05566abf.css.map": "/static/css/main.05566abf.css.map",
-    "main.1169cff3.js.map": "/static/js/main.1169cff3.js.map"
+    "main.b3876375.css.map": "/static/css/main.b3876375.css.map",
+    "main.1eb26653.js.map": "/static/js/main.1eb26653.js.map"
   },
   "entrypoints": [
-    "static/css/main.05566abf.css",
-    "static/js/main.1169cff3.js"
+    "static/css/main.b3876375.css",
+    "static/js/main.1eb26653.js"
   ]
 }
