@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 
+import roadmapScreenshot from './assets/images/roadmap-screenshot.png';
+
 const App = () => {
   return (
     <>
@@ -213,9 +215,9 @@ const App = () => {
           <p style={{fontSize: '14px', color: 'rgba(247,244,239,0.65)', lineHeight: '1.72', marginBottom: '1.5rem'}}>
             Demonstrates full-stack ownership with real concerns: proper API layer, drag-and-drop UX patterns, charted progress metrics, and a Postgres schema designed to hold up. A living example of my current preferred stack.
           </p>
-          {/*<div style={{marginBottom: '1.5rem'}}>*/}
-          {/*  IMAGE GOES HERE*/}
-          {/*</div>*/}
+          <div style={{marginBottom: '1.5rem'}}>
+            <img src={roadmapScreenshot} alt="Roadmap Screenshot" width={'400px'} />
+          </div>
           <div style={{height: '1px', background: 'rgba(247,244,239,0.12)', marginBottom: '1.5rem'}}></div>
           <div className="proj-meta-label">Stack</div>
           <div className="proj-chips">
