@@ -202,7 +202,7 @@ const App = () => {
     <div className="section-head"><span className="s-num">03 —</span><h2 className="s-title">Selected Projects</h2></div>
     <div className="proj-grid">
 
-      <a href="https://github.com/amusto/development-roadmap-tracker" className="proj-card hero-proj" target="_blank" rel="noopener">
+      <a href="https://roadmap.musto.io/" className="proj-card hero-proj" target="_blank" rel="noopener">
         <span className="proj-arrow">↗</span>
         <div>
           <p className="proj-type">Full-Stack Product · TypeScript · Active</p>
@@ -213,6 +213,9 @@ const App = () => {
           <p style={{fontSize: '14px', color: 'rgba(247,244,239,0.65)', lineHeight: '1.72', marginBottom: '1.5rem'}}>
             Demonstrates full-stack ownership with real concerns: proper API layer, drag-and-drop UX patterns, charted progress metrics, and a Postgres schema designed to hold up. A living example of my current preferred stack.
           </p>
+          {/*<div style={{marginBottom: '1.5rem'}}>*/}
+          {/*  IMAGE GOES HERE*/}
+          {/*</div>*/}
           <div style={{height: '1px', background: 'rgba(247,244,239,0.12)', marginBottom: '1.5rem'}}></div>
           <div className="proj-meta-label">Stack</div>
           <div className="proj-chips">
