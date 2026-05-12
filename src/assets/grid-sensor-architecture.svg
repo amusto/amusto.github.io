@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" role="img" aria-labelledby="title desc">
+  <title id="title">Grid Sensor Pipeline — Architecture</title>
+  <desc id="desc">High-level architecture: sensors flow through IoT Core, fan out to a data path (Kinesis, Processor Lambda, DynamoDB) and an alert path (Step Functions, Alert Handler with LangGraph + Bedrock, SNS). Query API exposes reads; MCP Server exposes read-only tools.</desc>
+
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#475569"/>
+    </marker>
+    <style>
+      .box { fill: #f8fafc; stroke: #94a3b8; stroke-width: 1.2; }
+      .box-emph { fill: #fef2f2; stroke: #dc2626; stroke-width: 1.8; }
+      .label { fill: #0f172a; font-family: system-ui, -apple-system, sans-serif; font-size: 9.5px; font-weight: 600; }
+      .sublabel { fill: #64748b; font-family: system-ui, -apple-system, sans-serif; font-size: 7.5px; }
+      .flow { stroke: #475569; stroke-width: 1.2; fill: none; }
+      .flow-dashed { stroke: #94a3b8; stroke-width: 1.2; stroke-dasharray: 3,2; fill: none; }
+    </style>
+  </defs>
+
+  <!-- Sensors -->
+  <rect class="box" x="160" y="10" width="80" height="28" rx="4"/>
+  <text class="label" x="200" y="24" text-anchor="middle">Grid Sensors</text>
+  <text class="sublabel" x="200" y="33" text-anchor="middle">IoT devices</text>
+
+  <line class="flow" x1="200" y1="38" x2="200" y2="53" marker-end="url(#arrow)"/>
+
+  <!-- IoT Core -->
+  <rect class="box" x="160" y="55" width="80" height="28" rx="4"/>
+  <text class="label" x="200" y="69" text-anchor="middle">IoT Core</text>
+  <text class="sublabel" x="200" y="78" text-anchor="middle">MQTT + Rules</text>
+
+  <!-- Diverging arrows -->
+  <path class="flow" d="M 175 83 L 105 113" marker-end="url(#arrow)"/>
+  <path class="flow" d="M 225 83 L 295 113" marker-end="url(#arrow)"/>
+
+  <!-- Kinesis -->
+  <rect class="box" x="55" y="115" width="90" height="28" rx="4"/>
+  <text class="label" x="100" y="129" text-anchor="middle">Kinesis Stream</text>
+  <text class="sublabel" x="100" y="138" text-anchor="middle">Replayable log</text>
+
+  <!-- Step Functions -->
+  <rect class="box" x="255" y="115" width="90" height="28" rx="4"/>
+  <text class="label" x="300" y="129" text-anchor="middle">Step Functions</text>
+  <text class="sublabel" x="300" y="138" text-anchor="middle">Standard Workflow</text>
+
+  <line class="flow" x1="100" y1="143" x2="100" y2="158" marker-end="url(#arrow)"/>
+  <line class="flow" x1="300" y1="143" x2="300" y2="158" marker-end="url(#arrow)"/>
+
+  <!-- Processor -->
+  <rect class="box" x="55" y="160" width="90" height="28" rx="4"/>
+  <text class="label" x="100" y="174" text-anchor="middle">Processor Lambda</text>
+  <text class="sublabel" x="100" y="183" text-anchor="middle">Validate + persist</text>
+
+  <!-- Alert Handler (emphasized) -->
+  <rect class="box-emph" x="255" y="160" width="90" height="28" rx="4"/>
+  <text class="label" x="300" y="174" text-anchor="middle">Alert Handler</text>
+  <text class="sublabel" x="300" y="183" text-anchor="middle">LangGraph + Bedrock</text>
+
+  <line class="flow" x1="100" y1="188" x2="100" y2="203" marker-end="url(#arrow)"/>
+  <line class="flow" x1="300" y1="188" x2="300" y2="203" marker-end="url(#arrow)"/>
+
+  <!-- DynamoDB -->
+  <rect class="box" x="55" y="205" width="90" height="28" rx="4"/>
+  <text class="label" x="100" y="219" text-anchor="middle">DynamoDB</text>
+  <text class="sublabel" x="100" y="228" text-anchor="middle">Readings + idempotency</text>
+
+  <!-- SNS -->
+  <rect class="box" x="255" y="205" width="90" height="28" rx="4"/>
+  <text class="label" x="300" y="219" text-anchor="middle">SNS Topic</text>
+  <text class="sublabel" x="300" y="228" text-anchor="middle">Notifications</text>
+
+  <line class="flow" x1="100" y1="233" x2="100" y2="248" marker-end="url(#arrow)"/>
+
+  <!-- Query API -->
+  <rect class="box" x="55" y="250" width="90" height="28" rx="4"/>
+  <text class="label" x="100" y="264" text-anchor="middle">Query API</text>
+  <text class="sublabel" x="100" y="273" text-anchor="middle">API Gateway</text>
+
+  <!-- MCP Server -->
+  <rect class="box" x="155" y="285" width="110" height="28" rx="4"/>
+  <text class="label" x="210" y="299" text-anchor="middle">MCP Server (local)</text>
+  <text class="sublabel" x="210" y="308" text-anchor="middle">3 read-only tools</text>
+
+  <!-- MCP read arrows (dashed) -->
+  <path class="flow-dashed" d="M 165 295 Q 140 295 130 280"/>
+  <path class="flow-dashed" d="M 255 295 Q 290 295 305 235"/>
+  <path class="flow-dashed" d="M 220 285 Q 240 240 295 195"/>
+</svg>

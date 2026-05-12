@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 
 import roadmapScreenshot from './assets/images/roadmap-screenshot.png';
+import gridSensorScreenshot from './assets/grid-sensor-architecture.svg';
 
 const App = () => {
   return (
@@ -204,7 +205,70 @@ const App = () => {
     <div className="section-head"><span className="s-num">03 —</span><h2 className="s-title">Selected Projects</h2></div>
     <div className="proj-grid">
 
-      <a href="https://roadmap.musto.io/" className="proj-card hero-proj" target="_blank" rel="noopener">
+      <a
+        href="https://github.com/amusto/Grid-Sensor-Pipeline/blob/main/docs/diagrams/system-overview.md"
+        className="proj-card hero-proj"
+        target="_blank"
+        rel="noopener"
+      >
+        <span className="proj-arrow">↗</span>
+        <div>
+          <p className="proj-type">
+            Serverless · TypeScript · AWS · Production-Grade POC
+          </p>
+          <h3>Grid Sensor Pipeline</h3>
+          <p>
+            Serverless IoT event-processing pipeline in TypeScript — application
+            code, AWS CDK infrastructure, and a Model Context Protocol server
+            that exposes the pipeline's data to LLM agents as read-only tools.
+            Sensor telemetry from a grid of IoT devices flows through AWS IoT
+            Core into two parallel paths: a Kinesis-backed persistence path that
+            validates and archives every reading, and a Step Functions workflow
+            that uses Bedrock to enrich threshold-breach notifications with
+            LLM-classified severity, channel routing, and per-channel narratives.
+          </p>
+
+          <p>
+            Three architectural decisions worth noticing. Step Functions +
+            LangGraph composition — durable workflow at one layer, agentic
+            decisioning at another, not one or the other. Fail-soft Bedrock
+            fallback — AI-generated content is best-effort, never load-bearing,
+            so the alert always reaches its destination even when the model
+            fails. Cost guardrails at three time horizons — per-call retry cap,
+            per-window aggregate alarm, per-output schema bounds — each catching
+            a different failure mode at a different time scale. Architectural
+            invariants codified in CLAUDE.md, decision logs per phase,
+            end-to-end live verification against deployed AWS.
+          </p>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <div style={{ marginBottom: '1.5rem' }}>
+            <img
+              src={gridSensorScreenshot}
+              alt="Grid Sensor Pipeline Architecture"
+              width={'400px'}
+            />
+          </div>
+          <div
+            style={{
+              height: '1px',
+              background: 'rgba(247,244,239,0.12)',
+              marginBottom: '1.5rem',
+            }}
+          ></div>
+          <div className="proj-meta-label">Stack</div>
+          <div className="proj-chips">
+            <span className="proj-chip">TypeScript</span>
+            <span className="proj-chip">AWS CDK</span>
+            <span className="proj-chip">Step Functions</span>
+            <span className="proj-chip">Bedrock</span>
+            <span className="proj-chip">LangGraph</span>
+            <span className="proj-chip">MCP</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://roadmap.musto.io/" className="proj-card" target="_blank" rel="noopener">
         <span className="proj-arrow">↗</span>
         <div>
           <p className="proj-type">Full-Stack Product · TypeScript · Active</p>
