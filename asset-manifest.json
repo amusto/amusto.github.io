@@ -1,14 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.3ba34fea.css",
-    "main.js": "/static/js/main.96ae9eef.js",
+    "main.css": "/static/css/main.91cc80d6.css",
+    "main.js": "/static/js/main.39366631.js",
     "static/media/roadmap-screenshot.png": "/static/media/roadmap-screenshot.b6f5aa94beebf1cf419a.png",
     "index.html": "/index.html",
-    "main.3ba34fea.css.map": "/static/css/main.3ba34fea.css.map",
-    "main.96ae9eef.js.map": "/static/js/main.96ae9eef.js.map"
+    "static/media/grid-sensor-architecture.svg": "/static/media/grid-sensor-architecture.5899ba1eae7ab2207695b47b0fa683b2.svg",
+    "main.91cc80d6.css.map": "/static/css/main.91cc80d6.css.map",
+    "main.39366631.js.map": "/static/js/main.39366631.js.map"
   },
   "entrypoints": [
-    "static/css/main.3ba34fea.css",
-    "static/js/main.96ae9eef.js"
+    "static/css/main.91cc80d6.css",
+    "static/js/main.39366631.js"
   ]
 }
