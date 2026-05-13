@@ -3,6 +3,8 @@ import './App.css';
 
 import roadmapScreenshot from './assets/images/roadmap-screenshot.png';
 import gridSensorScreenshot from './assets/grid-sensor-architecture.svg';
+import hyperscaleDashboard from './assets/images/hyperscale-dashboard.png';
+import hyperscalePorts from './assets/images/hyperscale-ports.png';
 
 const App = () => {
   return (
@@ -265,6 +267,41 @@ const App = () => {
             <span className="proj-chip">LangGraph</span>
             <span className="proj-chip">MCP</span>
           </div>
+        </div>
+      </a>
+
+      <a href="https://github.com/amusto/Hyperscale-Dashboard-POC" className="proj-card" target="_blank" rel="noopener">
+        <span className="proj-arrow">↗</span>
+        <p className="proj-type">Cloud Architecture · Java · AWS · Public</p>
+        <h3>Hyperscale Ops POC</h3>
+        <p>Greenfield full-stack POC for a hyperscale data center operations app — Java 21 + Spring Boot 3 on ECS Fargate, React + AWS Cloudscape design system on S3/CloudFront, and a DynamoDB single-table model designed access-pattern-first rather than entity-first. Infrastructure defined in AWS CDK Java, so the entire stack — API, data layer, deployment — lives in one language ecosystem. Built as the interview-prep artifact for a hyperscale role; the architectural choices are ones I'd defend in a Staff-level system-design interview, not the ones a tutorial picks.</p>
+        <div style={{ marginTop: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+          <figure style={{ margin: 0 }}>
+            <img
+              src={hyperscaleDashboard}
+              alt="Hyperscale Ops POC — Default Dashboard"
+              style={{ width: '100%', display: 'block', border: '1px solid rgba(14,14,14,0.08)' }}
+            />
+            <figcaption style={{ fontFamily: 'var(--mono)', fontSize: '10px', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--ink-faint)', marginTop: '0.4rem' }}>
+              Default Dashboard
+            </figcaption>
+          </figure>
+          <figure style={{ margin: 0 }}>
+            <img
+              src={hyperscalePorts}
+              alt="Hyperscale Ops POC — Ports Section"
+              style={{ width: '100%', display: 'block', border: '1px solid rgba(14,14,14,0.08)' }}
+            />
+            <figcaption style={{ fontFamily: 'var(--mono)', fontSize: '10px', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--ink-faint)', marginTop: '0.4rem' }}>
+              Ports Section
+            </figcaption>
+          </figure>
+        </div>
+        <div className="proj-divider"></div>
+        <div className="proj-chips">
+          <span className="proj-chip">Spring Boot</span><span className="proj-chip">React</span>
+          <span className="proj-chip">Cloudscape</span><span className="proj-chip">DynamoDB</span>
+          <span className="proj-chip">AWS CDK</span><span className="proj-chip">ECS Fargate</span>
         </div>
       </a>
 
