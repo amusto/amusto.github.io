@@ -1,15 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.91cc80d6.css",
-    "main.js": "/static/js/main.39366631.js",
+    "main.js": "/static/js/main.037b9895.js",
     "static/media/roadmap-screenshot.png": "/static/media/roadmap-screenshot.b6f5aa94beebf1cf419a.png",
+    "static/media/hyperscale-dashboard.png": "/static/media/hyperscale-dashboard.f4ade17fd223446fa80b.png",
+    "static/media/hyperscale-ports.png": "/static/media/hyperscale-ports.025b5c0f9e492f1093d7.png",
     "index.html": "/index.html",
     "static/media/grid-sensor-architecture.svg": "/static/media/grid-sensor-architecture.5899ba1eae7ab2207695b47b0fa683b2.svg",
     "main.91cc80d6.css.map": "/static/css/main.91cc80d6.css.map",
-    "main.39366631.js.map": "/static/js/main.39366631.js.map"
+    "main.037b9895.js.map": "/static/js/main.037b9895.js.map"
   },
   "entrypoints": [
     "static/css/main.91cc80d6.css",
-    "static/js/main.39366631.js"
+    "static/js/main.037b9895.js"
   ]
 }
