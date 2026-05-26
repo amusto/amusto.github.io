@@ -5,6 +5,8 @@ import roadmapScreenshot from './assets/images/roadmap-screenshot.png';
 import gridSensorScreenshot from './assets/grid-sensor-architecture.svg';
 import hyperscaleDashboard from './assets/images/hyperscale-dashboard.png';
 import hyperscalePorts from './assets/images/hyperscale-ports.png';
+import programAnalyticsDashboard from './assets/images/program-analytics-dashboard.png';
+import programAnalyticsArchitecture from './assets/program-analytics-architecture.svg';
 
 const App = () => {
   return (
@@ -208,7 +210,7 @@ const App = () => {
     <div className="proj-grid">
 
       <a
-        href="https://github.com/amusto/Grid-Sensor-Pipeline/blob/main/docs/diagrams/system-overview.md"
+        href="https://github.com/amusto/Program-Analytics-ETL-Platform"
         className="proj-card hero-proj"
         target="_blank"
         rel="noopener"
@@ -216,41 +218,40 @@ const App = () => {
         <span className="proj-arrow">↗</span>
         <div>
           <p className="proj-type">
-            Serverless · TypeScript · AWS · Production-Grade POC
+            Data Engineering · Python · FastAPI · React · POC
           </p>
-          <h3>Grid Sensor Pipeline</h3>
+          <h3>Program Analytics ETL Platform</h3>
           <p>
-            Serverless IoT event-processing pipeline in TypeScript — application
-            code, AWS CDK infrastructure, and a Model Context Protocol server
-            that exposes the pipeline's data to LLM agents as read-only tools.
-            Sensor telemetry from a grid of IoT devices flows through AWS IoT
-            Core into two parallel paths: a Kinesis-backed persistence path that
-            validates and archives every reading, and a Step Functions workflow
-            that uses Bedrock to enrich threshold-breach notifications with
-            LLM-classified severity, channel routing, and per-channel narratives.
+            Miniature enterprise analytics platform for program / portfolio
+            management — built to demonstrate <strong>data engineering thinking
+            first, full-stack capability second</strong>. Multi-source CSV
+            ingestion validated at the boundary with Pydantic v2 (failed rows
+            route to a JSONL dead-letter sink), transformed into derived
+            reporting metrics (schedule variance, budget utilization, project
+            health), loaded idempotently into PostgreSQL via{' '}
+            <code>INSERT ... ON CONFLICT DO UPDATE</code>, and exposed through
+            a FastAPI analytics service rendered by a React + TypeScript
+            dashboard. Not a CRUD app — a small ETL pipeline with a UI on top.
           </p>
-
-          <p>
-            Three architectural decisions worth noticing. Step Functions +
-            LangGraph composition — durable workflow at one layer, agentic
-            decisioning at another, not one or the other. Fail-soft Bedrock
-            fallback — AI-generated content is best-effort, never load-bearing,
-            so the alert always reaches its destination even when the model
-            fails. Cost guardrails at three time horizons — per-call retry cap,
-            per-window aggregate alarm, per-output schema bounds — each catching
-            a different failure mode at a different time scale. Architectural
-            invariants codified in CLAUDE.md, decision logs per phase,
-            end-to-end live verification against deployed AWS.
-          </p>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-          <div style={{ marginBottom: '1.5rem' }}>
+          <div style={{ marginTop: '1.75rem', display: 'flex', justifyContent: 'center' }}>
             <img
-              src={gridSensorScreenshot}
-              alt="Grid Sensor Pipeline Architecture"
-              width={'400px'}
+              src={programAnalyticsArchitecture}
+              alt="Program Analytics ETL Platform architecture — raw CSV sources flow through Pydantic v2 validators (with a JSONL dead-letter sink for invalid and orphan rows), into a transform layer that derives schedule variance, budget utilization, and project health, then load idempotently into PostgreSQL (programs, projects, milestones, risks, project_analytics, etl_run_log), surfaced through a FastAPI analytics service consumed by a React + TypeScript dashboard"
+              style={{ width: '320px', maxWidth: '100%', display: 'block', background: 'var(--paper)', padding: '1rem' }}
             />
           </div>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <figure style={{ margin: 0, marginBottom: '1.5rem' }}>
+            <img
+              src={programAnalyticsDashboard}
+              alt="Program Analytics dashboard — KPI cards (4 programs, 18 projects, 6 critical, 8 at-risk, 89.0% avg budget utilization, 15 open risks) above an at-risk project table"
+              style={{ width: '100%', display: 'block', border: '1px solid rgba(247,244,239,0.12)' }}
+            />
+            <figcaption style={{ fontFamily: 'var(--mono)', fontSize: '10px', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(247,244,239,0.4)', marginTop: '0.5rem' }}>
+              Analytics Dashboard — KPI rollup + at-risk project table
+            </figcaption>
+          </figure>
           <div
             style={{
               height: '1px',
@@ -260,13 +261,34 @@ const App = () => {
           ></div>
           <div className="proj-meta-label">Stack</div>
           <div className="proj-chips">
+            <span className="proj-chip">Python</span>
+            <span className="proj-chip">FastAPI</span>
+            <span className="proj-chip">Pydantic v2</span>
+            <span className="proj-chip">SQLAlchemy 2.0</span>
+            <span className="proj-chip">PostgreSQL</span>
+            <span className="proj-chip">React</span>
             <span className="proj-chip">TypeScript</span>
-            <span className="proj-chip">AWS CDK</span>
-            <span className="proj-chip">Step Functions</span>
-            <span className="proj-chip">Bedrock</span>
-            <span className="proj-chip">LangGraph</span>
-            <span className="proj-chip">MCP</span>
+            <span className="proj-chip">Docker Compose</span>
+            <span className="proj-chip">ETL</span>
+            <span className="proj-chip">Idempotent UPSERT</span>
           </div>
+        </div>
+      </a>
+
+      <a href="#" className="proj-card" rel="noopener">
+        <span className="proj-arrow">↗</span>
+        <p className="proj-type">Workflow Automation Platform · TypeScript · Production SaaS</p>
+        <h3>
+          <span style={{ color: 'var(--accent)', marginRight: '0.5rem' }} aria-label="featured" title="Featured project">★</span>
+          Logistics Workflow Automation Platform
+        </h3>
+        <p>Production-grade multi-tenant SaaS that turned one of trucking's most manual, tribal-knowledge-driven workflows — multi-state oversized-freight permitting — into a configurable, rules-driven automation engine. Google Maps route traversal in; jurisdiction-aware compliance logic, dynamic operational cost calculation, and customer-facing PDFs out, all in real time. Not a CRUD app — an operational platform for encoding fragmented domain expertise into repeatable software.</p>
+        <div className="proj-divider"></div>
+        <div className="proj-chips">
+          <span className="proj-chip">NestJS</span><span className="proj-chip">React</span>
+          <span className="proj-chip">PostgreSQL</span><span className="proj-chip">AWS</span>
+          <span className="proj-chip">Terraform</span><span className="proj-chip">Google Maps API</span>
+          <span className="proj-chip">Rules Engine</span><span className="proj-chip">Multi-Tenant SaaS</span>
         </div>
       </a>
 
@@ -302,6 +324,84 @@ const App = () => {
           <span className="proj-chip">Spring Boot</span><span className="proj-chip">React</span>
           <span className="proj-chip">Cloudscape</span><span className="proj-chip">DynamoDB</span>
           <span className="proj-chip">AWS CDK</span><span className="proj-chip">ECS Fargate</span>
+        </div>
+      </a>
+
+      <a
+        href="https://github.com/amusto/Grid-Sensor-Pipeline/blob/main/docs/diagrams/system-overview.md"
+        className="proj-card hero-proj"
+        target="_blank"
+        rel="noopener"
+      >
+        <span className="proj-arrow">↗</span>
+        <div>
+          <p className="proj-type">
+            Serverless · TypeScript · AWS · Production-Grade POC
+          </p>
+          <h3>Grid Sensor Pipeline</h3>
+          <p>
+            Serverless IoT event-processing pipeline in TypeScript — application
+            code, AWS CDK infrastructure, an agentic alert-routing layer
+            (Bedrock + LangGraph + DynamoDB-backed case persistence), and a
+            Model Context Protocol server that exposes the pipeline's data to
+            LLM agents as read-only tools. Sensor telemetry from a grid of IoT
+            devices flows through AWS IoT Core into two parallel paths: a
+            Kinesis-backed persistence path that validates and archives every
+            reading, and a Step Functions workflow that uses Bedrock to enrich
+            threshold-breach notifications with LLM-classified severity, channel
+            routing, and per-channel narratives.
+          </p>
+
+          <p>
+            Three architectural decisions worth noticing. Step Functions +
+            LangGraph composition — durable workflow at one layer, agentic
+            decisioning at another, not one or the other. Fail-soft Bedrock
+            fallback — AI-generated content is best-effort, never load-bearing,
+            so the alert always reaches its destination even when the model
+            fails. Cost guardrails at three time horizons — per-call retry cap,
+            per-window aggregate alarm, per-output schema bounds — each catching
+            a different failure mode at a different time scale. Architectural
+            invariants codified in CLAUDE.md, decision logs per phase,
+            end-to-end live verification against deployed AWS.
+          </p>
+
+          <p>
+            Architecture extends to an agentic case-routing layer — a uniform
+            channel-adapter interface (email via SNS plus an SMS stub),
+            DynamoDB-backed case persistence with conditional-write idempotency
+            so Step Functions retries don't double-deliver, and partial-success
+            failure isolation across channels. Observability is dual —
+            Powertools EMF metrics flow simultaneously to CloudWatch and to
+            Datadog via the Lambda Extension, same data shape in both surfaces.
+          </p>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <div style={{ marginBottom: '1.5rem' }}>
+            <img
+              src={gridSensorScreenshot}
+              alt="Grid Sensor Pipeline Architecture"
+              width={'400px'}
+            />
+          </div>
+          <div
+            style={{
+              height: '1px',
+              background: 'rgba(247,244,239,0.12)',
+              marginBottom: '1.5rem',
+            }}
+          ></div>
+          <div className="proj-meta-label">Stack</div>
+          <div className="proj-chips">
+            <span className="proj-chip">TypeScript</span>
+            <span className="proj-chip">AWS CDK</span>
+            <span className="proj-chip">Step Functions</span>
+            <span className="proj-chip">Bedrock</span>
+            <span className="proj-chip">LangGraph</span>
+            <span className="proj-chip">MCP</span>
+            <span className="proj-chip">DynamoDB</span>
+            <span className="proj-chip">Powertools</span>
+            <span className="proj-chip">Datadog</span>
+          </div>
         </div>
       </a>
 
