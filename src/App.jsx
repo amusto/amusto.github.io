@@ -505,6 +505,23 @@ const App = () => {
     </p>
     <div className="article-list">
 
+      <div className="article-item">
+        <div>
+          <div className="article-title">
+            <a href="https://dev.to/amusto/soc-2-isnt-a-project-its-a-reflection-of-how-your-engineering-team-already-works-1mf9" target="_blank" rel="noopener" style={{color: 'inherit', textDecoration: 'none'}}>SOC 2 Isn't a Project. It's a Reflection of How Your Engineering Team Already Works.</a>
+          </div>
+          <div className="article-hook">Every few months a founder asks me how fast they can "get" SOC 2. The honest answer is uncomfortable: SOC 2 isn't something you get — it's something an auditor confirms about how your team already operates. A field guide for technical leaders on building operational maturity incrementally so compliance becomes a status check, not a fire drill.</div>
+          <div className="article-hook" style={{marginTop: '0.6rem', fontFamily: 'var(--mono)', fontSize: '11px', letterSpacing: '0.05em'}}>
+            Read on <a href="https://dev.to/amusto/soc-2-isnt-a-project-its-a-reflection-of-how-your-engineering-team-already-works-1mf9" target="_blank" rel="noopener" style={{color: 'var(--accent)', textDecoration: 'none'}}>Dev.to</a> · <a href="https://medium.com/@armando.musto/soc-2-isnt-a-project-it-s-a-reflection-of-how-your-engineering-team-already-works-26087fe6a255" target="_blank" rel="noopener" style={{color: 'var(--accent)', textDecoration: 'none'}}>Medium</a>
+          </div>
+        </div>
+        <div className="article-meta">
+          <span className="article-tag">Leadership</span>
+          <span className="article-read">~10 min read</span>
+          <span className="article-status">Published</span>
+        </div>
+      </div>
+
       <a href="#" className="article-item">
         <div>
           <div className="article-title">Kafka vs SQS: When Event Streaming Beats a Queue (And When It Doesn't)</div>
