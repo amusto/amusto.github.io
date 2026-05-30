@@ -7,6 +7,8 @@ import hyperscaleDashboard from './assets/images/hyperscale-dashboard.png';
 import hyperscalePorts from './assets/images/hyperscale-ports.png';
 import programAnalyticsDashboard from './assets/images/program-analytics-dashboard.png';
 import programAnalyticsArchitecture from './assets/program-analytics-architecture.svg';
+import emergencyResponseArchitecture from './assets/emergency-response-architecture.svg';
+import emergencyResponseMobile from './assets/emergency-response-mobile.svg';
 
 const App = () => {
   return (
@@ -208,6 +210,93 @@ const App = () => {
   <div className="inner">
     <div className="section-head"><span className="s-num">03 —</span><h2 className="s-title">Selected Projects</h2></div>
     <div className="proj-grid">
+
+      <a
+        href="https://github.com/amusto/emergency-response-intelligence-platform"
+        className="proj-card hero-proj geo-proj"
+        target="_blank"
+        rel="noopener"
+      >
+        <span className="proj-arrow">↗</span>
+        <div>
+          <p className="proj-type">
+            Geospatial · Full-Stack · TypeScript · Production-Shaped POC
+          </p>
+          <h3>
+            <span style={{ color: 'var(--accent)', marginRight: '0.5rem' }} aria-label="featured" title="Featured project">★</span>
+            Emergency Response Intelligence Platform
+          </h3>
+          <p>
+            A multi-agency operational intelligence platform that fuses live
+            incidents, responder units, and care facilities into a single common
+            operating picture — the production-shaped evolution of my earlier
+            isochrone experiments. A React + Leaflet command center renders the
+            map; a NestJS REST API serves it. Built incrementally against a
+            phased roadmap, with phases 0–4 (foundation, operational map,
+            search, PostGIS proximity, travel-time routing) complete.
+          </p>
+
+          <p>
+            The geospatial core is real, not decorative. Entities live in
+            PostgreSQL + PostGIS as <code>geography(Point, 4326)</code> with GiST
+            indexes, so <code>ST_DWithin</code> filters and{' '}
+            <code>ST_Distance</code> ranking return metre-accurate nearest units
+            and facilities for any incident — the difference between a mapping
+            toy and a dispatch-grade query layer. Cross-entity search is
+            relevance-ranked and grouped by type.
+          </p>
+
+          <p>
+            Travel-time routing calls a Valhalla engine over OpenStreetMap for
+            both point-to-point routes and isochrone polygons, decoding
+            precision-6 polylines into on-map paths with live ETA. When Valhalla
+            isn't running it degrades to a clearly-labeled straight-line
+            (haversine) estimate, so the operating picture always renders.
+            Production-shaping throughout — parameterized SQL, an RDS-ready data
+            layer with TLS and advisory-lock schema bootstrap for safe
+            multi-instance startup, a Dockerized stack, and an installable PWA
+            shell.
+          </p>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <figure style={{ margin: 0, marginBottom: '1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <img
+              src={emergencyResponseMobile}
+              alt="ERIP command center on a phone — a full-screen dark operational map with a top bar showing active P1 incidents, available units, and facility counts, colored markers for incidents, responder units, and care facilities, and a Valhalla travel-time route drawn from the nearest unit to a highlighted P1 incident with a 6-minute ETA banner"
+              style={{ width: '210px', maxWidth: '100%', display: 'block' }}
+            />
+            <figcaption style={{ fontFamily: 'var(--mono)', fontSize: '10px', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(247,244,239,0.45)', marginTop: '0.75rem' }}>
+              Mobile-first command center — responsive PWA
+            </figcaption>
+          </figure>
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.5rem' }}>
+            <img
+              src={emergencyResponseArchitecture}
+              alt="Emergency Response Intelligence Platform architecture — a React + Leaflet PWA command center calls a NestJS REST API whose Geo and Search modules query PostgreSQL + PostGIS for metre-accurate proximity (ST_DWithin / ST_Distance), while the Routing module calls a Valhalla travel-time engine over OpenStreetMap that degrades to a straight-line estimate when unavailable"
+              style={{ width: '320px', maxWidth: '100%', display: 'block', background: 'var(--paper)', padding: '1rem' }}
+            />
+          </div>
+          <div
+            style={{
+              height: '1px',
+              background: 'rgba(247,244,239,0.15)',
+              marginBottom: '1.5rem',
+            }}
+          ></div>
+          <div className="proj-meta-label">Stack</div>
+          <div className="proj-chips">
+            <span className="proj-chip">NestJS</span>
+            <span className="proj-chip">React</span>
+            <span className="proj-chip">Leaflet</span>
+            <span className="proj-chip">PostGIS</span>
+            <span className="proj-chip">Valhalla</span>
+            <span className="proj-chip">PostgreSQL</span>
+            <span className="proj-chip">TypeScript</span>
+            <span className="proj-chip">Docker Compose</span>
+            <span className="proj-chip">PWA</span>
+          </div>
+        </div>
+      </a>
 
       <a
         href="https://github.com/amusto/Program-Analytics-ETL-Platform"

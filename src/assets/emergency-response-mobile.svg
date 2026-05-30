@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 600" role="img" aria-labelledby="m-title m-desc">
+  <title id="m-title">Emergency Response Intelligence Platform — mobile command center</title>
+  <desc id="m-desc">The ERIP command center on a phone: a full-screen dark operational map with a top bar (hamburger drawer toggle, ERIP brand, and live counts for active P1 incidents, available units, and facilities), colored markers for incidents, responder units, and care facilities, a highlighted P1 incident with a Valhalla route drawn to the nearest unit, and a travel-time ETA banner.</desc>
+
+  <defs>
+    <clipPath id="screen">
+      <rect x="20" y="22" width="260" height="556" rx="32"/>
+    </clipPath>
+    <style>
+      .ui { font-family: system-ui, -apple-system, sans-serif; }
+      .mark { stroke: #ffffff; }
+    </style>
+  </defs>
+
+  <!-- Side buttons -->
+  <rect x="6" y="150" width="3" height="34" rx="1.5" fill="#0c0c10"/>
+  <rect x="6" y="200" width="3" height="54" rx="1.5" fill="#0c0c10"/>
+  <rect x="291" y="180" width="3" height="70" rx="1.5" fill="#0c0c10"/>
+
+  <!-- Phone body + screen -->
+  <rect x="8" y="8" width="284" height="584" rx="44" fill="#15151b" stroke="#2c2c34" stroke-width="1.5"/>
+  <rect x="20" y="22" width="260" height="556" rx="32" fill="#0b0f17"/>
+
+  <g clip-path="url(#screen)">
+    <!-- Status bar -->
+    <text class="ui" x="44" y="46" fill="#e6edf6" font-size="12" font-weight="600">9:41</text>
+    <rect x="244" y="38" width="18" height="9" rx="2" fill="none" stroke="#e6edf6" stroke-width="1"/>
+    <rect x="246" y="40" width="12" height="5" rx="1" fill="#e6edf6"/>
+    <circle cx="226" cy="42" r="2.5" fill="#e6edf6"/>
+    <circle cx="234" cy="42" r="2.5" fill="#e6edf6"/>
+
+    <!-- Top bar -->
+    <rect x="20" y="54" width="260" height="48" fill="#121826"/>
+    <!-- Hamburger -->
+    <g stroke="#e6edf6" stroke-width="1.8" stroke-linecap="round">
+      <line x1="36" y1="73" x2="50" y2="73"/>
+      <line x1="36" y1="78" x2="50" y2="78"/>
+      <line x1="36" y1="83" x2="50" y2="83"/>
+    </g>
+    <text class="ui" x="60" y="82" fill="#f2f6fc" font-size="15" font-weight="700" letter-spacing="0.5">ERIP</text>
+
+    <!-- Stats -->
+    <g text-anchor="middle">
+      <text class="ui" x="176" y="76" fill="#ef4444" font-size="14" font-weight="700">2</text>
+      <text class="ui" x="176" y="90" fill="#7e8aa0" font-size="6.5" font-weight="600" letter-spacing="0.6">ACTIVE P1</text>
+      <text class="ui" x="218" y="76" fill="#22c55e" font-size="14" font-weight="700">5</text>
+      <text class="ui" x="218" y="90" fill="#7e8aa0" font-size="6.5" font-weight="600" letter-spacing="0.6">UNITS</text>
+      <text class="ui" x="258" y="76" fill="#a855f7" font-size="14" font-weight="700">6</text>
+      <text class="ui" x="258" y="90" fill="#7e8aa0" font-size="6.5" font-weight="600" letter-spacing="0.6">SITES</text>
+    </g>
+
+    <!-- Map background -->
+    <rect x="20" y="102" width="260" height="476" fill="#0b0f17"/>
+
+    <!-- Water band -->
+    <path d="M 20 470 C 90 430 120 500 200 460 C 250 436 270 470 280 458 L 280 578 L 20 578 Z" fill="#0e2233" opacity="0.7"/>
+
+    <!-- Streets -->
+    <g stroke="#9fb0c8" stroke-width="7" opacity="0.06">
+      <line x1="20" y1="170" x2="280" y2="178"/>
+      <line x1="20" y1="262" x2="280" y2="258"/>
+      <line x1="20" y1="356" x2="280" y2="362"/>
+      <line x1="92" y1="102" x2="86" y2="578"/>
+      <line x1="170" y1="102" x2="172" y2="578"/>
+      <line x1="240" y1="102" x2="246" y2="578"/>
+    </g>
+    <g stroke="#9fb0c8" stroke-width="3" opacity="0.05">
+      <line x1="20" y1="216" x2="280" y2="216"/>
+      <line x1="20" y1="312" x2="280" y2="312"/>
+      <line x1="20" y1="408" x2="280" y2="408"/>
+      <line x1="132" y1="102" x2="130" y2="578"/>
+      <line x1="208" y1="102" x2="210" y2="578"/>
+    </g>
+    <path d="M 20 130 C 120 150 180 120 280 150" stroke="#9fb0c8" stroke-width="6" opacity="0.06" fill="none"/>
+
+    <!-- Route: nearest unit -> selected P1 incident -->
+    <path d="M 196 214 C 184 240 176 272 162 300" stroke="#38bdf8" stroke-width="3" fill="none" opacity="0.95" stroke-linecap="round"/>
+
+    <!-- Facilities (purple) -->
+    <circle class="mark" cx="108" cy="172" r="7" fill="#a855f7" stroke-width="1"/>
+    <circle class="mark" cx="250" cy="392" r="7" fill="#a855f7" stroke-width="1"/>
+
+    <!-- Resource units -->
+    <circle class="mark" cx="196" cy="214" r="6.5" fill="#22c55e" stroke-width="1"/>  <!-- EMS -->
+    <circle class="mark" cx="236" cy="306" r="6.5" fill="#f97316" stroke-width="1"/>  <!-- Fire -->
+    <circle class="mark" cx="84"  cy="346" r="6.5" fill="#2563eb" stroke-width="1"/>  <!-- Police -->
+
+    <!-- Incidents -->
+    <circle class="mark" cx="222" cy="430" r="9"  fill="#f59e0b" fill-opacity="0.9" stroke-width="1.5"/>  <!-- P2 -->
+    <circle class="mark" cx="116" cy="446" r="9"  fill="#3b82f6" fill-opacity="0.9" stroke-width="1.5"/>  <!-- P3 -->
+    <!-- Selected P1 (emphasized) -->
+    <circle cx="162" cy="300" r="20" fill="#ef4444" opacity="0.16"/>
+    <circle class="mark" cx="162" cy="300" r="13" fill="#ef4444" fill-opacity="0.92" stroke-width="3"/>
+
+    <!-- ETA / route banner -->
+    <rect x="36" y="116" width="228" height="32" rx="8" fill="#121826" stroke="#243044" stroke-width="1"/>
+    <rect x="44" y="124" width="52" height="16" rx="4" fill="#0e3a52"/>
+    <text class="ui" x="70" y="135.5" fill="#7fd3f7" font-size="9" font-weight="600" text-anchor="middle">Valhalla</text>
+    <text class="ui" x="112" y="136" fill="#e6edf6" font-size="11" font-weight="700">6 min</text>
+    <text class="ui" x="156" y="136" fill="#aeb9ca" font-size="11" font-weight="600">2.3 km</text>
+    <text class="ui" x="252" y="136" fill="#7e8aa0" font-size="9" font-weight="600" text-anchor="end">Clear ✕</text>
+
+    <!-- Map zoom control -->
+    <rect x="252" y="498" width="22" height="44" rx="5" fill="#121826" stroke="#243044" stroke-width="1"/>
+    <text class="ui" x="263" y="516" fill="#e6edf6" font-size="14" font-weight="600" text-anchor="middle">+</text>
+    <line x1="256" y1="520" x2="270" y2="520" stroke="#243044" stroke-width="1"/>
+    <text class="ui" x="263" y="536" fill="#e6edf6" font-size="14" font-weight="600" text-anchor="middle">−</text>
+
+    <!-- Home indicator -->
+    <rect x="125" y="566" width="50" height="4" rx="2" fill="#ffffff" opacity="0.5"/>
+  </g>
+
+  <!-- Dynamic island -->
+  <rect x="120" y="30" width="60" height="15" rx="7.5" fill="#000000"/>
+</svg>
