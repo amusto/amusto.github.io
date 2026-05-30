@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-labelledby="title desc">
+  <title id="title">Emergency Response Intelligence Platform — Architecture</title>
+  <desc id="desc">High-level architecture: a React + Leaflet PWA command center calls a NestJS REST API. The API's Geo and Search modules query PostgreSQL + PostGIS for metre-accurate proximity (ST_DWithin / ST_Distance); the Routing module calls a Valhalla travel-time engine over OpenStreetMap, degrading to a straight-line estimate when Valhalla is unavailable.</desc>
+
+  <defs>
+    <marker id="erip-arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#475569"/>
+    </marker>
+    <style>
+      .box { fill: #f8fafc; stroke: #94a3b8; stroke-width: 1.2; }
+      .box-emph { fill: #fef2f2; stroke: #dc2626; stroke-width: 1.8; }
+      .box-dashed { fill: #f8fafc; stroke: #94a3b8; stroke-width: 1.2; stroke-dasharray: 4,3; }
+      .label { fill: #0f172a; font-family: system-ui, -apple-system, sans-serif; font-size: 9.5px; font-weight: 600; }
+      .sublabel { fill: #64748b; font-family: system-ui, -apple-system, sans-serif; font-size: 7.5px; }
+      .flow { stroke: #475569; stroke-width: 1.2; fill: none; }
+      .flow-dashed { stroke: #94a3b8; stroke-width: 1.2; stroke-dasharray: 3,2; fill: none; }
+    </style>
+  </defs>
+
+  <!-- Command Center (browser) -->
+  <rect class="box" x="120" y="12" width="160" height="30" rx="4"/>
+  <text class="label" x="200" y="28" text-anchor="middle">Command Center</text>
+  <text class="sublabel" x="200" y="37" text-anchor="middle">React · Leaflet · installable PWA</text>
+
+  <line class="flow" x1="200" y1="42" x2="200" y2="55" marker-end="url(#erip-arrow)"/>
+
+  <!-- NestJS API (emphasized spine) -->
+  <rect class="box-emph" x="110" y="57" width="180" height="32" rx="4"/>
+  <text class="label" x="200" y="74" text-anchor="middle">NestJS REST API</text>
+  <text class="sublabel" x="200" y="83" text-anchor="middle">/api · Geo · Search · Routing</text>
+
+  <!-- Diverging arrows to the three module concerns -->
+  <path class="flow" d="M 155 89 L 78 118" marker-end="url(#erip-arrow)"/>
+  <line class="flow" x1="200" y1="89" x2="200" y2="118" marker-end="url(#erip-arrow)"/>
+  <path class="flow" d="M 245 89 L 322 118" marker-end="url(#erip-arrow)"/>
+
+  <!-- Geo module -->
+  <rect class="box" x="20" y="120" width="105" height="32" rx="4"/>
+  <text class="label" x="72" y="137" text-anchor="middle">Geo Module</text>
+  <text class="sublabel" x="72" y="146" text-anchor="middle">ST_DWithin / ST_Distance</text>
+
+  <!-- Search + Entities -->
+  <rect class="box" x="148" y="120" width="104" height="32" rx="4"/>
+  <text class="label" x="200" y="137" text-anchor="middle">Search + Entities</text>
+  <text class="sublabel" x="200" y="146" text-anchor="middle">ranked · grouped</text>
+
+  <!-- Routing module -->
+  <rect class="box" x="275" y="120" width="105" height="32" rx="4"/>
+  <text class="label" x="327" y="137" text-anchor="middle">Routing Module</text>
+  <text class="sublabel" x="327" y="146" text-anchor="middle">route · isochrone</text>
+
+  <!-- Geo + Search converge into the data layer; Routing into Valhalla -->
+  <path class="flow" d="M 72 152 L 110 178" marker-end="url(#erip-arrow)"/>
+  <path class="flow" d="M 200 152 L 165 178" marker-end="url(#erip-arrow)"/>
+  <line class="flow" x1="327" y1="152" x2="327" y2="178" marker-end="url(#erip-arrow)"/>
+
+  <!-- PostgreSQL + PostGIS (emphasized geospatial core) -->
+  <rect class="box-emph" x="50" y="180" width="195" height="34" rx="4"/>
+  <text class="label" x="147" y="197" text-anchor="middle">PostgreSQL + PostGIS</text>
+  <text class="sublabel" x="147" y="207" text-anchor="middle">geography(Point, 4326) · GiST index</text>
+
+  <!-- Valhalla -->
+  <rect class="box" x="275" y="180" width="105" height="34" rx="4"/>
+  <text class="label" x="327" y="197" text-anchor="middle">Valhalla</text>
+  <text class="sublabel" x="327" y="207" text-anchor="middle">OSM travel-time engine</text>
+
+  <!-- Valhalla fallback -->
+  <line class="flow-dashed" x1="327" y1="214" x2="327" y2="236"/>
+  <rect class="box-dashed" x="275" y="238" width="105" height="30" rx="4"/>
+  <text class="label" x="327" y="253" text-anchor="middle">Fallback</text>
+  <text class="sublabel" x="327" y="262" text-anchor="middle">straight-line estimate</text>
+
+  <!-- Footer note -->
+  <text class="sublabel" x="147" y="232" text-anchor="middle">Docker Compose · RDS-ready (advisory-lock bootstrap)</text>
+</svg>
