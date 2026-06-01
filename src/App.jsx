@@ -226,6 +226,41 @@ const App = () => {
             <span style={{ color: 'var(--accent)', marginRight: '0.5rem' }} aria-label="featured" title="Featured project">★</span>
             Emergency Response Intelligence Platform
           </h3>
+          <span
+            role="link"
+            tabIndex={0}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              window.open('https://erip.musto.io', '_blank', 'noopener');
+            }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                e.stopPropagation();
+                window.open('https://erip.musto.io', '_blank', 'noopener');
+              }
+            }}
+            title="Open the live demo at erip.musto.io"
+            aria-label="Open the ERIP live demo (opens in a new tab)"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.45rem',
+              fontFamily: 'var(--mono)',
+              fontSize: '11px',
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+              color: 'var(--paper)',
+              background: 'var(--accent)',
+              padding: '0.5rem 0.95rem',
+              margin: '0.25rem 0 1.4rem',
+              cursor: 'pointer',
+              width: 'fit-content',
+            }}
+          >
+            Live demo ↗
+          </span>
           <p>
             A multi-agency operational intelligence platform that fuses live
             incidents, responder units, and care facilities into a single common
