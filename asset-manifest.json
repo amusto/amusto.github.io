@@ -1,21 +1,13 @@
 {
   "files": {
     "main.css": "/static/css/main.91cc80d6.css",
-    "main.js": "/static/js/main.749e6766.js",
-    "static/media/program-analytics-dashboard.png": "/static/media/program-analytics-dashboard.6a35c23741b63971e349.png",
-    "static/media/roadmap-screenshot.png": "/static/media/roadmap-screenshot.b6f5aa94beebf1cf419a.png",
-    "static/media/hyperscale-dashboard.png": "/static/media/hyperscale-dashboard.f4ade17fd223446fa80b.png",
-    "static/media/hyperscale-ports.png": "/static/media/hyperscale-ports.025b5c0f9e492f1093d7.png",
+    "main.js": "/static/js/main.aec25b3a.js",
     "index.html": "/index.html",
-    "static/media/emergency-response-mobile.svg": "/static/media/emergency-response-mobile.79f1acb9ee1ca6eed3cb2f469adcce39.svg",
-    "static/media/program-analytics-architecture.svg": "/static/media/program-analytics-architecture.1a684e35a18d57054c317b3d96c4d0f6.svg",
-    "static/media/grid-sensor-architecture.svg": "/static/media/grid-sensor-architecture.5899ba1eae7ab2207695b47b0fa683b2.svg",
-    "static/media/emergency-response-architecture.svg": "/static/media/emergency-response-architecture.b747bf78e50672e8bd6ce8f3d5fed84d.svg",
     "main.91cc80d6.css.map": "/static/css/main.91cc80d6.css.map",
-    "main.749e6766.js.map": "/static/js/main.749e6766.js.map"
+    "main.aec25b3a.js.map": "/static/js/main.aec25b3a.js.map"
   },
   "entrypoints": [
     "static/css/main.91cc80d6.css",
-    "static/js/main.749e6766.js"
+    "static/js/main.aec25b3a.js"
   ]
 }
