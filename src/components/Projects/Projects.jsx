@@ -108,14 +108,14 @@ const PROJECTS = [
   },
   {
     id: 'logi',
-    title: 'Logistics Workflow Automation Platform',
+    title: 'Navlune — Logistics Workflow Automation',
     category: 'full',
     pillars: ['data', 'events', 'gov'],
     featured: true,
-    isPrivate: true,
-    url: '#',
+    url: 'https://www.navlune.com',
+    demoUrl: 'https://www.navlune.com',
     description:
-      'Production-grade multi-tenant SaaS that turned multi-state oversized-freight permitting into a configurable, rules-driven automation engine. Google Maps route traversal in; jurisdiction-aware compliance, dynamic cost calculation, and customer-facing PDFs out, in real time.',
+      'Navlune (navlune.com) is a production multi-tenant SaaS that turned multi-state oversized-freight (OS/OW) quoting and permitting into a configurable, rules-driven automation engine. Google Maps route traversal in; jurisdiction-aware compliance, dynamic cost calculation, and customer-facing PDF quotes out, in real time.',
     stack: ['NestJS', 'React', 'PostgreSQL', 'AWS', 'Terraform', 'Google Maps API', 'Rules Engine', 'Multi-Tenant SaaS'],
   },
   {
